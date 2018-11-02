@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+  <body>
+    {% include google_tag_manager_body.html %}
+    <a href="https://github.com/Scalingo/developers.scalingo.com"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 2;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-2 sidebar-nav">
+          {% include search.html %}
+          <a href="/"><img src="https://scalingo.com/logo.svg" class="h1 logo img-responsive"></a>
+          {% for c in site.collections %}
+            {% if c.label == page.collection %}
+              {% assign cur_collection = c%}
+            {% endif %}
+          {% endfor%}
+
+          <strong>
+            {{cur_collection.title}}
+          </strong>
+
+          <ul class="list-unstyled">
+            {% for p in cur_collection.docs %}
+              {% if p.path contains "index.md" %}
+                {% assign tocEntries2 = p.content | markdown | toc %}
+                {% for entry in tocEntries2 %}
+                  <li>
+                    <a href="{{p.url}}#{{entry.id}}"> {{entry.text}} </a>
+                  </li>
+                {% endfor %}
+              {% endif %}
+            {% endfor %}
+          </ul>
+
+          {%assign resource_size = cur_collection.docs | size%}
+          {% if resource_size > 1 %}
+            <strong>RESOURCES</strong>
+            <ul class="list-unstyled">
+              {% for d in cur_collection.docs %}
+                {% unless d.path contains "index.md" %}
+                  <li class="resource">
+                    <a href="{{d.url}}"> <strong>{{d.title}}</strong> </a>
+                    {% if page.url == d.url %}
+                      <ul class="list-unstyled">
+                        {% assign tocEntries = content | toc %}
+                        {% for entry in tocEntries %}
+                          <li>
+                            <a href="{{d.url}}#{{entry.id}}"> {{entry.text}} </a>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+                  </li>
+                {% endunless %}
+              {% endfor %}
+            </ul>
+          {% endif %}
+          <strong>LINKS</strong>
+          <ul class="list-unstyled">
+            {% for c in site.collections %}
+              {% if c.label != page.collection %}
+                {% for d in c.docs %}
+                  {% if d.path contains "index.md" %}
+                    <li> <a href="{{d.url}}"> {{c.title}} </a> </li>
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
+            {% endfor %}
+            <li><a href="https://scalingo.com">Main site</a></li>
+            <li><a href="https://my.scalingo.com">Dashboard</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-10 col-sm-offset-2 main">
+          {{content}}
+        </div>
+      </div>
+    </div>
+    <script data-main="/js/application" src="/js/require.js"></script>
+  </body>
+</html>
