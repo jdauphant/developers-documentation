@@ -25,7 +25,7 @@ layout: default
 | router_logs         | boolean | activation of the router logs in your app logs   |
 | last_deployed_at    | date    | date of the last deployment attempt              |
 | last_deployed_by    | string  | user who attempted the last deployment           |
-| last_deployement_id | string  | id of the last successful deployment             |
+| last_deployment_id  | string  | id of the last successful deployment             |
 
 ||| col |||
 
@@ -564,7 +564,7 @@ URLs are valid for a duration of 60 minutes.
 They are paginated so a response contain a boolean indicating if there is more
 archives available and a string cursor you need to provide to get next list.
 
-One response item contain the file size and the approximate time period provided.
+One response item contains the file size and the approximate time period provided.
 
 ||| col |||
 
@@ -771,6 +771,57 @@ Returns 201 Created
 
 --- row ---
 
+## Get recommended value for a metric
+
+--- row ---
+
+The recommended value endpoint let you get the value we recommend to use for the autoscaling.
+
+`GET /stats/:metrics/recommended_value`
+
+The metrics are aggregated by container types. If a type have more than one
+container and the container index is not passed, it will return the mean value
+of all the containers of the same type. The explanation about this value is in the
+[documentation](https://doc.scalingo.com/platform/app/autoscaler).
+
+The `metrics` available are:
+
+* `cpu`
+* `memory`
+* `swap`
+* `5XX`: amount of request which returns a 5XX HTTP status code, indicating a server error
+* `all`: requests per minute (RPM)
+* `rpm_per_container`: RPM per container
+* `p95_response_time`: 95th percentile of the requests response time
+
+### Parameters
+
+When querying a metric about resource consumption (CPU, memory and swap), one must also provide the
+name of the container type of interest:
+
+* `container_type`: e.g. `web`, `clock`
+
+||| col |||
+
+Example request
+
+```shell
+curl -H 'Accept: application/json' -H 'Content-Type: application/json' \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  -X GET https://api.scalingo.com/v1/apps/example-app/stats/cpu/recommended_value?container_type=web
+```
+
+Returns 200 OK
+
+```json
+{
+	"time": "2018-05-24T00:00:00Z",
+	"value": 0.9
+}
+```
+
+--- row ---
+
 ## Get metrics data of an application
 
 --- row ---
@@ -779,8 +830,7 @@ The stats endpoint let you get metrics about the containers of an application.
 These data include the CPU usage and the memory usage, split between RAM
 and Swap memory. But also the number of request per minute handled by your app.
 
-`GET /stats/:metrics(/:container)(/:index)'`
-
+`GET /stats/:metrics(/:container)(/:index)`
 
 The metrics are aggregated by container types. If a type have more than one
 container and the container index is not passed, it will return the mean value
@@ -788,10 +838,10 @@ of all the containers of the same type.
 
 The `metrics` available are:
 
-* cpu
-* memory
-* swap
-* router
+* `cpu`
+* `memory`
+* `swap`
+* `router`
 
 If the metrics type is `router` the container and index params are ignored.
 But you can pass a `status_code` get variable which will filter router metrics by

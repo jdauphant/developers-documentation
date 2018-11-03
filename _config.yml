@@ -61,5 +61,8 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
+  - gems/
   - ld_library_path/
+  - docker-compose.yml
+  - Dockerfile
 

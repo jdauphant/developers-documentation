@@ -1,0 +1,13 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - 4310:4310
+      - 4311:4311
+    volumes:
+      - ./:/usr/src/app
+    environment:
+      - BUNDLE_PATH=./gems
+    working_dir: /usr/src/app
+    command: bundle exec jekyll serve --host=0.0.0.0 --port 4310 --livereload --livereload-port 4311 --watch --incremental
