@@ -40,7 +40,7 @@ Example object:
 --- row ---
 
 Notifications are app events sent to a custom HTTP endpoint.  You can refer to
-our ['Events' documentation](https://developers.scalingo.com/events.html) to
+our ['Events' documentation](/events) to
 know the notification JSON format.
 
 At the moment only `deployment` events are sent.

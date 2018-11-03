@@ -19,7 +19,7 @@ occasionally made to improve performance and enhance features. See the
 changelog for more details.
 
 If you're an addon provider, you'd better go to [our addon provider
-API](https://developers.scalingo.com/addon-provider-api) for you to interface
+API](/addon-provider-api) for you to interface
 your service with Scalingo's platform.
 
 The current API version is the __v1__. All the endpoints are prefixed by `/v1`.

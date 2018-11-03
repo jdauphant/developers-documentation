@@ -256,10 +256,10 @@ _When:_ A deployment has been done
 {:.table}
 | field         | type    | description                                                             |
 | ------------- | ------- | ----------------------------------------------------------------------- |
-| deployment_id | string  | Unique ID of the [Deployment](/deployment.html) associated to the event |
+| deployment_id | string  | Unique ID of the [Deployment](/deployments) associated to the event     |
 | pusher        | string  | Username of the user having pushed the code                             |
 | git_ref       | string  | GIT SHA of the deployed code                                            |
-| status        | string  | Status of the deployment ([details](/deployment.html)                   |
+| status        | string  | Status of the deployment ([details](/deployments))                      |
 | duration      | integer | Duration of the deployment in seconds                                   |
 
 ||| col |||

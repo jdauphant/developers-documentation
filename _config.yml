@@ -34,16 +34,20 @@ plugins:
 collections:
   scalingo_api:
     output: true
-    permalink: /:collection/:path
+    permalink: /:path
     title: "API V1"
   addon_provider_api:
     output: true
-    permalink: /:collection/:path
+    permalink: /addon-provider-api/:path
     title: "Addon Provider API"
   one_click:
     output: true
-    permalink: /:collection/:path
+    permalink: /one-click/:path
     title: "One-click Deployment API"
+  scalingo_json_schema:
+    output: true
+    permalink: /scalingo-json-schema/:path
+    title: "scalingo.json Schema"
 
 
 # Exclude from processing.
