@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'jekyll', '~> 3.8.4'
+gem 'rake', '~> 11.2', '>= 11.2.2'
 gem 'rouge'
 
 group :jekyll_plugins do
