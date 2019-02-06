@@ -140,3 +140,38 @@ Returns 200 OK
 
 --- row ---
 
+
+## Database Health
+
+> This endpoint is only available for Elasticsearch databases
+
+--- row ---
+
+`GET https://db-api.scalingo.com/api/databases/[:db_id]/health`
+
+{:.table}
+| field   | type      | description                               |
+| --      | --        | --                                        |
+| epoch   | Timestamp | Timestamp of the reported health status   |
+| statos  | String    | Elasticsearch status (green, yellow, red) |
+| cluster | string    | Name of the cluster                       |
+| shards  | int       | total shards count                        |
+
+
+||| col |||
+
+Example request
+
+```sh
+curl -H "Accent: application/json" -u ':$TOKEN' \
+  -X GET https://db-api.scalingo.com/api/my-awesome-db-1234/health
+```
+
+Returns 200 OK
+// TODO: get a real response
+```json
+{
+
+}
+```
+
