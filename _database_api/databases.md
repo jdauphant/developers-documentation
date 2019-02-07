@@ -26,6 +26,17 @@ layout: default
 | instances          | array   | list of all database instances                 |
 | features           | array   | list of all database features                  |
 
+**Instance attributes**
+
+{:.table}
+| field    | type   | description                               |
+| -------- | ------ | ----------------------------------------- |
+| id       | string | unique ID                                 |
+| hostname | string | FQDN of the instance                      |
+| port     | int    | instance port                             |
+| status   | string | status of the current instance            |
+| type     | string | is this node a database node or a gateway |
+
 ||| col |||
 
 Example object:
@@ -49,7 +60,15 @@ Example object:
     "type_id": "5bf30d1104c87f000161285a",
     "type_name": "redis",
     "version_id": "5bf30d1104c87f000161285b",
-    "instances": [],
+    "instances": [
+      {
+        "id": "a7ecbaf9-7f3c-4324-bf35-975f546718c2",
+        "hostname": "a7ecbaf9-7f3c-4324-bf35-975f546718c2.test-db.redis.dbs.scalingo.com",
+        "port": 1234,
+        "status": "running",
+        "type": "db-node",
+      }
+    ],
     "readable_version": "3.2.9-1",
   }
 }
