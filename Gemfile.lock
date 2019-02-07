@@ -85,5 +85,8 @@ DEPENDENCIES
   rouge
   tzinfo-data
 
+RUBY VERSION
+   ruby 2.6.1p33
+
 BUNDLED WITH
-   1.15.4
+   1.17.2

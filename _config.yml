@@ -48,6 +48,10 @@ collections:
     output: true
     permalink: /scalingo-json-schema/:path
     title: "scalingo.json Schema"
+  database_api:
+    output: true
+    permalink: /databases/:path
+    title: "Database API"
 
 
 # Exclude from processing.
