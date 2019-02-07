@@ -76,7 +76,7 @@ Example object:
 
 --- row ---
 
-## Get an application
+## Get a database
 
 --- row ---
 

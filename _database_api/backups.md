@@ -43,7 +43,7 @@ Example object:
 
 `GET https://db-api.scalingo.com/api/databases/[:db]/backups`
 
-Display a precise backup
+List all backups for a database
 
 ||| col |||
 

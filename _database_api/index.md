@@ -5,8 +5,8 @@ layout: default
 # Database API
 
 --- row ---
-The Scalingo V1 Database API is a publicly available interface allowing developers to
-control Scalingo's database as a service platform and The interface is stable and currently used by the Scalingo
+The Scalingo v1 Database API is a publicly available interface allowing developers to
+control Scalingo's database as a service platform and the interface is stable and currently used by the Scalingo
 database dashboard (an Ember.js app). However, changes are
 occasionally made to improve performance and enhance features. See the
 changelog for more details.
@@ -25,7 +25,7 @@ token check our [main API documentation](/addons#get-addon-token).
 
 # Make an authenticated request
 
-HTTP requests have to be authenticated with HTTP basic auth, with the
+HTTP requests have to be authenticated with HTTP bearer auth, with the
 authentication token as password, the username can be empty.
 
 ||| col |||
@@ -125,3 +125,7 @@ fmt.Println(date)
 Wednesday 6th Feb 2019:
 
 * Initial release of our Database API
+  * Add backups endpoints
+  * Add databases endpoints
+  * Add logs endpoints
+  * Add metrics endpoints
