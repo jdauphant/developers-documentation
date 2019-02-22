@@ -168,10 +168,13 @@ curl -H "Accent: application/json" -u ':$TOKEN' \
 ```
 
 Returns 200 OK
-// TODO: get a real response
 ```json
 {
-
+  "epoch": "1550839427",
+  "status": "green",
+  "cluster": "my-cluster",
+  "shards": "141",
+  "pending_tasks": "0"
 }
 ```
 
