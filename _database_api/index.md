@@ -41,9 +41,9 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
 
 --- row ---
 
-# Get the application ID
+# Get the database ID
 
-To find the application ID you must use our [addon API documentation](/addons).
+To find the database ID you must use our [addon API documentation](/addons).
 The ID to use correspond to the `resource_id` field.
 
 
