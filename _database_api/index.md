@@ -23,6 +23,7 @@ token check our [main API documentation](/addons#get-addon-token).
 
 --- row ---
 
+
 # Make an authenticated request
 
 HTTP requests have to be authenticated with HTTP bearer auth, with the
@@ -37,6 +38,14 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
  -H "Authorization: Bearer $BEARER_TOKEN" \
  -X GET https://db-api.scalingo.com/api/databases/my-db-123
 ```
+
+--- row ---
+
+# Get the application ID
+
+To find the application ID you must use our [addon API documentation](/addons).
+The ID to use correspond to the `resource_id` field.
+
 
 --- row ---
 
