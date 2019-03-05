@@ -232,7 +232,7 @@ Returns 201 Created
 * `domain.tlskey` - optional: Private key used to create the SSL certificate
 * `domain.canonical` - optional: Set this domain as the canonical domain for this application
 
-As you may have noticed you can't update the name itself, instead of modifying it juste
+As you may have noticed you can't update the name itself, instead of modifying it just
 create another Domain and delete the one you wanted to modify.
 
 ||| col |||
