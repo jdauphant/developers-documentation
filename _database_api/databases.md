@@ -76,13 +76,17 @@ Example object:
 
 --- row ---
 
-## Get a database
+## Retrieve database informations
 
 --- row ---
 
-`GET https://db-api.scalingo.com/api/databases/[:db]`
+`GET https://db-api.scalingo.com/api/databases/[:db_id]`
 
-Display a precise database
+Retrieve information of a specific database
+
+To find the database ID you must use our [addon API documentation](/addons).
+The ID to use correspond to the addon's `id` field.
+
 
 ||| col |||
 
