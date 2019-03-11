@@ -76,7 +76,7 @@ Example object:
 
 --- row ---
 
-## Retrieve database informations
+## Retrieve database information
 
 --- row ---
 
