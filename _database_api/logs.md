@@ -27,7 +27,8 @@ How to use this endpoint: [more information here](/logs.html)
 Example request
 
 ```sh
-curl -H "Accent: application/json" -u ':$TOKEN' \
+curl -H "Accent: application/json" \
+  -H "Authorization: Bearer $DB_BEARER_TOKEN" \
   -X GET https://db-api.scalingo.com/api/my-awesome-db-1234/metrics
 ```
 

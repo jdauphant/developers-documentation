@@ -90,7 +90,7 @@ Example request
 
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $BEARER_TOKEN" \
+  -H "Authorization: Bearer $DB_BEARER_TOKEN" \
   -X GET https://db-api.scalingo.com/api/databases/my-db-123
 ```
 
