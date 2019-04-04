@@ -115,7 +115,7 @@ Returns 200 OK
 * `send_when_below`: will the alert be sent when the value goes above or below
   the limit (optional)
 * `duration_before_trigger`: the alert is triggered if the value is above the
-  limit for the specified	duration. Duration is expressed in nanoseconds.
+  limit for the specified duration. Duration is expressed in nanoseconds.
   (optional)
 * `remind_every`: send the alert at regular interval when activated (optional)
 
@@ -220,7 +220,7 @@ Updates some alert attributes:
 * `send_when_below`: will the alert be sent when the value goes above or below
   the limit
 * `duration_before_trigger`: the alert is triggered if the value is above the
-  limit for the specified	duration. Duration is expressed in nanoseconds.
+  limit for the specified duration. Duration is expressed in nanoseconds.
   (optional)
 * `remind_every`: send the alert at regular interval when activated
 
