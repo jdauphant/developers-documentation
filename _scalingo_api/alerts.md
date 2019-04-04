@@ -10,21 +10,24 @@ layout: default
 **Alert attributes**
 
 {:.table}
-| field           | type    | description                                  |
-| --------------- | ------- | -------------------------------------------- |
-| id              | string  | unique ID, starts with "al-"                 |
-| app_id          | string  | ID of the application this alert applies to  |
-| created_at      | date    | creation date of the alert                   |
-| updated_at      | date    | last time the alert has been updated         |
-| container_type  | string  | container type concerned by the alert        |
-| disabled        | boolean | is the alert disabled                        |
-| metric          | string  | metric name this alert is about              |
-| limit           | float   | threshold to activate the alert              |
-| send_when_below | boolean | will the alert be sent when the value goes   |
-|                 |         | above or below the limit                     |
-| remind_every    | string  | send the alert at regular interval when      |
-|                 |         | activated                                    |
-| metadata        | object  | various data                                 |
+| field                   | type    | description                                  |
+| ----------------------- | ------- | -------------------------------------------- |
+| id                      | string  | unique ID, starts with "al-"                 |
+| app_id                  | string  | ID of the application this alert applies to  |
+| created_at              | date    | creation date of the alert                   |
+| updated_at              | date    | last time the alert has been updated         |
+| container_type          | string  | container type concerned by the alert        |
+| disabled                | boolean | is the alert disabled                        |
+| metric                  | string  | metric name this alert is about              |
+| limit                   | float   | threshold to activate the alert              |
+| send_when_below         | boolean | will the alert be sent when the value goes   |
+|                         |         | above or below the limit                     |
+| duration_before_trigger | int     | alert is triggered if the value is above the |
+|                         |         | limit for the specified	duration             |
+|                         |         | activated                                    |
+| remind_every            | string  | send the alert at regular interval when      |
+|                         |         | activated                                    |
+| metadata                | object  | various data                                 |
 
 ||| col |||
 
@@ -41,6 +44,7 @@ Example object:
   "metric": "p95_response_time",
   "limit": 60,
   "send_when_below": false,
+  "duration_before_trigger": "3m0s",
   "remind_every": "5m30s",
   "metadata": {
     "recipient": "user"
@@ -81,6 +85,7 @@ Returns 200 OK
 			"limit": 0.02,
 			"container_type": "web",
 			"send_when_below": false,
+			"duration_before_trigger": "3m0s",
 			"metadata": {
 				"recipient": "user"
 			},
@@ -101,11 +106,17 @@ Returns 200 OK
 
 ### Parameters
 
-* `container_type`: can be any container type of an application (e.g. web, clock...)
-* `limit`: Any float value. For any resource consumption, please provide `0.1` if you need to be alerted when the consumption goes above `10%`.
+* `container_type`: can be any container type of an application (e.g. web,
+  clock...)
+* `limit`: Any float value. For any resource consumption, please provide `0.1`
+  if you need to be alerted when the consumption goes above `10%`.
 * `metric`: e.g. RPM per container, RAM consumption...
 * `notifiers`: list of notifier ID that will receive the alerts (optional)
-* `send_when_below`: will the alert be sent when the value goes above or below the limit (optional)
+* `send_when_below`: will the alert be sent when the value goes above or below
+  the limit (optional)
+* `duration_before_trigger`: the alert is triggered if the value is above the
+  limit for the specified duration. Duration is expressed in nanoseconds.
+  (optional)
 * `remind_every`: send the alert at regular interval when activated (optional)
 
 ||| col |||
@@ -200,11 +211,17 @@ or
 
 Updates some alert attributes:
 
-* `container_type`: can be any container type of an application (e.g. web, clock...)
-* `limit`: Any float value. For any resource consumption, please provide `0.1` if you need to be alerted when the consumption goes above `10%`.
+* `container_type`: can be any container type of an application (e.g. web,
+  clock...)
+* `limit`: Any float value. For any resource consumption, please provide `0.1`
+  if you need to be alerted when the consumption goes above `10%`.
 * `metric`: e.g. RPM per container, RAM consumption...
 * `notifiers`: list of notifier ID that will receive the alerts
-* `send_when_below`: will the alert be sent when the value goes above or below the limit
+* `send_when_below`: will the alert be sent when the value goes above or below
+  the limit
+* `duration_before_trigger`: the alert is triggered if the value is above the
+  limit for the specified duration. Duration is expressed in nanoseconds.
+  (optional)
 * `remind_every`: send the alert at regular interval when activated
 
 All attributes are optional.
