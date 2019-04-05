@@ -25,7 +25,7 @@ result in the presence of one resource domain.
 | ssl (read-only)      | bool     | flag if SSL with a custom certificate is enabled                  |
 | validity (read-only) | datetime | once a certificate has been submitted, display the validity of it |
 | canonical            | bool     | the domain is the canonical domain of this application            |
-| letsencrypt          | bool     | the domain is using a let's encrypt status                        |
+| letsencrypt          | bool     | the domain is using a Let's Encrypt certificate                   |
 | letsencrypt_status   | string   | let's encrypt certificate generation status                       |
 | acme_dns_fqdn        | string   | ACME DNS-01 TXT entry FQDN                                        |
 | acme_dns_value       | string   | ACME DNS-01 TXT entry value                                       |
