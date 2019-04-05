@@ -14,17 +14,31 @@ result in the presence of one resource domain.
 **Keys attributes**
 
 {:.table}
-| field                | type                                                              |
-| -------------------- | ----------------------------------------------------------------- |
-| id                   | unique ID of the domain                                           |
-| name                 | hostname your want to associate with the app                      |
-| tlscert (read)       | subject of the submitted certificate                              |
-| tlscert (write)      | content of the SSL certificate you want to use                    |
-| tlskey (read)        | private key type and length                                       |
-| tlskey (write)       | content of the private key used to generate the certificate       |
-| ssl (read-only)      | flag if SSL with a custom certificate is enabled                  |
-| validity (read-only) | once a certificate has been submitted, display the validity of it |
-| canonical            | the domain is the canonical domain of this application            |
+| field                | type     | description                                                       |
+| -------------------- | -------- | ----------------------------------------------------------------- |
+| id                   | string   | unique ID of the domain                                           |
+| name                 | string   | hostname your want to associate with the app                      |
+| tlscert (read)       | string   | subject of the submitted certificate                              |
+| tlscert (write)      | string   | content of the SSL certificate you want to use                    |
+| tlskey (read)        | string   | private key type and length                                       |
+| tlskey (write)       | string   | content of the private key used to generate the certificate       |
+| ssl (read-only)      | bool     | flag if SSL with a custom certificate is enabled                  |
+| validity (read-only) | datetime | once a certificate has been submitted, display the validity of it |
+| canonical            | bool     | the domain is the canonical domain of this application            |
+| letsencrypt          | bool     | the domain is using a Let's Encrypt certificate                   |
+| letsencrypt_status   | string   | Let's Encrypt certificate generation status                       |
+| acme_dns_fqdn        | string   | ACME DNS-01 TXT entry FQDN                                        |
+| acme_dns_value       | string   | ACME DNS-01 TXT entry value                                       |
+| acme_dns_error       | string   | ACME DNS-01 error                                                 |
+
+
+The `letsencrypt_status` field can take different values depending on your certificate state:
+
+- `pending_dns`: Scalingo is waiting for your DNS configuration to be correct
+- `new`: The certificate request has been sent to Let's Encrypt
+- `created`: The certificate has been created by Let's Encrypt and is available
+- `dns_required`: (wildcard only) Scalingo is waiting for DNS configuration update
+- `error`: There was an error while creating your certificate
 
 ||| col |||
 
@@ -38,7 +52,9 @@ Example object
   "tlscert": "/C=FR/ST=Some-State/O=Internet Widgits Pty Ltd/CN=example.com",
   "tlskey": "RSA private key - 2048 bytes",
   "validity": "2015-08-05T19:57:21.000+02:00",
-  "canonical": false
+  "canonical": false,
+  "letsencrypt": false,
+  "letsencrypt_status": "created"
 }
 ```
 
