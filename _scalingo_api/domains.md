@@ -36,8 +36,8 @@ The letsencrypt_status field can take different values depending on your certifi
 
 - `pending_dns`: Scalingo is waiting for your DNS configuration to be correct
 - `new`: The certificate request has been sent to Let's Encrypt
-- `created`: The certificate has been created by let's encrypt and is available
-- `dns_required`: (wildcard only) we're waiting for DNS update
+- `created`: The certificate has been created by Let's Encrypt and is available
+- `dns_required`: (wildcard only) Scalingo is waiting for DNS configuration update
 - `error`: There was an error while creating your certificate
 
 ||| col |||
