@@ -26,13 +26,13 @@ result in the presence of one resource domain.
 | validity (read-only) | datetime | once a certificate has been submitted, display the validity of it |
 | canonical            | bool     | the domain is the canonical domain of this application            |
 | letsencrypt          | bool     | the domain is using a Let's Encrypt certificate                   |
-| letsencrypt_status   | string   | let's encrypt certificate generation status                       |
+| letsencrypt_status   | string   | Let's Encrypt certificate generation status                       |
 | acme_dns_fqdn        | string   | ACME DNS-01 TXT entry FQDN                                        |
 | acme_dns_value       | string   | ACME DNS-01 TXT entry value                                       |
 | acme_dns_error       | string   | ACME DNS-01 error                                                 |
 
 
-The letsencrypt_status field can take different values depending on your certificate state:
+The `letsencrypt_status` field can take different values depending on your certificate state:
 
 - `pending_dns`: Scalingo is waiting for your DNS configuration to be correct
 - `new`: The certificate request has been sent to Let's Encrypt
