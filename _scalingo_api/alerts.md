@@ -44,7 +44,7 @@ Example object:
   "metric": "p95_response_time",
   "limit": 60,
   "send_when_below": false,
-  "duration_before_trigger": "3m0s",
+  "duration_before_trigger": 180000000000,
   "remind_every": "5m30s",
   "metadata": {
     "recipient": "user"
@@ -85,7 +85,7 @@ Returns 200 OK
 			"limit": 0.02,
 			"container_type": "web",
 			"send_when_below": false,
-			"duration_before_trigger": "3m0s",
+			"duration_before_trigger": 180000000000,
 			"metadata": {
 				"recipient": "user"
 			},
