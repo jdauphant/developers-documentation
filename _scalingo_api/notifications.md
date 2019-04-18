@@ -116,9 +116,17 @@ Add a notification to the application.
 ### Parameters
 
 * `notification.webhook_url`
+* `notification.type`
 * `notification.active` (optional)
 
-You can only have one notification per type enabled. The notification is enabled by default if you don't give the value of the active boolean.
+You can only have one notification per type enabled. The notification is enabled
+by default if you don't give the value of the active boolean.
+
+The `type` parameter can be one of:
+* `slack`
+* `email`
+* `webhook`
+* `rocket_chat`
 
 ||| col |||
 
@@ -126,7 +134,7 @@ You can only have one notification per type enabled. The notification is enabled
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
   -X POST https://api.scalingo.com/v1/apps/[:app]/notifications \
-  -d '{"notification":{"webhook_url": "https://hooks.slack.com/TXXXXX/BXXXXX/XXXXXXXXXX", "active": false}}'
+  -d '{"notification":{"webhook_url": "https://hooks.slack.com/TXXXXX/BXXXXX/XXXXXXXXXX", "type": "slack", "active": false}}'
 ```
 
 Returns 201 Created
@@ -147,7 +155,14 @@ update a notification if the operation is invalid. Example: You want to update a
 ### Parameters
 
 * `notification.webhook_url`
-* `notification.active`
+* `notification.type`
+* `notification.active` (optional)
+
+The `type` parameter can be one of:
+* `slack`
+* `email`
+* `webhook`
+* `rocket_chat`
 
 ||| col |||
 
