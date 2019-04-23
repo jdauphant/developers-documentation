@@ -166,6 +166,7 @@ Returns 204 No Content
 * `domain.name`: Hostname you want to add
 * `domain.tlscert` - optional: SSL Certificate you want to associate with the domain
 * `domain.tlskey` - optional: Private key used to create the SSL certificate
+* `domain.canonical` - optional: Set this domain as the canonical domain for this application
 
 If the certificate or the key is not valid, a 422 "unprocessable entity" is returned
 Otherwise return 201
