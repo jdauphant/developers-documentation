@@ -25,8 +25,22 @@ Scalingo lets you use different platforms to send your notifications.
 
 Example object:
 
-
-
+```json
+{
+  "id": "5982f145d48c3600273ef089",
+  "name": "slack",
+  "display_name": "Slack",
+  "logo_url": "https://cdn2.scalingo.com/dashboard/assets/images/notification/slack-831fd1b21576dbb3e0037b7211ecfd93.svg",
+  "available_event_ids": [
+    "5982f139d48c360021b1eb69",
+    "59c52a9c7651ce001f62f578",
+    "5b28be8e85232200126f373c",
+    "5b28bf02aa9a340012832362",
+    "5b28bf2485232200126f373e"
+  ],
+  "description": "Send events to your team thanks to Slack Incoming WebHooks."
+}
+```
 
 --- row ---
 
