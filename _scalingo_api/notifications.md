@@ -73,7 +73,7 @@ Returns 200 OK
       ],
       "description": "Send HTTP requests to any target when events happen."
     }
-  }
+  ]
 }
 ```
 
