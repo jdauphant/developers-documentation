@@ -3,22 +3,23 @@ title: Notifications
 layout: default
 ---
 
-# Notifications
+## Notifications platform
+
+Scalingo lets you use different platforms to send your notifications.
 
 --- row ---
 
-**Notification attributes**
+**Notification platform attributes**
 
 {:.table}
-| field            | type    | description                                   |
-| ---------------- | ------- | --------------------------------------------- |
-| id               | string  | unique ID identifying the notification        |
-| app_id           | string  | app reference                                 |
-| type             | string  | type of notification (e.g. slack)             |
-| webhook_url      | string  | the url to which notifications are sent       |
-| active           | boolean | if the notification is active or not          |
-
-Notifications are sent within different JSON formats depending on the notification type.
+| field                | type     | description                                        |
+| -------------------- | -------- | -------------------------------------------------- |
+| id                   | string   | unique ID identifying the notification platform    |
+| name                 | string   | name of the notification platform                  |
+| display_name         | string   | human readable name for this notification platform |
+| logo_url             | string   | URL to a logo for this notification platform       |
+| available_events_ids | []string | list of event IDs accepted by this platform        |
+| description          | string   | description of the platform                        |
 
 ||| col |||
 
@@ -26,20 +27,125 @@ Example object:
 
 ```json
 {
-  "id" : "575a917de6d67217900386e6",
-  "app_id": "57554e06e6d67206b7ed2f28",
-  "type": "slack",
-  "webhook_url" : "https://hooks.slack.com/TXXXXX/BXXXXX/XXXXXXXXXX",
-  "active": true
+  "id": "5982f145d48c3600273ef089",
+  "name": "slack",
+  "display_name": "Slack",
+  "logo_url": "https://cdn2.scalingo.com/dashboard/assets/images/notification/slack-831fd1b21576dbb3e0037b7211ecfd93.svg",
+  "available_event_ids": [
+    "5982f139d48c360021b1eb69",
+    "59c52a9c7651ce001f62f578",
+    "5b28be8e85232200126f373c",
+    "5b28bf02aa9a340012832362",
+    "5b28bf2485232200126f373e"
+  ],
+  "description": "Send events to your team thanks to Slack Incoming WebHooks."
 }
 ```
+
+--- row ---
+
+## List all notification platforms
+
+--- row ---
+
+`GET https://api.scalingo.com/v1/notification_platforms`
+
+||| col |||
+
+```shell
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -X GET https://api.scalingo.com/v1/notification_platforms
+```
+
+Returns 200 OK
+
+```json
+{
+  "notification_platforms": [
+    {
+      "id": "5982f145d48c3600273ef089",
+      "name": "slack",
+      "display_name": "Slack",
+      "logo_url": "https://cdn2.scalingo.com/dashboard/assets/images/notification/slack-831fd1b21576dbb3e0037b7211ecfd93.svg",
+      "available_event_ids": [
+        "5982f139d48c360021b1eb69",
+        "59c52a9c7651ce001f62f578",
+        "5b28be8e85232200126f373c",
+        "5b28bf02aa9a340012832362",
+        "5b28bf2485232200126f373e"
+      ],
+      "description": "Send events to your team thanks to Slack Incoming WebHooks."
+    }, {
+      "id": "5982f145d48c3600273ef08a",
+      "name": "webhook",
+      "display_name": "Webhook",
+      "logo_url": "https://cdn2.scalingo.com/dashboard/assets/images/notification/webhook-1f16734c1d9b61dff4460d067ab980ec.svg",
+      "available_event_ids": [
+        "5982f139d48c360021b1eb69",
+        "59c52a9c7651ce001f62f578",
+        "5b28bf2485232200126f373e"
+      ],
+      "description": "Send HTTP requests to any target when events happen."
+    }
+  ]
+}
+```
+
+--- row ---
+
+## Notifier
+
+--- row ---
+
+**Notifier attributes**
+
+{:.table}
+| field              | type     | description                                     |
+| ----------------   | -------  | ---------------------------------------------   |
+| id                 | string   | unique ID identifying the notifier              |
+| created_at         | date     | date of creation of the notifier                |
+| updated_at         | date     | when was the notifier updated                   |
+| name               | string   | name of the notifier                            |
+| active             | boolean  | is the notifier active or not                   |
+| type               | string   | notifier type                                   |
+| app_id             | string   | app reference                                   |
+| platform_id        | string   | notification platform used by this notifer      |
+| send_all_alerts    | bool     | should the notifier accept all alerts           |
+| send_all_events    | bool     | should the notifier accept all events           |
+| selected_event_ids | []string | list of events accepted by this notifier        |
+| type_data          | object   | notitication platform dependant additional data |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "no-824fd8bb-0efe-4b7b-9605-1b98110abeef",
+  "name": "My notifier",
+  "active": true,
+  "type": "slack",
+  "platform_id": "5982f145d48c3600273ef089",
+  "created_at": "2018-05-14T11:46:42.077+02:00",
+  "updated_at": "2019-04-10T20:51:32.298+02:00",
+  "send_all_alerts": false,
+  "send_all_events": false,
+  "selected_event_ids": [],
+  "app_id": "53e45e576461730a0c021817",
+  "app": "my-app",
+  "type_data": {
+    "webhook_url": "https://hooks.slack.com/services/AAAAAAAAAAA/BBBBBBBBBBB/cccccddddeeeefffff"
+  }
+}
+```
+
 --- row ---
 
 ## Data sent to the webhook endpoint (non-Slack)
 
 --- row ---
 
-Notifications are app events sent to a custom HTTP endpoint.  You can refer to
+Notifications are app events sent to a custom HTTP endpoint. You can refer to
 our ['Events' documentation](/events) to
 know the notification JSON format.
 
@@ -72,13 +178,13 @@ Example of a deployment notification:
 ```
 --- row ---
 
-## List application notifications
+## List application notifiers
 
 --- row ---
 
-`GET https://api.scalingo.com/v1/apps/[:app]/notifications`
+`GET https://api.scalingo.com/v1/apps/[:app]/notifiers`
 
-List all the provisioned notifications for a given application.
+List all the provisioned notifiers for a given application.
 
 ||| col |||
 
@@ -87,54 +193,84 @@ Example
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X GET https://api.scalingo.com/v1/apps/example-app/notifications
+  -X GET https://api.scalingo.com/v1/apps/example-app/notifiers
 ```
 
 Returns 200 OK
 
 ```json
 {
-    "notifications": [{
-          "id" : "575a917de6d67217900386e6",
-          "type": "slack",
-          "webhook_url" : "https://hooks.slack.com/TXXXXX/BXXXXX/XXXXXXXXXX",
-          "active": true
-    }]
+  "notifiers": [
+    {
+      "id": "no-824fd8bb-0efe-4b7b-9605-1b98110abeef",
+      "name": "My notifier",
+      "active": true,
+      "type": "slack",
+      "platform_id": "5982f145d48c3600273ef089",
+      "created_at": "2018-05-14T11:46:42.077+02:00",
+      "updated_at": "2019-04-10T20:51:32.298+02:00",
+      "send_all_alerts": false,
+      "send_all_events": false,
+      "selected_event_ids": [],
+      "app_id": "53e45e576461730a0c021817",
+      "app": "my-app",
+      "type_data": {
+        "webhook_url": "https://hooks.slack.com/services/AAAAAAAAAAA/BBBBBBBBBBB/cccccddddeeeefffff"
+      }
+    },
+    {
+      "id": "no-253ea554-bfe3-419c-aaaa-0bfc5bf51beef",
+      "name": "Default 'myapp' notifier",
+      "active": true,
+      "type": "email",
+      "platform_id": "59c52ac27651ce002c1d4620",
+      "created_at": "2017-10-30T14:43:15.777+01:00",
+      "updated_at": "2018-11-09T14:51:56.515+01:00",
+      "send_all_alerts": false,
+      "send_all_events": false,
+      "selected_event_ids": [
+        "59c52a9c7651ce001f62f578"
+      ],
+      "app_id": "59f72c73fb0de600aaa1234aaa",
+      "app": "myapp",
+      "type_data": {
+        "user_ids": [
+          "us-07c2180c-b4b4-123a-1234-fabcdbea"
+        ],
+        "emails": []
+      }
+    }
+  ]
 }
 ```
 
 --- row ---
 
-## Add a notification
+## Add a notifier
 
 --- row ---
 
-`POST https://api.scalingo.com/v1/apps/[:app]/notifications`
+`POST https://api.scalingo.com/v1/apps/[:app]/notifiers`
 
-Add a notification to the application.
+Add a notifier to the application.
 
 ### Parameters
 
-* `notification.webhook_url`
-* `notification.type`
-* `notification.active` (optional)
-
-You can only have one notification per type enabled. The notification is enabled
-by default if you don't give the value of the active boolean.
-
-The `type` parameter can be one of:
-* `slack`
-* `email`
-* `webhook`
-* `rocket_chat`
+* `notifer.platform_id`
+* `notifer.name`
+* `notifer.send_all_alerts` (optional)
+* `notifer.send_all_events` (optional)
+* `notifer.type_data` (optional)
+* `notifer.selected_events`
+* `notifer.active` (optional)
 
 ||| col |||
 
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X POST https://api.scalingo.com/v1/apps/[:app]/notifications \
-  -d '{"notification":{"webhook_url": "https://hooks.slack.com/TXXXXX/BXXXXX/XXXXXXXXXX", "type": "slack", "active": false}}'
+  -X POST https://api.scalingo.com/v1/apps/[:app]/notifiers \
+  -d '{"notifiers":{"platform_id": "5982f145d48c3600273ef08a", "active": true, "name": "My Custom Webhook", "type_data": {"webhook_url": "https://myapp.fr/webhook/scalingo"}}}'
 ```
 
 Returns 201 Created
@@ -145,52 +281,61 @@ Returns 201 Created
 
 --- row ---
 
-`PATCH https://api.scalingo.com/v1/apps/[:app]/notifications/[:notification_id]`
+`PATCH https://api.scalingo.com/v1/apps/[:app]/notifiers/[:notifier_id]`
 
-Change your notification webhook url or/and enable/disable the notification.
-
-Be cautious though, the operation might fail. The provider may refuse to
-update a notification if the operation is invalid. Example: You want to update a slack notification with some non slack url.
+Change notifier attributes
 
 ### Parameters
 
-* `notification.webhook_url`
-* `notification.type`
-* `notification.active` (optional)
-
-The `type` parameter can be one of:
-* `slack`
-* `email`
-* `webhook`
-* `rocket_chat`
+* `notification.active`
+* `notification.name`
+* `notification.send_all_alerts`
+* `notification.send_all_events`
+* `notification.type_data`
+* `notification.selected_events`
 
 ||| col |||
 
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X PATCH https://api.scalingo.com/v1/apps/[:app]/notifications/[:notification_id] \
-  -d '{"notification": {"webhook_url": "https://myendpoint.com", active: "true"}}'
+  -X PATCH https://api.scalingo.com/v1/apps/[:app]/notifiers/[:notifier_id] \
+  -d '{"notifier": {"type_data": { "webhook_url": "https://myendpoint.com" }, active: "false"}}}'
 ```
 
 Returns 200 OK
 
 --- row ---
 
-## Remove a notification
+## Test a notifier
+
+`POST https://api.scalingo.com/v1/apps/[:app]/notifiers/[:notifier_id]/test`
+
+Send a test notification to the notifier
+
+||| col |||
+
+```shell
+curl -H "Authorization: Bearer $BEARER_TOKEN" \
+  -X POST https://api.scalingo.com/v1/apps/[:app]/notifiers/[:notifier_id]/test
+```
 
 --- row ---
 
-`DELETE htttps://api.scalingo.com/v1/apps/[:app]/notifications/[:notification_id]`
+## Remove a notiifier
 
-Request deprovisionning of the notification.
+--- row ---
+
+`DELETE https://api.scalingo.com/v1/apps/[:app]/notifiers/[:notifier_id]`
+
+Request deprovisionning of the notifier.
 
 ||| col |||
 
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X DELETE https://api.scalingo.com/v1/apps/[:app]/notifications/[:notification_id] \
+  -X DELETE https://api.scalingo.com/v1/apps/[:app]/notifiers/[:notifier_id]
 ```
 
 Returns 204 No Content
