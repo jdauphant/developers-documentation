@@ -5,7 +5,7 @@ layout: default
 
 ## Notifications platform
 
-Scalingo let you use different platform to send your notifications.
+Scalingo lets you use different platforms to send your notifications.
 
 --- row ---
 
@@ -18,7 +18,7 @@ Scalingo let you use different platform to send your notifications.
 | name                 | string   | name of the notification platform                  |
 | display_name         | string   | human readable name for this notification platform |
 | logo_url             | string   | URL to a logo for this notification platform       |
-| available_events_ids | []string | List of event IDs accepted by this platform        |
+| available_events_ids | []string | list of event IDs accepted by this platform        |
 | description          | string   | description of the platform                        |
 
 ||| col |||
