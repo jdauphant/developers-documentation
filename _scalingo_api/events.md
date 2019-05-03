@@ -320,7 +320,7 @@ Example object:
   "app_name": "appname",
   "type": "run",
   "type_data": {
-    "command": "bundle exec rake db:migrate"
+    "command": "bundle exec rake db:migrate",
     "audit_log_id": "abcdef-1234-aaaa-bbbb",
     "audit_log_size": 122445385
   }

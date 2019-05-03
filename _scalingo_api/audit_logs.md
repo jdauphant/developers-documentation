@@ -11,8 +11,7 @@ layout: default
 GET https://api.scalingo.com/v1/apps/[:app]/audit_logs/[:audit_log_id]
 ```
 
-
-Download an audit log. The audit log id can be found in the run event type data.
+Download an audit log. The audit log ID can be found in the run event type data.
 
 ||| col |||
 
