@@ -261,7 +261,8 @@ Add a notifier to the application.
 * `notifer.send_all_alerts` (optional)
 * `notifer.send_all_events` (optional)
 * `notifer.type_data` (optional)
-* `notifer.selected_events`
+* `notifer.selected_events` DEPRECATED please use `selected_event_ids`.
+* `notifer.selected_event_ids`
 * `notifer.active` (optional)
 
 ||| col |||
@@ -292,7 +293,8 @@ Change notifier attributes
 * `notification.send_all_alerts`
 * `notification.send_all_events`
 * `notification.type_data`
-* `notification.selected_events`
+* `notification.selected_events` DEPRECATED please use `selected_event_ids`.
+* `notification.selected_event_ids`
 
 ||| col |||
 
