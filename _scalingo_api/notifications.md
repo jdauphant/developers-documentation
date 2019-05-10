@@ -115,6 +115,23 @@ Returns 200 OK
 | selected_event_ids | []string | list of events accepted by this notifier        |
 | type_data          | object   | notitication platform dependant additional data |
 
+The *`type_data` Object* depends of the platform_id which is used.
+
+### Email Platform
+
+{:.table}
+| field              | type     | description                            |
+| ----------------   | -------  | -------------------------------------  |
+| user_ids           | []string | IDs of users (owner and collaborators) |
+| emails             | []string | Additional email addresses             |
+
+### Slack/Webhook/RocketChat Platforms
+
+{:.table}
+| field              | type     | description                    |
+| ----------------   | -------  | -----------------------------  |
+| webhook_url        | string   | URL to send the event payloads |
+
 ||| col |||
 
 Example object:
@@ -261,7 +278,7 @@ Add a notifier to the application.
 * `notifer.send_all_alerts` (optional)
 * `notifer.send_all_events` (optional)
 * `notifer.type_data` (optional)
-* `notifer.selected_events`
+* `notifer.selected_event_ids` (optional)
 * `notifer.active` (optional)
 
 ||| col |||
@@ -292,7 +309,7 @@ Change notifier attributes
 * `notification.send_all_alerts`
 * `notification.send_all_events`
 * `notification.type_data`
-* `notification.selected_events`
+* `notification.selected_event_ids`
 
 ||| col |||
 
