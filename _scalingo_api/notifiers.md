@@ -1,99 +1,9 @@
 ---
-title: Notifications
+title: Notifiers
 layout: default
 ---
 
-## Notifications platform
-
-Scalingo lets you use different platforms to send your notifications.
-
---- row ---
-
-**Notification platform attributes**
-
-{:.table}
-| field                | type     | description                                        |
-| -------------------- | -------- | -------------------------------------------------- |
-| id                   | string   | unique ID identifying the notification platform    |
-| name                 | string   | name of the notification platform                  |
-| display_name         | string   | human readable name for this notification platform |
-| logo_url             | string   | URL to a logo for this notification platform       |
-| available_events_ids | []string | list of event IDs accepted by this platform        |
-| description          | string   | description of the platform                        |
-
-||| col |||
-
-Example object:
-
-```json
-{
-  "id": "5982f145d48c3600273ef089",
-  "name": "slack",
-  "display_name": "Slack",
-  "logo_url": "https://cdn2.scalingo.com/dashboard/assets/images/notification/slack-831fd1b21576dbb3e0037b7211ecfd93.svg",
-  "available_event_ids": [
-    "5982f139d48c360021b1eb69",
-    "59c52a9c7651ce001f62f578",
-    "5b28be8e85232200126f373c",
-    "5b28bf02aa9a340012832362",
-    "5b28bf2485232200126f373e"
-  ],
-  "description": "Send events to your team thanks to Slack Incoming WebHooks."
-}
-```
-
---- row ---
-
-## List all notification platforms
-
---- row ---
-
-`GET https://api.scalingo.com/v1/notification_platforms`
-
-||| col |||
-
-```shell
-curl -H "Accept: application/json" -H "Content-Type: application/json" \
-  -X GET https://api.scalingo.com/v1/notification_platforms
-```
-
-Returns 200 OK
-
-```json
-{
-  "notification_platforms": [
-    {
-      "id": "5982f145d48c3600273ef089",
-      "name": "slack",
-      "display_name": "Slack",
-      "logo_url": "https://cdn2.scalingo.com/dashboard/assets/images/notification/slack-831fd1b21576dbb3e0037b7211ecfd93.svg",
-      "available_event_ids": [
-        "5982f139d48c360021b1eb69",
-        "59c52a9c7651ce001f62f578",
-        "5b28be8e85232200126f373c",
-        "5b28bf02aa9a340012832362",
-        "5b28bf2485232200126f373e"
-      ],
-      "description": "Send events to your team thanks to Slack Incoming WebHooks."
-    }, {
-      "id": "5982f145d48c3600273ef08a",
-      "name": "webhook",
-      "display_name": "Webhook",
-      "logo_url": "https://cdn2.scalingo.com/dashboard/assets/images/notification/webhook-1f16734c1d9b61dff4460d067ab980ec.svg",
-      "available_event_ids": [
-        "5982f139d48c360021b1eb69",
-        "59c52a9c7651ce001f62f578",
-        "5b28bf2485232200126f373e"
-      ],
-      "description": "Send HTTP requests to any target when events happen."
-    }
-  ]
-}
-```
-
---- row ---
-
-## Notifier
+# Notifier
 
 --- row ---
 
@@ -114,6 +24,23 @@ Returns 200 OK
 | send_all_events    | bool     | should the notifier accept all events           |
 | selected_event_ids | []string | list of events accepted by this notifier        |
 | type_data          | object   | notitication platform dependant additional data |
+
+The *`type_data` Object* depends of the platform_id which is used.
+
+### Email Platform
+
+{:.table}
+| field              | type     | description                            |
+| ----------------   | -------  | -------------------------------------  |
+| user_ids           | []string | IDs of users (owner and collaborators) |
+| emails             | []string | Additional email addresses             |
+
+### Slack/Webhook/RocketChat Platforms
+
+{:.table}
+| field              | type     | description                    |
+| ----------------   | -------  | -----------------------------  |
+| webhook_url        | string   | URL to send the event payloads |
 
 ||| col |||
 
@@ -261,8 +188,12 @@ Add a notifier to the application.
 * `notifer.send_all_alerts` (optional)
 * `notifer.send_all_events` (optional)
 * `notifer.type_data` (optional)
-* `notifer.selected_events`
+* `notifer.selected_event_ids` (optional)
 * `notifer.active` (optional)
+
+#### Deprecated
+
+* `notifier.selected_events`: arrays of event names
 
 ||| col |||
 
@@ -292,7 +223,11 @@ Change notifier attributes
 * `notification.send_all_alerts`
 * `notification.send_all_events`
 * `notification.type_data`
-* `notification.selected_events`
+* `notification.selected_event_ids`
+
+#### Deprecated
+
+* `notifier.selected_events`: arrays of event names
 
 ||| col |||
 
