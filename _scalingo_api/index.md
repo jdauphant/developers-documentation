@@ -30,7 +30,7 @@ will update endpoints and create new ones. But you can be sure we won't break
 the existing. If any major change about the way JSON is structured, we will
 keep the right to release a __v2__ and so forth.
 
-When any change is applied to the API, it will be displayed in ths [changelog
+When any change is applied to the API, it will be displayed in the [changelog
 section](/#changelog) of this documentation and on our [changelog
 website](https://doc.scalingo.com/changelog).
 
@@ -115,7 +115,7 @@ You can create an API token from your Profile page on the dashboard:
 
 --- row ---
 
-## Create your API token with the Authentication API
+## Create your API token with the authentication API
 
 Otherwise you can create an API token with the authentication API directly:
 
@@ -196,7 +196,7 @@ Returns 200 OK
 
 ## Make an authenticated request
 
-HTTP requests have to be authenticated with HTTP basic auth, with the
+HTTP requests have to be authenticated with HTTP basic authentication, with the
 authentication token as password, the username can be empty.
 
 ||| col |||
@@ -261,7 +261,7 @@ This format is commonly understood, here are some examples:
 
 ||| col |||
 
-Javascript:
+JavaScript:
 
 ```js
 var date = new Date("2015-01-13T09:20:31.123+01:00")
@@ -323,7 +323,8 @@ Returns HTTP/1.1 400 Bad Request
 
 --- row ---
 
-If you try to do an action unallowed in the free trial, you will get an error 402 Payment Required.
+If you try to do an action unauthorized in the free trial, you will get an error
+402 Payment Required.
 
 ||| col |||
 
