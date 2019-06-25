@@ -87,7 +87,7 @@ When a user want to choose a new plan for its addon, this endpoint is called.
 Parameters:
 
 * `plan`: `string - mandatory` - Plan requested by the user
-* `options`: `object - optional` - Hash of the option defined for the new plan (see the [/addon-provider-api/manifest](manifest))
+* `options`: `object - optional` - Hash of the option defined for the new plan (see the [manifest](/addon-provider-api/manifest))
 
 Response:
 
