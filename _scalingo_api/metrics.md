@@ -42,7 +42,7 @@ This endpoint can be reached unauthenticated.
 
 --- row ---
 
-`GET https://api.scalingo.com/v1/features/metrics`
+`GET https://$SCALINGO_API_URL/v1/features/metrics`
 
 List all the metrics available on the platform. These metrics are useful with the alert and the
 autoscaling features.
@@ -53,7 +53,7 @@ Example Request
 
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
-  -X GET https://api.scalingo.com/v1/features/metrics
+  -X GET https://$SCALINGO_API_URL/v1/features/metrics
 ```
 
 Returns 200 OK

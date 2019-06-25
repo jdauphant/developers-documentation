@@ -64,7 +64,7 @@ Example object
 
 --- row ---
 
-`GET https://api.scalingo.com/v1/apps/[:app]/domains`
+`GET https://$SCALINGO_API_URL/v1/apps/[:app]/domains`
 
 ||| col |||
 
@@ -73,7 +73,7 @@ Example request
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
  -H "Authorization: Bearer $BEARER_TOKEN" \
- -X GET https://api.scalingo.com/v1/apps/example-app/domains
+ -X GET https://$SCALINGO_API_URL/v1/apps/example-app/domains
 ```
 
 Returns 200 OK
@@ -106,7 +106,7 @@ Returns 200 OK
 
 --- row ---
 
-`GET https://api.scalingo.com/v1/apps/[:app]/domains/[:domain_id]`
+`GET https://$SCALINGO_API_URL/v1/apps/[:app]/domains/[:domain_id]`
 
 ||| col |||
 
@@ -115,7 +115,7 @@ Example request
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
  -H "Authorization: Bearer $BEARER_TOKEN" \
- -X GET https://api.scalingo.com/v1/apps/example-app/domains/541067ec736f7504a5110000
+ -X GET https://$SCALINGO_API_URL/v1/apps/example-app/domains/541067ec736f7504a5110000
 ```
 
 Returns 200 OK
@@ -137,7 +137,7 @@ Returns 200 OK
 
 --- row ---
 
-`DELETE https://api.scalingo.com/v1/apps/[:app]/domains/[:domain_id]`
+`DELETE https://$SCALINGO_API_URL/v1/apps/[:app]/domains/[:domain_id]`
 
 Disassociate instantly a domain name with an app. If the domain is still
 [CNAME-ed](https://doc.scalingo.com/platform/app/domain), it will respond with
@@ -150,7 +150,7 @@ Example request
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X DELETE https://api.scalingo.com/v1/apps/example-app/domains/541067ec736f7504a5110000
+  -X DELETE https://$SCALINGO_API_URL/v1/apps/example-app/domains/541067ec736f7504a5110000
 ```
 
 Returns 204 No Content
@@ -159,7 +159,7 @@ Returns 204 No Content
 
 ## Link a domain name to an application
 
-`POST https://api.scalingo.com/v1/apps/[:app]/domains`
+`POST https://$SCALINGO_API_URL/v1/apps/[:app]/domains`
 
 ### Parameters
 
@@ -183,7 +183,7 @@ Request example (without SSL):
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X POST https://api.scalingo.com/v1/apps/example-app/domains -d \
+  -X POST https://$SCALINGO_API_URL/v1/apps/example-app/domains -d \
   '{
     "domain" : {
       "name" : "example.com"
@@ -209,7 +209,7 @@ Request example (with SSL):
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X POST https://api.scalingo.com/v1/apps/example-app/domains -d \
+  -X POST https://$SCALINGO_API_URL/v1/apps/example-app/domains -d \
   '{
     "domain" : {
       "name" : "example.com",
@@ -241,7 +241,7 @@ Returns 201 Created
 
 --- row ---
 
-`PATCH https://api.scalingo.com/v1/apps/[:app]/domains/[:domain_id]`
+`PATCH https://$SCALINGO_API_URL/v1/apps/[:app]/domains/[:domain_id]`
 
 ### Parameters
 
@@ -259,7 +259,7 @@ Example request
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X PATCH https://api.scalingo.com/v1/apps/example-app/domains/541067ec736f7504a5110000 -d \
+  -X PATCH https://$SCALINGO_API_URL/v1/apps/example-app/domains/541067ec736f7504a5110000 -d \
   '{
     "domain" : {
       "tlscert" : "<cert>",

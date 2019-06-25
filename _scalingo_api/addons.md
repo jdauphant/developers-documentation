@@ -50,7 +50,7 @@ Example object:
 
 --- row ---
 
-`GET https://api.scalingo.com/v1/apps/[:app]/addons`
+`GET https://$SCALINGO_API_URL/v1/apps/[:app]/addons`
 
 List all the provisioned addons for a given application.
 
@@ -61,7 +61,7 @@ Example
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X GET https://api.scalingo.com/v1/apps/example-app/addons
+  -X GET https://$SCALINGO_API_URL/v1/apps/example-app/addons
 ```
 
 Returns 200 OK
@@ -95,7 +95,7 @@ Returns 200 OK
 
 --- row ---
 
-`POST https://api.scalingo.com/v1/apps/[:app]/addons`
+`POST https://$SCALINGO_API_URL/v1/apps/[:app]/addons`
 
 Provision the addon defined by the `addon_provider` at the given plan.
 The resource should be instantly available, it modifies environment
@@ -116,7 +116,7 @@ method](https://my.scalingo.com/apps/billing).
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X POST https://api.scalingo.com/v1/apps/[:app]/addons \
+  -X POST https://$SCALINGO_API_URL/v1/apps/[:app]/addons \
   -d '{"addon":{"plan_id": "1234", "addon_provider_id": "1234"}}'
 ```
 
@@ -126,7 +126,7 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
 
 --- row ---
 
-`PATCH https://api.scalingo.com/v1/apps/[:app]/addons/[:addon_id]`
+`PATCH https://$SCALINGO_API_URL/v1/apps/[:app]/addons/[:addon_id]`
 
 Change your addon plan. The endpoint will query the addon provider to
 upgrade your plan to a new one.
@@ -150,7 +150,7 @@ method](https://my.scalingo.com/apps/billing).
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X PATCH https://api.scalingo.com/v1/apps/[:app]/addons/[:addon_id] \
+  -X PATCH https://$SCALINGO_API_URL/v1/apps/[:app]/addons/[:addon_id] \
   -d '{"addon": {"plan_id": "2"}}'
 ```
 
@@ -169,7 +169,7 @@ Returns 200 OK
 
 --- row ---
 
-`DELETE htttps://api.scalingo.com/v1/apps/[:app]/addons/[:addon_id]`
+`DELETE https://$SCALINGO_API_URL/v1/apps/[:app]/addons/[:addon_id]`
 
 Request deprovisionning of the addon. This may be a dangerous operation as the
 addon provider will certainly erase all the data related to your application.
@@ -180,7 +180,7 @@ Be cautious when deleting addons, be sure of what you're doing.
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X DELETE https://api.scalingo.com/v1/apps/[:app]/addons/[:addon_id] \
+  -X DELETE https://$SCALINGO_API_URL/v1/apps/[:app]/addons/[:addon_id] \
 ```
 
 Returns 204 No Content
@@ -191,7 +191,7 @@ Returns 204 No Content
 
 --- row ---
 
-`POST https://api.scalingo.com/v1/apps/[:app]/addons/[:addon_id]/token`
+`POST https://$SCALINGO_API_URL/v1/apps/[:app]/addons/[:addon_id]/token`
 
 Request a token usable against the addon API. This token will only be valid for
 an hour.

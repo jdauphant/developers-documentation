@@ -39,7 +39,7 @@ Example object:
 
 --- row ---
 
-`GET https://api.scalingo.com/v1/apps/[:app]/variables`
+`GET https://$SCALINGO_API_URL/v1/apps/[:app]/variables`
 
 All the variables are returned, without interpolating anything.
 
@@ -68,7 +68,7 @@ Example request
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X GET https://api.scalingo.com/v1/apps/example-app/variables
+  -X GET https://$SCALINGO_API_URL/v1/apps/example-app/variables
 ```
 
 Returns 200 OK
@@ -98,7 +98,7 @@ Response
 
 --- row ---
 
-`POST https://api.scalingo.com/v1/apps/[:app]/variables`
+`POST https://$SCALINGO_API_URL/v1/apps/[:app]/variables`
 
 ||| col |||
 
@@ -107,7 +107,7 @@ Example request
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X POST https://api.scalingo.com/v1/apps/example-app/variables -d \
+  -X POST https://$SCALINGO_API_URL/v1/apps/example-app/variables -d \
   '{
     "variable": {
       "name":"RAILS_ENV",
@@ -138,7 +138,7 @@ Response
 
 The bulk update will create or update all the variables sent in the body
 
-`PUT https://api.scalingo.com/v1/apps/[:app]/variables`
+`PUT https://$SCALINGO_API_URL/v1/apps/[:app]/variables`
 
 ||| col |||
 
@@ -147,7 +147,7 @@ Example request
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X PUT https://api.scalingo.com/v1/apps/example-app/variables -d \
+  -X PUT https://$SCALINGO_API_URL/v1/apps/example-app/variables -d \
   '{
     "variables": [{
       "name":"RAILS_ENV",
@@ -183,7 +183,7 @@ Response
 
 --- row ---
 
-`PATCH https://api.scalingo.com/v1/apps/[:app]/variables/[:variable_id]`
+`PATCH https://$SCALINGO_API_URL/v1/apps/[:app]/variables/[:variable_id]`
 
 Update an environment variable, only the value can be updated, if your want to
 change the name, create a new one.
@@ -195,7 +195,7 @@ Example request
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X PATCH https://api.scalingo.com/v1/apps/example-app/variables/54101384736f7563d5040000 -d \
+  -X PATCH https://$SCALINGO_API_URL/v1/apps/example-app/variables/54101384736f7563d5040000 -d \
   '{
      "variable": {
        "value":"staging"
@@ -223,7 +223,7 @@ Reponse
 
 --- row ---
 
-`DELETE https://api.scalingo.com/v1/apps/[:app]/variables/[:variable_id]`
+`DELETE https://$SCALINGO_API_URL/v1/apps/[:app]/variables/[:variable_id]`
 
 Delete definitively an environment variable of an app.
 
@@ -234,7 +234,7 @@ Example request
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X DELETE https://api.scalingo.com/v1/apps/example-app/variables/54101384736f7563d5040000
+  -X DELETE https://$SCALINGO_API_URL/v1/apps/example-app/variables/54101384736f7563d5040000
 ```
 
 Returns 204 No Content
@@ -245,7 +245,7 @@ Returns 204 No Content
 
 --- row ---
 
-`DELETE https://api.scalingo.com/v1/apps/[:app]/variables`
+`DELETE https://$SCALINGO_API_URL/v1/apps/[:app]/variables`
 
 The bulk delete will delete all the variables sent in the body.
 
@@ -256,7 +256,7 @@ Example request
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X DELETE https://api.scalingo.com/v1/apps/example-app/variables -d \
+  -X DELETE https://$SCALINGO_API_URL/v1/apps/example-app/variables -d \
   '{
      "variable_ids": ["541013a9736f7563d5050000"]
   }'

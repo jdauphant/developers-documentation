@@ -969,7 +969,7 @@ Example object:
 
 With this list of events, you can reconstruct the timeline of an application.
 
-`GET https://api.scalingo.com/v1/apps/[:app]/events`
+`GET https://$SCALINGO_API_URL/v1/apps/[:app]/events`
 
 ### Parameters
 
@@ -983,7 +983,7 @@ Example
 
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $BEARER_TOKEN" https://api.scalingo.com/v1/apps/[:app]/events
+  -H "Authorization: Bearer $BEARER_TOKEN" https://$SCALINGO_API_URL/v1/apps/[:app]/events
 ```
 
 Returns 200 OK
@@ -1047,7 +1047,7 @@ Response
 With this list of events, you can reconstruct the timeline of your user. You'll
 get the events which have been done by the user on themself, and on their apps.
 
-`GET https://api.scalingo.com/v1/events`
+`GET https://$SCALINGO_API_URL/v1/events`
 
 > Feature: pagination
 
@@ -1057,7 +1057,7 @@ Example
 
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $BEARER_TOKEN" https://api.scalingo.com/v1/events
+  -H "Authorization: Bearer $BEARER_TOKEN" https://$SCALINGO_API_URL/v1/events
 ```
 
 Returns 200 OK

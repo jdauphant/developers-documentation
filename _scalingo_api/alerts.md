@@ -58,7 +58,7 @@ Example object:
 
 --- row ---
 
-`GET https://api.scalingo.com/v1/apps/[:app]/alerts`
+`GET https://$SCALINGO_API_URL/v1/apps/[:app]/alerts`
 
 ||| col |||
 
@@ -66,7 +66,7 @@ Example request
 
 ```
 curl -H 'Accept: application/json' -H 'Content-Type: application/json' -u ":$AUTH_TOKEN" \
-  -X GET https://api.scalingo.com/v1/apps/example-app/alerts
+  -X GET https://$SCALINGO_API_URL/v1/apps/example-app/alerts
 ```
 
 Returns 200 OK
@@ -102,7 +102,7 @@ Returns 200 OK
 
 --- row ---
 
-`POST https://api.scalingo.com/v1/apps/[:app]/alerts`
+`POST https://$SCALINGO_API_URL/v1/apps/[:app]/alerts`
 
 ### Parameters
 
@@ -125,7 +125,7 @@ Example request
 
 ```
 curl -H 'Accept: application/json' -H 'Content-Type: application/json' -u ":$AUTH_TOKEN" \
-  -X POST https://api.scalingo.com/v1/apps/example-app/alerts -d \
+  -X POST https://$SCALINGO_API_URL/v1/apps/example-app/alerts -d \
   '{
     "alert": {
       "container_type": "web",
@@ -163,7 +163,7 @@ Returns 201 Created
 
 --- row ---
 
-`GET https://api.scalingo.com/v1/apps/[:app]/alerts/[:alert_id]`
+`GET https://$SCALINGO_API_URL/v1/apps/[:app]/alerts/[:alert_id]`
 
 Display a specific alert
 
@@ -173,7 +173,7 @@ Example request
 
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" -u :$AUTH_TOKEN \
-  -X GET https://api.scalingo.com/v1/apps/example-app/alerts/al-297f1134-8576-45ac-ab58-2100b6807683
+  -X GET https://$SCALINGO_API_URL/v1/apps/example-app/alerts/al-297f1134-8576-45ac-ab58-2100b6807683
 ```
 
 Returns 200 OK
@@ -203,11 +203,11 @@ Returns 200 OK
 
 --- row ---
 
-`PATCH https://api.scalingo.com/v1/apps/[:app]/alerts/[:alert_id]`
+`PATCH https://$SCALINGO_API_URL/v1/apps/[:app]/alerts/[:alert_id]`
 
 or
 
-`PUT https://api.scalingo.com/v1/apps/[:app]/alerts/[:alert_id]`
+`PUT https://$SCALINGO_API_URL/v1/apps/[:app]/alerts/[:alert_id]`
 
 Updates some alert attributes:
 
@@ -232,7 +232,7 @@ Example request
 
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" -u :$AUTH_TOKEN \
-  -X PATCH https://api.scalingo.com/v1/apps/example-app/alerts/al-297f1134-8576-45ac-ab58-2100b6807683 -d \
+  -X PATCH https://$SCALINGO_API_URL/v1/apps/example-app/alerts/al-297f1134-8576-45ac-ab58-2100b6807683 -d \
   '{
     "alert": {
       "limit": 150,
@@ -269,7 +269,7 @@ Returns 200 OK
 
 --- row ---
 
-`DELETE https://api.scalingo.com/v1/apps/[:app]/alerts/[:alert_id]`
+`DELETE https://$SCALINGO_API_URL/v1/apps/[:app]/alerts/[:alert_id]`
 
 
 Delete the given alert
@@ -280,7 +280,7 @@ Example request
 
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" -u :$AUTH_TOKEN \
-  -X DELETE https://api.scalingo.com/v1/apps/example-app/alerts/al-297f1134-8576-45ac-ab58-2100b6807683
+  -X DELETE https://$SCALINGO_API_URL/v1/apps/example-app/alerts/al-297f1134-8576-45ac-ab58-2100b6807683
 ```
 
 Returns 204 No Content

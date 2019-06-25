@@ -63,7 +63,7 @@ Example object:
 
 --- row ---
 
-`POST https://api.scalingo.com/v1/apps`
+`POST https://$SCALINGO_API_URL/v1/apps`
 
 ### Parameters
 
@@ -91,7 +91,7 @@ Example
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X POST https://api.scalingo.com/v1/apps -d \
+  -X POST https://$SCALINGO_API_URL/v1/apps -d \
   '{
     "app": {
       "name": "example-app"
@@ -129,7 +129,7 @@ Returns 201 Created
 
 ## List your applications
 
-`GET https://api.scalingo.com/v1/apps`
+`GET https://$SCALINGO_API_URL/v1/apps`
 
 List all your applications and the one your are collaborator for.
 
@@ -140,7 +140,7 @@ Example
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X GET https://api.scalingo.com/v1/apps
+  -X GET https://$SCALINGO_API_URL/v1/apps
 ```
 
 Returns 200 OK
@@ -165,7 +165,7 @@ Returns 200 OK
 
 --- row ---
 
-`GET https://api.scalingo.com/v1/apps/[:app]`
+`GET https://$SCALINGO_API_URL/v1/apps/[:app]`
 
 Display a precise application
 
@@ -186,7 +186,7 @@ Example request
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X GET https://api.scalingo.com/v1/apps/example-app
+  -X GET https://$SCALINGO_API_URL/v1/apps/example-app
 ```
 
 Returns 200 OK
@@ -224,7 +224,7 @@ Returns 200 OK
 
 --- row ---
 
-`GET https://api.scalingo.com/v1/apps/[:app]/containers`
+`GET https://$SCALINGO_API_URL/v1/apps/[:app]/containers`
 
 This request lists the different container types of a given application. It includes
 how many containers and the size of the containers for each type.
@@ -247,7 +247,7 @@ Example request
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X GET 'https://api.scalingo.com/v1/apps/example-app/containers'
+  -X GET 'https://$SCALINGO_API_URL/v1/apps/example-app/containers'
 ```
 
 Returns 200 OK
@@ -274,7 +274,7 @@ Returns 200 OK
 
 --- row ---
 
-`POST https://api.scalingo.com/v1/apps/[:app]/scale`
+`POST https://$SCALINGO_API_URL/v1/apps/[:app]/scale`
 
 Send a scaling request, the status of the application will be changed to
 'scaling' for the scaling duration. No other operation is doable until the app
@@ -312,7 +312,7 @@ Example request
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X POST 'https://api.scalingo.com/v1/apps/example-app/scale' -d \
+  -X POST 'https://$SCALINGO_API_URL/v1/apps/example-app/scale' -d \
   '{
     "containers": [
       {
@@ -326,7 +326,7 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
 
 Returns 202 Accepted (Asynchronous task)
 Headers:
-  * `Location`: 'https://api.scalingo.com/v1/apps/example-app/operations/52fd2357356330032b080000'
+  * `Location`: 'https://$SCALINGO_API_URL/v1/apps/example-app/operations/52fd2357356330032b080000'
 
 ```json
 {
@@ -352,7 +352,7 @@ Headers:
 
 --- row ---
 
-`POST https://api.scalingo.com/v1/apps/[:app]/restart`
+`POST https://$SCALINGO_API_URL/v1/apps/[:app]/restart`
 
 In the same spirit than the 'scale' operation, the restart is an asynchronous
 operation
@@ -377,7 +377,7 @@ Example request
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X POST 'https://api.scalingo.com/v1/apps/example-app/restart' -d \
+  -X POST 'https://$SCALINGO_API_URL/v1/apps/example-app/restart' -d \
   '{
     "scope": ["web"]
    }'
@@ -389,7 +389,7 @@ Return 202 Accepted (Asynchronous task) - Empty body
 
 ## Delete an application
 
-`DELETE https://api.scalingo.com/v1/apps/[:app]`
+`DELETE https://$SCALINGO_API_URL/v1/apps/[:app]`
 
 Parameters:
 
@@ -402,7 +402,7 @@ Example request
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X DELETE 'https://api.scalingo.com/v1/apps/example-app?current_name=example-app'
+  -X DELETE 'https://$SCALINGO_API_URL/v1/apps/example-app?current_name=example-app'
 ```
 
 Returns 204 No Content
@@ -411,7 +411,7 @@ Returns 204 No Content
 
 ## Rename an application
 
-`POST https://api.scalingo.com/v1/apps/[:app]/rename`
+`POST https://$SCALINGO_API_URL/v1/apps/[:app]/rename`
 
 ### Parameters
 
@@ -425,7 +425,7 @@ Example request
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X POST 'https://api.scalingo.com/v1/apps/example-app' -d \
+  -X POST 'https://$SCALINGO_API_URL/v1/apps/example-app' -d \
   '{
     "current_name": "example-app",
     "new_name": "renamed-example-app"
@@ -447,7 +447,7 @@ Returns 200 OK
 
 ## Transfer ownership of an application
 
-`PATCH https://api.scalingo.com/v1/apps/[:app]`
+`PATCH https://$SCALINGO_API_URL/v1/apps/[:app]`
 
 ### Parameters
 
@@ -462,7 +462,7 @@ Example request
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X PATCH 'https://api.scalingo.com/v1/apps/example-app?current_name=example-app' -d \
+  -X PATCH 'https://$SCALINGO_API_URL/v1/apps/example-app?current_name=example-app' -d \
   '{
     "app": {
       "owner": "user2@example.com"
@@ -485,7 +485,7 @@ Returns 200 OK
 
 ## Update application settings
 
-`PATCH https://api.scalingo.com/v1/apps/[:app]`
+`PATCH https://$SCALINGO_API_URL/v1/apps/[:app]`
 
 ### Parameters
 
@@ -500,7 +500,7 @@ Example request
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X PATCH 'https://api.scalingo.com/v1/apps/example-app' -d \
+  -X PATCH 'https://$SCALINGO_API_URL/v1/apps/example-app' -d \
   '{
     "app": {
       "force_https": true,
@@ -526,7 +526,7 @@ Returns 200 OK
 
 --- row ---
 
-`GET https://api.scalingo.com/v1/apps/[:app]/logs`
+`GET https://$SCALINGO_API_URL/v1/apps/[:app]/logs`
 
 The request will generate an URL you can use to access the logs of your application.
 
@@ -539,7 +539,7 @@ Example request:
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X GET 'https://api.scalingo.com/v1/apps/example-app/logs'
+  -X GET 'https://$SCALINGO_API_URL/v1/apps/example-app/logs'
 ```
 
 Returns 200 OK
@@ -557,7 +557,7 @@ Returns 200 OK
 
 --- row ---
 
-`GET https://api.scalingo.com/v1/apps/[:app]/logs_archives(?cursor=123456)`
+`GET https://$SCALINGO_API_URL/v1/apps/[:app]/logs_archives(?cursor=123456)`
 
 The request will generate a list of URLs you can use to download your logs archives.
 URLs are valid for a duration of 60 minutes.
@@ -574,7 +574,7 @@ Example request:
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X GET 'https://api.scalingo.com/v1/apps/example-app/logs_archives'
+  -X GET 'https://$SCALINGO_API_URL/v1/apps/example-app/logs_archives'
 ```
 
 Returns 200 OK
@@ -603,7 +603,7 @@ Similar to `scalingo run`
 
 --- row ---
 
-`POST https://api.scalingo.com/v1/apps/[:app]/run`
+`POST https://$SCALINGO_API_URL/v1/apps/[:app]/run`
 
 To run a batch job, or an administrative task, you have to start a one-off
 container. As its name mean it's a container you will start for a given task
@@ -639,7 +639,7 @@ Example request:
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X POST 'https://api.scalingo.com/v1/apps/example-app/run' -d \
+  -X POST 'https://$SCALINGO_API_URL/v1/apps/example-app/run' -d \
   '{
     "command": "bundle exec rails console",
     "env": {
@@ -672,7 +672,7 @@ Returns 200 OK
 
 --- row ---
 
-`POST https://api.scalingo.com/v1/apps/[:parent_app_name]/child_apps`
+`POST https://$SCALINGO_API_URL/v1/apps/[:parent_app_name]/child_apps`
 
 Create a child application based on the provided parent application.
 
@@ -689,7 +689,7 @@ Example
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X POST https://api.scalingo.com/v1/apps/example-parent-app/child_apps -d \
+  -X POST https://$SCALINGO_API_URL/v1/apps/example-parent-app/child_apps -d \
   '{
     "app": {
       "name": "example-child-app"
@@ -744,7 +744,7 @@ Example
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X GET https://api.scalingo.com/v1/apps/example-parent-app/child_apps
+  -X GET https://$SCALINGO_API_URL/v1/apps/example-parent-app/child_apps
 ```
 
 Returns 201 Created
@@ -809,7 +809,7 @@ Example request
 ```shell
 curl -H 'Accept: application/json' -H 'Content-Type: application/json' \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X GET https://api.scalingo.com/v1/apps/example-app/stats/cpu/recommended_value?container_type=web
+  -X GET https://$SCALINGO_API_URL/v1/apps/example-app/stats/cpu/recommended_value?container_type=web
 ```
 
 Returns 200 OK
@@ -868,7 +868,7 @@ Example request
 ```
 curl -H 'Accept: application/json' -H 'Content-Type: application/json' \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X GET https://api.scalingo.com/v1/apps/example-app/stats/cpu/web/1?since=48
+  -X GET https://$SCALINGO_API_URL/v1/apps/example-app/stats/cpu/web/1?since=48
 ```
 
 Returns 200 OK
@@ -898,7 +898,7 @@ Returns 200 OK
 
 To get real time metrics, you can use the following endpoint:
 
-`GET https://api.scalingo.com/v1/apps/[:app]/stats`
+`GET https://$SCALINGO_API_URL/v1/apps/[:app]/stats`
 
 Return the list of all stats for each container of the application.
 
@@ -909,7 +909,7 @@ Example request
 ```
 curl -H 'Accept: application/json' -H 'Content-Type: application/json' \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X GET https://api.scalingo.com/v1/apps/example-app/stats
+  -X GET https://$SCALINGO_API_URL/v1/apps/example-app/stats
 ```
 
 Returns 200 OK

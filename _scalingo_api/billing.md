@@ -31,7 +31,7 @@ Example object:
 
 ## List your billing operations
 
-`GET https://api.scalingo.com/v1/account/billing/operations`
+`GET https://$SCALINGO_API_URL/v1/account/billing/operations`
 
 List all your billing operations.
 
@@ -42,7 +42,7 @@ Example
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X GET https://api.scalingo.com/v1/account/billing/operations
+  -X GET https://$SCALINGO_API_URL/v1/account/billing/operations
 ```
 
 Returns 200 OK
@@ -85,7 +85,7 @@ Returns 200 OK
 
 ## Billing Profile
 
-`GET https://api.scalingo.com/v1/account/billing/profile`
+`GET https://$SCALINGO_API_URL/v1/account/billing/profile`
 
 Display your billing profile.
 
@@ -96,7 +96,7 @@ Example
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X GET https://api.scalingo.com/v1/account/billing/profile
+  -X GET https://$SCALINGO_API_URL/v1/account/billing/profile
 ```
 
 Returns 200 OK

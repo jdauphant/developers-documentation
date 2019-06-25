@@ -8,7 +8,7 @@ layout: default
 --- row ---
 
 ```
-GET https://api.scalingo.com/v1/apps/[:app]/audit_logs/[:audit_log_id]
+GET https://$SCALINGO_API_URL/v1/apps/[:app]/audit_logs/[:audit_log_id]
 ```
 
 Download an audit log. The audit log ID can be found in the run event type data.
@@ -18,7 +18,7 @@ Download an audit log. The audit log ID can be found in the run event type data.
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X GET https://api.scalingo.com/v1/apps/my-app/audit_logs/audit_log_id
+  -X GET https://$SCALINGO_API_URL/v1/apps/my-app/audit_logs/audit_log_id
 ```
 
 Returns 200 OK

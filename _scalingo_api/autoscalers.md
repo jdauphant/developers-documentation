@@ -51,7 +51,7 @@ Example object:
 
 --- row ---
 
-`GET https://api.scalingo.com/v1/apps/:app/autoscalers`
+`GET https://$SCALINGO_API_URL/v1/apps/:app/autoscalers`
 
 ||| col |||
 
@@ -59,7 +59,7 @@ Example request
 
 ```shell
 curl -H 'Accept: application/json' -H 'Content-Type: application/json' -u ":$AUTH_TOKEN" \
-  -X GET https://api.scalingo.com/v1/apps/example-app/autoscalers
+  -X GET https://$SCALINGO_API_URL/v1/apps/example-app/autoscalers
 ```
 
 Returns 200 OK
@@ -92,7 +92,7 @@ Returns 200 OK
 
 --- row ---
 
-`POST https://api.scalingo.com/v1/apps/:app/autoscalers`
+`POST https://$SCALINGO_API_URL/v1/apps/:app/autoscalers`
 
 ### Parameters
 
@@ -110,7 +110,7 @@ Example request
 
 ```shell
 curl -H 'Accept: application/json' -H 'Content-Type: application/json' -u ":$AUTH_TOKEN" \
-  -X POST https://api.scalingo.com/v1/apps/example-app/autoscalers -d \
+  -X POST https://$SCALINGO_API_URL/v1/apps/example-app/autoscalers -d \
   '{
     "autoscaler": {
       "container_type": "web",
@@ -148,7 +148,7 @@ Returns 201 Created
 
 --- row ---
 
-`GET https://api.scalingo.com/v1/apps/:app/autoscalers/:autoscaler_id`
+`GET https://$SCALINGO_API_URL/v1/apps/:app/autoscalers/:autoscaler_id`
 
 Display a specific autoscaler
 
@@ -158,7 +158,7 @@ Example request
 
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" -u :$AUTH_TOKEN \
-  -X GET https://api.scalingo.com/v1/apps/example-app/autoscalers/au-297f1134-8576-45ac-ab58-2100b6807683
+  -X GET https://$SCALINGO_API_URL/v1/apps/example-app/autoscalers/au-297f1134-8576-45ac-ab58-2100b6807683
 ```
 
 Returns 200 OK
@@ -187,11 +187,11 @@ Returns 200 OK
 
 --- row ---
 
-`PATCH https://api.scalingo.com/v1/apps/[:app]/autoscalers/[:autoscaler_id]`
+`PATCH https://$SCALINGO_API_URL/v1/apps/[:app]/autoscalers/[:autoscaler_id]`
 
 or
 
-`PUT https://api.scalingo.com/v1/apps/[:app]/autoscalers/[:autoscaler_id]`
+`PUT https://$SCALINGO_API_URL/v1/apps/[:app]/autoscalers/[:autoscaler_id]`
 
 Updates the autoscaler attributes.
 
@@ -211,7 +211,7 @@ Example request
 
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" -u :$AUTH_TOKEN \
-  -X PATCH https://api.scalingo.com/v1/apps/example-app/autoscalers/au-297f1134-8576-45ac-ab58-2100b6807683 -d \
+  -X PATCH https://$SCALINGO_API_URL/v1/apps/example-app/autoscalers/au-297f1134-8576-45ac-ab58-2100b6807683 -d \
   '{
     "autoscaler": {
       "min_containers": 1,
@@ -246,7 +246,7 @@ Returns 200 OK
 
 --- row ---
 
-`DELETE https://api.scalingo.com/v1/apps/[:app]/autoscalers/[:autoscaler_id]`
+`DELETE https://$SCALINGO_API_URL/v1/apps/[:app]/autoscalers/[:autoscaler_id]`
 
 
 Delete the given autoscaler
@@ -257,7 +257,7 @@ Example request
 
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" -u :$AUTH_TOKEN \
-  -X DELETE https://api.scalingo.com/v1/apps/example-app/autoscalers/au-297f1134-8576-45ac-ab58-2100b6807683
+  -X DELETE https://$SCALINGO_API_URL/v1/apps/example-app/autoscalers/au-297f1134-8576-45ac-ab58-2100b6807683
 ```
 
 Returns 204 No Content

@@ -20,7 +20,7 @@ endpoints, except the authentication.
 To authenticate your request, you need to use HTTP basic auth with the user
 and password defined in your addon manifest.
 
-Example: `https://user:password@api.scalingo.com/v1/provider/apps`
+Example: `https://user:password@$SCALINGO_API_URL/v1/provider/apps`
 
 --- row ---
 
@@ -28,7 +28,7 @@ Example: `https://user:password@api.scalingo.com/v1/provider/apps`
 
 --- row ---
 
-`GET https://api.scalingo.com/v1/provider/apps`
+`GET https://$SCALINGO_API_URL/v1/provider/apps`
 
 > Feature: Pagination
 
@@ -38,7 +38,7 @@ Example request:
 
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" -u $USER:$PASSWORD \
-  -X GET https://api.scalingo.com/v1/provider/apps
+  -X GET https://$SCALINGO_API_URL/v1/provider/apps
 ```
 
 ```json
@@ -62,7 +62,7 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" -u $USER:
 
 --- row ---
 
-`GET https://api.scalingo.com/v1/provider/apps/[:id]`
+`GET https://$SCALINGO_API_URL/v1/provider/apps/[:id]`
 
 ||| col |||
 
@@ -70,7 +70,7 @@ Example request:
 
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" -u $USER:$PASSWORD \
-  -X GET https://api.scalingo.com/v1/provider/apps/app-id-1
+  -X GET https://$SCALINGO_API_URL/v1/provider/apps/app-id-1
 ```
 
 ```json
@@ -92,7 +92,7 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" -u $USER:
 
 --- row ---
 
-`PATCH https://api.scalingo.com/v1/provider/apps/[:id]`
+`PATCH https://$SCALINGO_API_URL/v1/provider/apps/[:id]`
 
 Parameters:
 
@@ -107,7 +107,7 @@ Example request:
 
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" -u $USER:$PASSWORD \
-  -X PATCH https://api.scalingo.com/v1/provider/apps/app-id-1 -d \
+  -X PATCH https://$SCALINGO_API_URL/v1/provider/apps/app-id-1 -d \
   '{
     "config": {
       "VARIABLE_NAME": "NEW_VALUE"
