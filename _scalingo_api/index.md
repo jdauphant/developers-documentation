@@ -44,6 +44,15 @@ https://api.scalingo.com/v1/
 
 --- row ---
 
+## API Hostname
+
+Scalingo being available on multiple regions, the API hostname depends on the
+region your application is hosted on. It's designated by `SCALINGO_API_URL` in
+this documentation and must be replaced with one of the following value:
+
+- Agora Calycé Paris: https://api.agora-fr1.scalingo.com,
+- 3DS Outscale Paris: https://api.osc-fr1.scalingo.com.
+
 ## HTTP Verbs
 
 The API is not perfectly RESTful, it is more REST-ish. It has been developed to
