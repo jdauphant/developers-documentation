@@ -43,7 +43,7 @@ Example object:
 
 This provides the list of event categories, usefull to display [Event Types](/event_types) properly.
 
-`GET https://api.scalingo.com/v1/event_categories`
+`GET https://$SCALINGO_API_URL/v1/event_categories`
 
 ||| col |||
 
@@ -51,7 +51,7 @@ Example
 
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $BEARER_TOKEN" https://api.scalingo.com/v1/event_categories
+  -H "Authorization: Bearer $BEARER_TOKEN" https://$SCALINGO_API_URL/v1/event_categories
 ```
 
 Returns 200 OK

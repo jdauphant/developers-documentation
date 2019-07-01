@@ -30,7 +30,7 @@ will update endpoints and create new ones. But you can be sure we won't break
 the existing. If any major change about the way JSON is structured, we will
 keep the right to release a __v2__ and so forth.
 
-When any change is applied to the API, it will be displayed in ths [changelog
+When any change is applied to the API, it will be displayed in the [changelog
 section](/#changelog) of this documentation and on our [changelog
 website](https://doc.scalingo.com/changelog).
 
@@ -39,10 +39,19 @@ website](https://doc.scalingo.com/changelog).
 Base URL:
 
 ```
-https://api.scalingo.com/v1/
+https://$SCALINGO_API_URL/v1/
 ```
 
 --- row ---
+
+## API Hostname
+
+Scalingo being available on multiple regions, the API hostname depends on the
+region your application is hosted on. It's designated by `SCALINGO_API_URL` in
+this documentation and must be replaced with one of the following value:
+
+- Agora Calycé Paris: https://api.agora-fr1.scalingo.com
+- 3DS Outscale Paris: https://api.osc-fr1.scalingo.com
 
 ## HTTP Verbs
 
@@ -71,7 +80,7 @@ Parameters for GET and DELETE requests are known as _query parameters_, they are
 Example request:
 
 ```shell
-curl -X GET https://api.scalingo.com/v1/apps/name/events?page=2
+curl -X GET https://$SCALINGO_API_URL/v1/apps/name/events?page=2
 ```
 
 --- row ---
@@ -89,7 +98,7 @@ Example request:
 ```shell
 curl -H 'Accept: application/json' -H 'Content-Type: application/json' \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X POST https://api.scalingo.com/v1/apps -d \
+  -X POST https://$SCALINGO_API_URL/v1/apps -d \
   '{
     "app": {
       "name": "example-app"
@@ -115,7 +124,7 @@ You can create an API token from your Profile page on the dashboard:
 
 --- row ---
 
-## Create your API token with the Authentication API
+## Create your API token with the authentication API
 
 Otherwise you can create an API token with the authentication API directly:
 
@@ -196,7 +205,7 @@ Returns 200 OK
 
 ## Make an authenticated request
 
-HTTP requests have to be authenticated with HTTP basic auth, with the
+HTTP requests have to be authenticated with HTTP basic authentication, with the
 authentication token as password, the username can be empty.
 
 ||| col |||
@@ -206,7 +215,7 @@ Example request:
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
  -H "Authorization: Bearer $BEARER_TOKEN" \
- -X GET https://api.scalingo.com/v1/apps
+ -X GET https://$SCALINGO_API_URL/v1/apps
 ```
 
 --- row ---
@@ -261,7 +270,7 @@ This format is commonly understood, here are some examples:
 
 ||| col |||
 
-Javascript:
+JavaScript:
 
 ```js
 var date = new Date("2015-01-13T09:20:31.123+01:00")
@@ -306,7 +315,7 @@ The JSON you've sent in the payload is is wrongly formatted.
 ```shell
 curl -H 'Content-Type: application/json' -H 'Accept: application/json' \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X POST https://api.scalingo.com/v1/users/sign_in -d '{"user": {'
+  -X POST https://$SCALINGO_API_URL/v1/users/sign_in -d '{"user": {'
 ```
 
 Returns HTTP/1.1 400 Bad Request
@@ -323,14 +332,15 @@ Returns HTTP/1.1 400 Bad Request
 
 --- row ---
 
-If you try to do an action unallowed in the free trial, you will get an error 402 Payment Required.
+If you try to do an action unauthorized in the free trial, you will get an error
+402 Payment Required.
 
 ||| col |||
 
 ```shell
 curl -H 'Content-Type: application/json' -H 'Accept: application/json' \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X POST https://api.scalingo.com/v1/apps -d \
+  -X POST https://$SCALINGO_API_URL/v1/apps -d \
   '{
     "app" : {
       "name" : "my-new-app"
@@ -360,7 +370,7 @@ When you're doing a request to an invalid resource
 ```shell
 curl -H 'Content-Type: application/json' -H 'Accept: application/json' \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X GET https://api.scalingo.com/v1/apps/123
+  -X GET https://$SCALINGO_API_URL/v1/apps/123
 ```
 
 Returns HTTP/1.1 404 Not Found
@@ -385,7 +395,7 @@ There is an invalid field in the JSON payload.
 ```shell
 curl -H 'Content-Type: application/json' -H 'Accept: application/json' \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X POST https://api.scalingo.com/v1/apps -d '{}'
+  -X POST https://$SCALINGO_API_URL/v1/apps -d '{}'
 ```
 
 Returns HTTP/1.1 422 Unprocessable Entity
@@ -411,7 +421,7 @@ Invalid data were sent in the payload.
 ```shell
 curl -H 'Content-Type: application/json' -H 'Accept: application/json' \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X POST https://api.scalingo.com/v1/apps -d \
+  -X POST https://$SCALINGO_API_URL/v1/apps -d \
   '{
     "app" : {
       "name" : "AnotherApp"
@@ -494,7 +504,7 @@ Example request
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X GET 'https://api.scalingo.com/v1/apps/example-app/events?page=4&per_page=20'
+  -X GET 'https://$SCALINGO_API_URL/v1/apps/example-app/events?page=4&per_page=20'
 ```
 
 Returns 200 OK
@@ -717,7 +727,7 @@ Example request
 
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
-  -X PUT -u :$AUTH_TOKEN https://api.scalingo.com/v1/apps/example-app/variables -d \
+  -X PUT -u :$AUTH_TOKEN https://$SCALINGO_API_URL/v1/apps/example-app/variables -d \
   '{
     "variables": [{
       "name":"RAILS_ENV",
@@ -776,7 +786,7 @@ Response
 {
    // ...
    "links": {
-      "output": "https://api.scalingo.com/v1/apps/example-app/deployments/123e4567-e89b-12d3-a456-426655440000/output"
+      "output": "https://$SCALINGO_API_URL/v1/apps/example-app/deployments/123e4567-e89b-12d3-a456-426655440000/output"
    }
 }
 ```
@@ -793,7 +803,7 @@ Example request
 
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" -u :$AUTH_TOKEN \
-  -X POST 'https://api.scalingo.com/v1/apps/example-app/scale' -d \
+  -X POST 'https://$SCALINGO_API_URL/v1/apps/example-app/scale' -d \
   '{
     "containers": [
       {
@@ -807,7 +817,7 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" -u :$AUTH
 
 Returns 202 Accepted (Asynchronous task)
 Headers:
-  * `Location`: 'https://api.scalingo.com/v1/apps/example-app/operations/52fd2357356330032b080000'
+  * `Location`: 'https://$SCALINGO_API_URL/v1/apps/example-app/operations/52fd2357356330032b080000'
 
 ```json
 {
@@ -840,7 +850,7 @@ Example request:
 
 ```sh
 curl -H 'Content-Type: application/json' -H 'Accept: application/json' -u ":$AUTH" \
-  -X GET https://api.scalingo.com/v1/apps/123
+  -X GET https://$SCALINGO_API_URL/v1/apps/123
 ```
 
 Response 404 Not found
@@ -870,7 +880,7 @@ After:
 
 ```sh
 curl -H 'Content-Type: application/json' -H 'Accept: application/json' -u ":$AUTH" \
-  -X POST https://api.scalingo.com/v1/users/sign_in -d \
+  -X POST https://$SCALINGO_API_URL/v1/users/sign_in -d \
   '{
     "user": {
       "login": "test-user",

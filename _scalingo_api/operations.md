@@ -48,7 +48,7 @@ Example object:
 
 --- row ---
 
-`GET https://api.scalingo.com/v1/apps/[:app]/operations/[:operation_id]`
+`GET https://$SCALINGO_API_URL/v1/apps/[:app]/operations/[:operation_id]`
 
 Display a given operation.
 
@@ -66,7 +66,7 @@ Example request
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X GET https://api.scalingo.com/v1/apps/example-app/operations/54100930736f7563d5030000
+  -X GET https://$SCALINGO_API_URL/v1/apps/example-app/operations/54100930736f7563d5030000
 ```
 
 Returns 200 OK

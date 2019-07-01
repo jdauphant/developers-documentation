@@ -47,7 +47,7 @@ Example object:
 
 This provides the list of event types to get IDs to create [Notifiers](/notifiers).
 
-`GET https://api.scalingo.com/v1/event_types`
+`GET https://$SCALINGO_API_URL/v1/event_types`
 
 ||| col |||
 
@@ -55,7 +55,7 @@ Example
 
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $BEARER_TOKEN" https://api.scalingo.com/v1/event_types
+  -H "Authorization: Bearer $BEARER_TOKEN" https://$SCALINGO_API_URL/v1/event_types
 ```
 
 Returns 200 OK

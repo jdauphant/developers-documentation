@@ -111,7 +111,7 @@ Example object:
 
 --- row ---
 
-`GET https://api.scalingo.com/v1/addon_providers`
+`GET https://$SCALINGO_API_URL/v1/addon_providers`
 
 The endpoint return the list of the addons you can provision for your app,
 including the different available plans.
@@ -126,10 +126,10 @@ Example request
 
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
- -X GET https://api.scalingo.com/v1/addon_providers
+ -X GET https://$SCALINGO_API_URL/v1/addon_providers
 
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
- -X GET https://api.scalingo.com/v1/addon_providers?category_id=54c6909b61646d0001000000
+ -X GET https://$SCALINGO_API_URL/v1/addon_providers?category_id=54c6909b61646d0001000000
 ```
 
 Returns 200 OK
@@ -184,7 +184,7 @@ Returns 200 OK
 
 --- row ---
 
-`GET https://api.scalingo.com/v1/addon_categories`
+`GET https://$SCALINGO_API_URL/v1/addon_categories`
 
 Return the different categories of the available addons
 
@@ -194,7 +194,7 @@ Example request
 
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
- -X GET https://api.scalingo.com/v1/addon_categories
+ -X GET https://$SCALINGO_API_URL/v1/addon_categories
 ```
 
 Returns 200 OK

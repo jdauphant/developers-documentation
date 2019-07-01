@@ -48,13 +48,13 @@ Example object:
 
 --- row ---
 
-`GET https://api.scalingo.com/v1/notification_platforms`
+`GET https://$SCALINGO_API_URL/v1/notification_platforms`
 
 ||| col |||
 
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
-  -X GET https://api.scalingo.com/v1/notification_platforms
+  -X GET https://$SCALINGO_API_URL/v1/notification_platforms
 ```
 
 Returns 200 OK

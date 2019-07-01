@@ -109,7 +109,7 @@ Example of a deployment notification:
 
 --- row ---
 
-`GET https://api.scalingo.com/v1/apps/[:app]/notifiers`
+`GET https://$SCALINGO_API_URL/v1/apps/[:app]/notifiers`
 
 List all the provisioned notifiers for a given application.
 
@@ -120,7 +120,7 @@ Example
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X GET https://api.scalingo.com/v1/apps/example-app/notifiers
+  -X GET https://$SCALINGO_API_URL/v1/apps/example-app/notifiers
 ```
 
 Returns 200 OK
@@ -177,7 +177,7 @@ Returns 200 OK
 
 --- row ---
 
-`POST https://api.scalingo.com/v1/apps/[:app]/notifiers`
+`POST https://$SCALINGO_API_URL/v1/apps/[:app]/notifiers`
 
 Add a notifier to the application.
 
@@ -200,7 +200,7 @@ Add a notifier to the application.
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X POST https://api.scalingo.com/v1/apps/[:app]/notifiers \
+  -X POST https://$SCALINGO_API_URL/v1/apps/[:app]/notifiers \
   -d '{"notifiers":{"platform_id": "5982f145d48c3600273ef08a", "active": true, "name": "My Custom Webhook", "type_data": {"webhook_url": "https://myapp.fr/webhook/scalingo"}}}'
 ```
 
@@ -212,7 +212,7 @@ Returns 201 Created
 
 --- row ---
 
-`PATCH https://api.scalingo.com/v1/apps/[:app]/notifiers/[:notifier_id]`
+`PATCH https://$SCALINGO_API_URL/v1/apps/[:app]/notifiers/[:notifier_id]`
 
 Change notifier attributes
 
@@ -234,7 +234,7 @@ Change notifier attributes
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X PATCH https://api.scalingo.com/v1/apps/[:app]/notifiers/[:notifier_id] \
+  -X PATCH https://$SCALINGO_API_URL/v1/apps/[:app]/notifiers/[:notifier_id] \
   -d '{"notifier": {"type_data": { "webhook_url": "https://myendpoint.com" }, active: "false"}}}'
 ```
 
@@ -244,7 +244,7 @@ Returns 200 OK
 
 ## Test a notifier
 
-`POST https://api.scalingo.com/v1/apps/[:app]/notifiers/[:notifier_id]/test`
+`POST https://$SCALINGO_API_URL/v1/apps/[:app]/notifiers/[:notifier_id]/test`
 
 Send a test notification to the notifier
 
@@ -252,7 +252,7 @@ Send a test notification to the notifier
 
 ```shell
 curl -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X POST https://api.scalingo.com/v1/apps/[:app]/notifiers/[:notifier_id]/test
+  -X POST https://$SCALINGO_API_URL/v1/apps/[:app]/notifiers/[:notifier_id]/test
 ```
 
 --- row ---
@@ -261,7 +261,7 @@ curl -H "Authorization: Bearer $BEARER_TOKEN" \
 
 --- row ---
 
-`DELETE https://api.scalingo.com/v1/apps/[:app]/notifiers/[:notifier_id]`
+`DELETE https://$SCALINGO_API_URL/v1/apps/[:app]/notifiers/[:notifier_id]`
 
 Request deprovisionning of the notifier.
 
@@ -270,7 +270,7 @@ Request deprovisionning of the notifier.
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X DELETE https://api.scalingo.com/v1/apps/[:app]/notifiers/[:notifier_id]
+  -X DELETE https://$SCALINGO_API_URL/v1/apps/[:app]/notifiers/[:notifier_id]
 ```
 
 Returns 204 No Content

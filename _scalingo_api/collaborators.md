@@ -36,7 +36,7 @@ Example object:
 
 --- row ---
 
-`GET https://api.scalingo.com/v1/apps/[:app]/collaborators`
+`GET https://$SCALINGO_API_URL/v1/apps/[:app]/collaborators`
 
 List all the collabors of an app, except the owner. It also displays
 the state of the invitation of thoses collaborators.
@@ -48,7 +48,7 @@ Example Request
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X GET https://api.scalingo.com/v1/apps/[:app]/collaborators
+  -X GET https://$SCALINGO_API_URL/v1/apps/[:app]/collaborators
 ```
 
 Returns 200 OK
@@ -78,7 +78,7 @@ Returns 200 OK
 
 --- row ---
 
-`POST https://api.scalingo.com/v1/apps/[:app]/collaborators`
+`POST https://$SCALINGO_API_URL/v1/apps/[:app]/collaborators`
 
 This action will create an invitation to the given person. You can invite
 either someone with an account on Scalingo or someone new. In the second case,
@@ -101,7 +101,7 @@ Example Request
 
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X POST https://api.scalingo.com/v1/apps/[:app]/collaborators -d \
+  -X POST https://$SCALINGO_API_URL/v1/apps/[:app]/collaborators -d \
   '{
      "collaborator": {
        "email":"collaborator@example.com"
@@ -131,7 +131,7 @@ Returns 201 Created
 
 --- row ---
 
-`GET https://api.scalingo.com/v1/apps/collaboration?token=[:token]`
+`GET https://$SCALINGO_API_URL/v1/apps/collaboration?token=[:token]`
 
 This action accepts an invitation to collaborate on an app. The token is given in the
 `invitation_link` returned when adding a new collaborator.
@@ -144,7 +144,7 @@ Example Request
 
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X GET https://api.scalingo.com/v1/apps/collaboration?token=8415965b809c928c807dc99790e5745d97f05b8c
+  -X GET https://$SCALINGO_API_URL/v1/apps/collaboration?token=8415965b809c928c807dc99790e5745d97f05b8c
 ```
 
 Returns 200 OK
@@ -180,7 +180,7 @@ Returns 200 OK
 
 --- row ---
 
-`DELETE https://api.scalingo.com/v1/apps/[:app]/collaborators/[:collaborator_id]`
+`DELETE https://$SCALINGO_API_URL/v1/apps/[:app]/collaborators/[:collaborator_id]`
 
 This action completely remove a collaborator from an app. Only the owner of the
 app can execute it. The user won't be able to access, nor to deploy it.
@@ -193,7 +193,7 @@ Example Request
 
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X DELETE https://api.scalingo.com/v1/apps/[:app]/collaborators/54101e25736f7563d5060000
+  -X DELETE https://$SCALINGO_API_URL/v1/apps/[:app]/collaborators/54101e25736f7563d5060000
 ```
 
 Returns 204 No Content

@@ -56,7 +56,7 @@ Example object:
     "username": "john"
   },
   "links": {
-    "output": "https://api.scalingo.com/v1/deployments/123e4567-e89b-12d3-a456-426655440000/output"
+    "output": "https://$SCALINGO_API_URL/v1/deployments/123e4567-e89b-12d3-a456-426655440000/output"
   }
 }
 ```
@@ -67,7 +67,7 @@ Example object:
 
 --- row ---
 
-`GET https://api.scalingo.com/v1/apps/[:app]/deployments`
+`GET https://$SCALINGO_API_URL/v1/apps/[:app]/deployments`
 
 This endpoint returns data of several deployments
 
@@ -80,7 +80,7 @@ Example request
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X GET https://api.scalingo.com/v1/apps/example-app/deployments
+  -X GET https://$SCALINGO_API_URL/v1/apps/example-app/deployments
 ```
 
 Returns 200 OK
@@ -119,7 +119,7 @@ Returns 200 OK
 
 --- row ---
 
-`GET https://api.scalingo.com/v1/apps/[:app]/deployments/[:deployment_id]`
+`GET https://$SCALINGO_API_URL/v1/apps/[:app]/deployments/[:deployment_id]`
 
 This endpoint returns data of a given deployment from its ID
 
@@ -130,7 +130,7 @@ Example request
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X GET https://api.scalingo.com/v1/apps/example-app/deployments/123e4567-e89b-12d3-a456-426655440000
+  -X GET https://$SCALINGO_API_URL/v1/apps/example-app/deployments/123e4567-e89b-12d3-a456-426655440000
 ```
 
 Returns 200 OK
@@ -157,7 +157,7 @@ Returns 200 OK
 
 --- row ---
 
-`POST https://api.scalingo.com/v1/apps/[:app]/deployments`
+`POST https://$SCALINGO_API_URL/v1/apps/[:app]/deployments`
 
 With this helper, you'll be able to trigger a deployment from your application
 without doing it by a `git push`.
@@ -183,7 +183,7 @@ Example request
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
      -H "Authorization: Bearer $BEARER_TOKEN" \
-     -X POST https://api.scalingo.com/v1/apps/example-app/deployments -d \
+     -X POST https://$SCALINGO_API_URL/v1/apps/example-app/deployments -d \
      '{
        "deployment": {
          "git_ref": "master",
@@ -211,7 +211,7 @@ Returns 200 OK
       "id":"51161e5ef1e42617000001"
     },
     "links": {
-      "output": "https://api.scalingo.com/v1/apps/529ba36e65d972e883203922/deployments/5e34a76a-24b7-4d50-be96-942ca986a786/output"
+      "output": "https://$SCALINGO_API_URL/v1/apps/529ba36e65d972e883203922/deployments/5e34a76a-24b7-4d50-be96-942ca986a786/output"
     }
   }
 }
@@ -223,7 +223,7 @@ Returns 200 OK
 
 --- row ---
 
-`POST https://api.scalingo.com/v1/apps/[:app]/deployments`
+`POST https://$SCALINGO_API_URL/v1/apps/[:app]/deployments`
 
 With this helper, you'll be able to trigger a deployment from your application
 without doing it by a `git push`. You just need to provide a link to an archive containing the sources. The archive must follow some format:
@@ -254,7 +254,7 @@ Example request
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
      -H "Authorization: Bearer $BEARER_TOKEN" \
-     -X POST https://api.scalingo.com/v1/apps/example-app/deployments -d \
+     -X POST https://$SCALINGO_API_URL/v1/apps/example-app/deployments -d \
      '{
        "deployment": {
          "git_ref": "v0.0.2",
@@ -283,7 +283,7 @@ Returns 200 OK
       "id":"51161e5ef1e42617000001"
     },
     "links": {
-      "output": "https://api.scalingo.com/v1/apps/529ba36e65d972e883203922/deployments/5e34a76a-24b7-4d50-be96-942ca986a786/output"
+      "output": "https://$SCALINGO_API_URL/v1/apps/529ba36e65d972e883203922/deployments/5e34a76a-24b7-4d50-be96-942ca986a786/output"
     }
   }
 }
@@ -295,7 +295,7 @@ Returns 200 OK
 
 --- row ---
 
-`GET https://api.scalingo.com/v1/apps/[:app]/deployments/[:deployment_id]/output`
+`GET https://$SCALINGO_API_URL/v1/apps/[:app]/deployments/[:deployment_id]/output`
 
 This endpoint will return all the log of the deployment. Those are basically what
 you have seen in your terminal when running `git push`.
@@ -307,7 +307,7 @@ Example request
 ```shell
 curl -H "Accept: text/plain" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X GET https://api.scalingo.com/v1/apps/example-app/deployments/123e4567-e89b-12d3-a456-426655440000/output
+  -X GET https://$SCALINGO_API_URL/v1/apps/example-app/deployments/123e4567-e89b-12d3-a456-426655440000/output
 ```
 
 Returns 200 OK
@@ -455,7 +455,7 @@ Ping Event
 
 --- row ---
 
-`DELETE https://api.scalingo.com/v1/apps/[:app]/caches/deployment`
+`DELETE https://$SCALINGO_API_URL/v1/apps/[:app]/caches/deployment`
 
 To speed up deployment, some files (like dependencies, intermediate builds, etc.) are stored in a cache that we call the deployment cache. This will accelerate deployments since if a dependency is in the deployment cache, we wont need to download it again.
 
@@ -470,7 +470,7 @@ Example request
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X DELETE 'https://api.scalingo.com/v1/apps/my-app/caches/deployment'
+  -X DELETE 'https://$SCALINGO_API_URL/v1/apps/my-app/caches/deployment'
 ```
 
 Returns 204 No Content

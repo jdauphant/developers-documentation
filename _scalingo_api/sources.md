@@ -26,8 +26,8 @@ Example object:
 
 ```json
 {
-  "upload_url": "https://api.scalingo.com/v1/sources/123e4567-e89b-12d3-a456-426655440000?token=dc958153c3cd32659ffad5deeda9405d",
-  "download_url": "https://api.scalingo.com/v1/sources/123e4567-e89b-12d3-a456-426655440000?token=9df650a60014571abff0ee4e2d06a8fc"
+  "upload_url": "https://$SCALINGO_API_URL/v1/sources/123e4567-e89b-12d3-a456-426655440000?token=dc958153c3cd32659ffad5deeda9405d",
+  "download_url": "https://$SCALINGO_API_URL/v1/sources/123e4567-e89b-12d3-a456-426655440000?token=9df650a60014571abff0ee4e2d06a8fc"
 }
 ```
 
@@ -37,7 +37,7 @@ Example object:
 
 --- row ---
 
-`POST https://api.scalingo.com/v1/sources`
+`POST https://$SCALINGO_API_URL/v1/sources`
 
 The generated URLs have a short lifetime and are designed to be used quickly (10 minutes). All the uploaded files are automatically
 deleted from our storage backend after the links have expired.
@@ -45,13 +45,13 @@ deleted from our storage backend after the links have expired.
 The `upload_url` is designed to be used in a `PUT` HTTP Request:
 
 ```
-curl -L -X PUT --upload-file ./archive.tar.gz 'https://api.scalingo.com/v1/sources/123e4567-e89b-12d3-a456-426655440000?token=dc958153c3cd32659ffad5deeda9405d'
+curl -L -X PUT --upload-file ./archive.tar.gz 'https://$SCALINGO_API_URL/v1/sources/123e4567-e89b-12d3-a456-426655440000?token=dc958153c3cd32659ffad5deeda9405d'
 ```
 
 The `download_url` is designed to be used in a `GET` HTTP Request:
 
 ```
-curl -L -X GET -o archive.tar.gz 'https://api.scalingo.com/v1/sources/123e4567-e89b-12d3-a456-426655440000?token=9df650a60014571abff0ee4e2d06a8fc'
+curl -L -X GET -o archive.tar.gz 'https://$SCALINGO_API_URL/v1/sources/123e4567-e89b-12d3-a456-426655440000?token=9df650a60014571abff0ee4e2d06a8fc'
 ```
 
 ||| col |||
@@ -61,14 +61,14 @@ Example request
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X POST https://api.scalingo.com/v1/sources -d ''
+  -X POST https://$SCALINGO_API_URL/v1/sources -d ''
 ```
 
 Returns 201 Created
 
 ```json
 {
-  "upload_url": "https://api.scalingo.com/v1/sources/123e4567-e89b-12d3-a456-426655440000?token=dc958153c3cd32659ffad5deeda9405d"
-  "download_url": "https://api.scalingo.com/v1/sources/123e4567-e89b-12d3-a456-426655440000?token=9df650a60014571abff0ee4e2d06a8fc"
+  "upload_url": "https://$SCALINGO_API_URL/v1/sources/123e4567-e89b-12d3-a456-426655440000?token=dc958153c3cd32659ffad5deeda9405d"
+  "download_url": "https://$SCALINGO_API_URL/v1/sources/123e4567-e89b-12d3-a456-426655440000?token=9df650a60014571abff0ee4e2d06a8fc"
 }
 ```

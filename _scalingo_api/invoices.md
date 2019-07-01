@@ -77,7 +77,7 @@ Example object:
 
 ## List your invoices
 
-`GET https://api.scalingo.com/v1/account/invoices`
+`GET https://$SCALINGO_API_URL/v1/account/invoices`
 
 List all your invoices.
 
@@ -88,7 +88,7 @@ Example
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X GET https://api.scalingo.com/v1/account/invoices
+  -X GET https://$SCALINGO_API_URL/v1/account/invoices
 ```
 
 Returns 200 OK
@@ -160,7 +160,7 @@ Returns 200 OK
 
 --- row ---
 
-`GET https://api.scalingo.com/v1/account/invoices/[:invoice_id]`
+`GET https://$SCALINGO_API_URL/v1/account/invoices/[:invoice_id]`
 
 Display a precise invoice
 
@@ -171,7 +171,7 @@ Example request
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X GET https://api.scalingo.com/v1/account/invoices/23d2c27f-bab0-4038-b3d7-2e6f06f3d27a
+  -X GET https://$SCALINGO_API_URL/v1/account/invoices/23d2c27f-bab0-4038-b3d7-2e6f06f3d27a
 ```
 
 Returns 200 OK
@@ -229,7 +229,7 @@ Returns 200 OK
 
 --- row ---
 
-`GET https://api.scalingo.com/v1/account/invoices/[:invoice_id]/download`
+`GET https://$SCALINGO_API_URL/v1/account/invoices/[:invoice_id]/download`
 
 This request downloads the invoice's PDF.
 
@@ -240,7 +240,7 @@ Example request
 ```sh
 curl -H "Accept: application/pdf,application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X GET 'https://api.scalingo.com/v1/account/invoices/23d2c27f-bac0-4038-b3d7-2e6f06f3d27a/download'
+  -X GET 'https://$SCALINGO_API_URL/v1/account/invoices/23d2c27f-bac0-4038-b3d7-2e6f06f3d27a/download'
 ```
 
 Returns 302 Found

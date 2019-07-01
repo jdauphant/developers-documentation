@@ -51,7 +51,7 @@ to an account, the response won't include them.
 
 --- row ---
 
-`GET https://api.scalingo.com/v1/features/container_sizes`
+`GET https://$SCALINGO_API_URL/v1/features/container_sizes`
 
 List all the container sizes available to your account.
 
@@ -62,7 +62,7 @@ Example Request
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X GET https://api.scalingo.com/v1/features/container_sizes
+  -X GET https://$SCALINGO_API_URL/v1/features/container_sizes
 ```
 
 Returns 200 OK
