@@ -100,7 +100,7 @@ Returns 200 OK
 
 `POST https://db-api.scalingo.com/api/databases/[:db]/backups`
 
-Ask for the creation of a new backup. This query is asynchronous. The HTTP
+Schedule the creation of a new backup. This query is asynchronous. The HTTP
 query returns 201 and the backup creation is actually started asynchronously.
 
 ||| col |||
