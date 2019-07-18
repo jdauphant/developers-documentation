@@ -22,7 +22,7 @@ layout: default
 | limit                   | float   | threshold to activate the alert              |
 | send_when_below         | boolean | will the alert be sent when the value goes   |
 |                         |         | above or below the limit                     |
-| duration_before_trigger | int     | alert is triggered if the value is above the |
+| duration_before_trigger | integer | alert is triggered if the value is above the |
 |                         |         | limit for the specified	duration             |
 |                         |         | activated                                    |
 | remind_every            | string  | send the alert at regular interval when      |

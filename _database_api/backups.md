@@ -10,14 +10,15 @@ layout: default
 **Backup attributes**
 
 {:.table}
-| field       | type   | description                      |
-| ----------- | ------ | -------------------------------- |
-| id          | string | unique ID identifying the backup |
-| created_at  | date   | when the database was created at |
-| name        | string | name of the backup               |
-| size        | int    | backup size in bytes             |
-| status      | string | backup status                    |
-| database_id | string | database identifier              |
+| field       | type    | description                      |
+| ----------- | ------- | -------------------------------- |
+| id          | string  | unique ID identifying the backup |
+| created_at  | date    | when the database was created at |
+| name        | string  | name of the backup               |
+| size        | integer | backup size in bytes             |
+| status      | string  | backup status                    |
+| database_id | string  | database identifier              |
+| type        | string  | database type                    |
 
 
 ||| col |||
@@ -32,12 +33,13 @@ Example object:
   "size": 17484513608,
   "status": "done",
   "database_id": "597601234ffb097af4f3099b",
+  "type": "postgresql"
 }
 ```
 
 --- row ---
 
-## List database backups
+## List Database Backups
 
 --- row ---
 
@@ -65,6 +67,7 @@ Returns 200 OK
       "size": 0,
       "status": "pending",
       "database_id": "597601234ffb097af4f3099b",
+      "type": "postgresql"
     },
     {
       "id": "5bb95a904ffb096e9a2831b8",
@@ -73,6 +76,7 @@ Returns 200 OK
       "size": 0,
       "status": "error",
       "database_id": "597601234ffb097af4f3099b",
+      "type": "postgresql"
     },
     {
       "id": "5b8b36104ffb090be1ac3ce1",
@@ -81,6 +85,7 @@ Returns 200 OK
       "size": 17484513608,
       "status": "done",
       "database_id": "597601234ffb097af4f3099b",
+      "type": "postgresql"
     }
   ]
 }
@@ -89,7 +94,40 @@ Returns 200 OK
 
 --- row ---
 
-## Get a backup download link
+## Create a New Backup
+
+--- row ---
+
+`POST https://db-api.scalingo.com/api/databases/[:db]/backups`
+
+Schedule the creation of a new backup. This query is asynchronous. The HTTP
+query returns 201 and the backup creation is actually started asynchronously.
+
+||| col |||
+
+```shell
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $DB_BEARER_TOKEN" \
+  -X POST https://db-api.scalingo.com/api/databases/my-db-123/backups
+```
+
+Returns 201 Created
+
+```json
+{
+  "id": "5b8b36104ffb090be1ac3ce1",
+  "created_at": "2019-07-18T03:00:00.178+02:00",
+  "name": "20180902010000_kibana-3938",
+  "size": 0,
+  "status": "pending",
+  "database_id": "597601234ffb097af4f3099b",
+  "type": "postgresql"
+}
+
+```
+
+--- row ---
+## Get a Backup Download Link
 
 --- row ---
 

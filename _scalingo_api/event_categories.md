@@ -13,12 +13,12 @@ Event categories is an organisational type used to help organizing the list of
 **Event Category attributes**
 
 {:.table}
-| field        | type   | description                           |
-| ------------ | ------ | ------------------------------------- |
-| id           | string | unique ID of event type               |
-| name         | string | camel case name of the type           |
-| display_name | string | fancy name of the type                |
-| position     | int    | order of "importance" when displayed  |
+| field        | type    | description                           |
+| ------------ | ------  | ------------------------------------- |
+| id           | string  | unique ID of event type               |
+| name         | string  | camel case name of the type           |
+| display_name | string  | fancy name of the type                |
+| position     | integer | order of "importance" when displayed  |
 
 ||| col |||
 
