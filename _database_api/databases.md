@@ -190,3 +190,34 @@ Returns 200 OK
 }
 ```
 
+--- row ---
+
+## Point-in-Time Restoration
+
+--- row ---
+
+`POST https://db-api.scalingo.com/api/databases/[:db_id]/pitr/restore`
+
+Restore the database data at a specific point in time. This is currently only
+available for PostgreSQL databases.
+
+||| col |||
+
+Example request
+
+```shell
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $DB_BEARER_TOKEN" \
+  -X POST https://db-api.scalingo.com/api/databases/my-db-123/pitr/restore \
+  -d '{
+    "restore_time": "2019-07-18T23:00:00Z"
+  }'
+```
+
+Returns 201 Created
+
+```json
+{
+  "operation_id": "5c10e85ca506b701f42f92dc"
+}
+```
