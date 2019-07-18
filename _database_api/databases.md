@@ -10,23 +10,23 @@ layout: default
 **Databases attributes**
 
 {:.table}
-| field                    | type    | description                                    |
-| ------------------       | ------- | ---------------------------------------------- |
-| id                       | string  | unique ID                                      |
-| resource_id              | string  | resource reference                             |
-| app_name                 | string  | name of the linked application                 |
-| created_at               | date    | creation date of the database                  |
-| encryption_at_rest       | boolean | is encryption at rest enabled on this database |
-| plan                     | string  | name of the application plan                   |
-| status                   | string  | status of the current database                 |
-| type_id                  | string  | database type ID                               |
-| type_name                | string  | database type Name                             |
-| version_id               | string  | database version ID                            |
-| readable_version         | string  | human readable database version                |
-| instances                | array   | list of all database instances                 |
-| features                 | array   | list of all database features                  |
-| periodic_backups_enabled | boolean | true if periodic backups are enabled           |
-| backup_scheduled_at      | integer | hour of the day of the periodic backup (UTC)   |
+| field                         | type    | description                                    |
+| ------------------            | ------- | ---------------------------------------------- |
+| id                            | string  | unique ID                                      |
+| resource_id                   | string  | resource reference                             |
+| app_name                      | string  | name of the linked application                 |
+| created_at                    | date    | creation date of the database                  |
+| encryption_at_rest            | boolean | is encryption at rest enabled on this database |
+| plan                          | string  | name of the application plan                   |
+| status                        | string  | status of the current database                 |
+| type_id                       | string  | database type ID                               |
+| type_name                     | string  | database type Name                             |
+| version_id                    | string  | database version ID                            |
+| readable_version              | string  | human readable database version                |
+| instances                     | array   | list of all database instances                 |
+| features                      | array   | list of all database features                  |
+| periodic_backups_enabled      | boolean | true if periodic backups are enabled           |
+| periodic_backups_scheduled_at | integer | hour of the day of the periodic backup (UTC)   |
 
 **Instance attributes**
 
@@ -73,7 +73,7 @@ Example object:
     ],
     "readable_version": "3.2.9-1",
     "periodic_backups_enabled": true,
-    "backup_scheduled_at": 0
+    "periodic_backups_scheduled_at": 0
   }
 }
 ```
@@ -126,7 +126,7 @@ Returns 200 OK
     "instances": [],
     "readable_version": "3.2.9-1",
     "periodic_backups_enabled": true,
-    "backup_scheduled_at": 0
+    "periodic_backups_scheduled_at": 0
   }
 }
 ```
@@ -156,7 +156,7 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -d '{
     "database": {
       "periodic_backups_enabled": true,
-      "backup_scheduled_at": 3
+      "periodic_backups_scheduled_at": 3
     }
   }'
 ```
@@ -185,7 +185,7 @@ Returns 200 OK
     "instances": [],
     "readable_version": "3.2.9-1",
     "periodic_backups_enabled": true,
-    "backup_scheduled_at": 3
+    "periodic_backups_scheduled_at": 3
   }
 }
 ```
