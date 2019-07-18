@@ -10,15 +10,15 @@ layout: default
 **Backup attributes**
 
 {:.table}
-| field       | type   | description                      |
-| ----------- | ------ | -------------------------------- |
-| id          | string | unique ID identifying the backup |
-| created_at  | date   | when the database was created at |
-| name        | string | name of the backup               |
-| size        | int    | backup size in bytes             |
-| status      | string | backup status                    |
-| database_id | string | database identifier              |
-| type        | string | database type                    |
+| field       | type    | description                      |
+| ----------- | ------- | -------------------------------- |
+| id          | string  | unique ID identifying the backup |
+| created_at  | date    | when the database was created at |
+| name        | string  | name of the backup               |
+| size        | integer | backup size in bytes             |
+| status      | string  | backup status                    |
+| database_id | string  | database identifier              |
+| type        | string  | database type                    |
 
 
 ||| col |||

@@ -17,8 +17,8 @@ layout: default
 | updated_at          | date    | last time the autoscaler has been updated     |
 | last_scale          | date    | date of the last scale operation              |
 | container_type      | string  | container type affected by the autoscaling    |
-| min_containers      | int     | lower limit of containers                     |
-| max_containers      | int     | upper limit of containers                     |
+| min_containers      | integer | lower limit of containers                     |
+| max_containers      | integer | upper limit of containers                     |
 | metric              | string  | metric name this autoscaler is about          |
 | target              | float   | metric value the autoscaler aims to reach     |
 | disabled            | boolean | is the autoscaler disabled                    |
