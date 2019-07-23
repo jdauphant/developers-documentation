@@ -27,6 +27,7 @@ or `scalingo.json`. The latter will always take priority over the first one.
 | name           | string | Complete name of the project                   |
 | _repository_   | string | Location of the GIT repository of the project  |
 | _ref_          | string | Branch name or commit ID of the code to use    |
+| _stack_        | string | Name of the stack to use                       |
 | _description_  | string | Description in one or two sentences of the app |
 | _logo_         | string | URL to the logo of the project                 |
 | _website_      | string | Official website of the application if any     |
@@ -71,11 +72,13 @@ Two generators are available `secret` or `url`:
 
 ||| col |||
 
-File scalingo.json of [sample-go-martini](https://github.com/Scalingo/sample-go-martini/tree/dev-oneclick)
+scalingo.json of
+[sample-go-martini](https://github.com/Scalingo/sample-go-martini/tree/dev-oneclick)
 
 ```json
 {
   "name": "Sample Go Martini",
+  "stack": "salingo-18",
   "description": "Sample web application using the Go framework Martini",
   "logo": "https://scalingo.com/logo.svg",
   "repository": "https://github.com/Scalingo/sample-go-martini",
