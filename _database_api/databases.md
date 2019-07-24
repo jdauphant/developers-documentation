@@ -26,7 +26,7 @@ layout: default
 | instances                     | array   | list of all database instances                 |
 | features                      | array   | list of all database features                  |
 | periodic_backups_enabled      | boolean | true if periodic backups are enabled           |
-| periodic_backups_scheduled_at | integer | hour of the day of the periodic backup (UTC)   |
+| periodic_backups_scheduled_at | array   | hours of the day of the periodic backup (UTC)  |
 
 **Instance attributes**
 
@@ -73,7 +73,7 @@ Example object:
     ],
     "readable_version": "3.2.9-1",
     "periodic_backups_enabled": true,
-    "periodic_backups_scheduled_at": 0
+    "periodic_backups_scheduled_at": [0]
   }
 }
 ```
@@ -126,7 +126,7 @@ Returns 200 OK
     "instances": [],
     "readable_version": "3.2.9-1",
     "periodic_backups_enabled": true,
-    "periodic_backups_scheduled_at": 0
+    "periodic_backups_scheduled_at": [0]
   }
 }
 ```
@@ -185,7 +185,7 @@ Returns 200 OK
     "instances": [],
     "readable_version": "3.2.9-1",
     "periodic_backups_enabled": true,
-    "periodic_backups_scheduled_at": 3
+    "periodic_backups_scheduled_at": [3]
   }
 }
 ```
