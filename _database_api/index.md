@@ -5,11 +5,23 @@ layout: default
 # Database API
 
 --- row ---
-The Scalingo v1 Database API is a publicly available interface allowing developers to
-control Scalingo's database as a service platform and the interface is stable and currently used by the Scalingo
-database dashboard (an Ember.js app). However, changes are
-occasionally made to improve performance and enhance features. See the
-changelog for more details.
+
+The Scalingo v1 Database API is a publicly available interface allowing
+developers to control Scalingo's database as a service platform and the
+interface is stable and currently used by the Scalingo database dashboard (an
+Ember.js app). However, changes are occasionally made to improve performance
+and enhance features. See the changelog for more details.
+
+--- row ---
+
+# Endpoints
+
+Scalingo being available on multiple regions, the Database API hostname depends
+on the region your database is hosted on. It's designated by `DB_API_URL`
+in this documentation and must be replaced with one of the following value:
+
+- Agora Calycé Paris: https://db-api.agora-fr1.scalingo.com
+- 3DS Outscale Paris: https://db-api.osc-fr1.scalingo.com
 
 --- row ---
 
@@ -36,7 +48,7 @@ Example request:
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
  -H "Authorization: Bearer $DB_BEARER_TOKEN" \
- -X GET https://db-api.scalingo.com/api/databases/my-db-123
+ -X GET https://$DB_API_URL/api/databases/my-db-123
 ```
 
 --- row ---
