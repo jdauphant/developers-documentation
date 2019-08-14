@@ -179,7 +179,7 @@ Only GitHub Enterprise and GitLab self-hosted types is handled with this route.
 
 * `scm_type`: SCM type (`github-enterprise` or `gitlab-self-hosted`)
 * `url`: Endpoint URL of the SCM platform
-* `access_token`: Access token provided by your SCM platform
+* `access_token`: Access token provided by a SCM platform
 
 If the `scm_type`, `url` or `access_token` is not valid, a 422 "Unprocessable entity" is returned
 Otherwise return 201
@@ -232,7 +232,7 @@ Returns 201 Created
 
 `DELETE https://auth.scalingo.com/v1/scm_integrations/[:id]`
 
-Unlink your SCM platform from your account.
+Unlink a SCM platform from your account.
 
 ||| col |||
 
@@ -245,3 +245,44 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
 ```
 
 Returns 204 No Content
+
+--- row ---
+
+## Import SSH keys from a SCM platform
+
+--- row ---
+
+`POST https://auth.scalingo.com/v1/scm_integrations/[:id]/import_keys`
+
+Import SSH keys directly from a SCM platform in your account
+
+||| col |||
+
+Example request
+
+```sh
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  -X POST https://auth.scalingo.com/v1/scm_integrations/5bb2e877-9e5c-a83f-8e0e-7c75eebf212c/import_keys
+```
+
+Returns 201 Created
+
+```json
+{
+  "keys": [
+    {
+      "id": "4d0ab8fc-e201-beba-494a-b09bf85f2149",
+      "name": "gitlab-self-hosted-Dev key",
+      "content": "ssh-rsa ...",
+      "fingerprint": "56:ba:e5:8c:4b:14:df:c8:bb:78:74:26:2c:99:26:61",
+      "created_at": "2019-07-30T14:26:17.271Z",
+      "owner": {
+        "id": "us-88c4e9af-f93c-8284-c67a-fa414d49c5de",
+        "email": "test-user@example.com",
+        "username": "test-user",
+      }
+    }
+  ]
+}
+```

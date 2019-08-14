@@ -115,6 +115,8 @@ Returns 200 OK
 
 Allow a new SSH key pair to deploy applications
 
+> You can also import your SSH keys from a SCM platform like `GitHub` and `GitLab`, more informations [on this page](./scm_integrations#import-ssh-keys-from-a-scm-platform).
+
 ### Parameters
 
 * `key.name`: Name of the key you want to add
