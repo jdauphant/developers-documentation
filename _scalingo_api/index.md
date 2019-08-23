@@ -874,7 +874,7 @@ After:
 
 ## Friday 6th March 2015:
 
-  The `user` object has been embedded to the the result of the `/users/sign_in` endpoint
+  The `user` object has been embedded to the result of the `/users/sign_in` endpoint
 
 ||| col |||
 
