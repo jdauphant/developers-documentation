@@ -5,36 +5,40 @@ layout: default
 
 # SCM Integrations
 
-SCM Integrations represent a link between your account and a SCM platform like `github.com`. The different supported SCM platforms can be found in the list below.
+SCM Integrations represent a link between your account and an SCM platform like
+`github.com`. The different supported SCM platforms can be found in the list
+below.
 
 --- row ---
 
 **Keys attributes**
 
 {:.table}
-| field                | type     | description                                                        |
-| -------------------- | -------- | ------------------------------------------------------------------ |
-| id                   | string   | unique ID of the SCM integration                                   |
-| scm_type             | string   | SCM type (github, gitlab, github-enterprise or gitlab-self-hosted) |
-| url                  | string   | endpoint URL link of where is hosted the SCM platform              |
-| created_at (read)    | datetime | creation date of the SCM integration                               |
-| uid (read)           | string   | user id provided by the SCM platform                               |
-| username (read)      | string   | username provided by the SCM platform                              |
-| avatar_url (read)    | string   | user avatar url provided by the SCM platform                       |
-| email (read)         | string   | user email provided by the SCM platform                            |
-| profile_url (read)   | string   | user profile url provided by the SCM platform                      |
-| owner                | object   | owner of the SCM integration                                       |
+| field                | type     | description                                                                |
+| -------------------- | -------- | ------------------------------------------------------------------         |
+| id                   | string   | unique ID of the SCM integration                                           |
+| scm_type             | string   | SCM type (`github`, `gitlab`, `github-enterprise` or `gitlab-self-hosted`) |
+| url                  | string   | URL where the SCM platform is hosted                                       |
+| created_at (read)    | date     | creation date of the SCM integration                                       |
+| uid (read)           | string   | user ID provided by the SCM platform                                       |
+| username (read)      | string   | username provided by the SCM platform                                      |
+| avatar_url (read)    | string   | user avatar URL provided by the SCM platform                               |
+| email (read)         | string   | user email provided by the SCM platform                                    |
+| profile_url (read)   | string   | user profile URL provided by the SCM platform                              |
+| owner                | object   | owner of the SCM integration                                               |
 
-The `scm_type` field can take different values:
+The `scm_type` field can take the following values:
 
 - `github`: is a GitHub.com integration
 - `gitlab`: is a GitLab.com integration
 - `github-enterprise`: is a GitHub Enterprise self-hosted instance
 - `gitlab-self-hosted`: is a GitLab self-hosted instance
 
-Take note that only `github-enterprise` and `gitlab-self-hosted` integrations can be created from the API.
+Note that only `github-enterprise` and `gitlab-self-hosted` integrations can be
+created from the API.
 
-The `github` and `gitlab` integrations must be created from the profile page of the [Dashboard](https://my.scalingo.com/profile), via OAuth system.
+The `github` and `gitlab` integrations must be created from the profile page of
+the [Dashboard](https://my.scalingo.com/profile), via OAuth system.
 
 ||| col |||
 
@@ -64,7 +68,7 @@ Example object
 
 --- row ---
 
-## List all the SCM integrations of your account
+## List All the SCM Integrations of Your Account
 
 `GET https://auth.scalingo.com/v1/scm_integrations`
 
@@ -117,13 +121,13 @@ Returns 200 OK
         "username": "test-user",
       }
     }
-  ] 
+  ]
 }
 ```
 
 --- row ---
 
-## Show a specific SCM integration
+## Show a Specific SCM Integration
 
 --- row ---
 
@@ -165,7 +169,7 @@ Returns 200 OK
 
 --- row ---
 
-## Create/Link an SCM integration with your account
+## Create/Link an SCM Integration With Your Account
 
 --- row ---
 
@@ -179,7 +183,7 @@ Only GitHub Enterprise and GitLab self-hosted types is handled with this route.
 
 * `scm_type`: SCM type (`github-enterprise` or `gitlab-self-hosted`)
 * `url`: Endpoint URL of the SCM platform
-* `access_token`: Access token provided by a SCM platform
+* `access_token`: Access token provided by an SCM platform
 
 If the `scm_type`, `url` or `access_token` is not valid, a 422 "Unprocessable entity" is returned
 Otherwise return 201
@@ -226,13 +230,13 @@ Returns 201 Created
 
 --- row ---
 
-## Delete/Unlink an SCM integration from your account
+## Delete/Unlink an SCM Integration From Your Account
 
 --- row ---
 
 `DELETE https://auth.scalingo.com/v1/scm_integrations/[:id]`
 
-Unlink a SCM platform from your account.
+Unlink an SCM platform from your account.
 
 ||| col |||
 
@@ -248,13 +252,13 @@ Returns 204 No Content
 
 --- row ---
 
-## Import SSH keys from a SCM platform
+## Import SSH Keys From an SCM Platform
 
 --- row ---
 
 `POST https://auth.scalingo.com/v1/scm_integrations/[:id]/import_keys`
 
-Import SSH keys directly from a SCM platform in your account
+Import SSH keys directly from an SCM platform in your account
 
 ||| col |||
 
