@@ -39,7 +39,7 @@ website](https://doc.scalingo.com/changelog).
 Base URL:
 
 ```
-https://$API_URL/v1/
+https://$SCALINGO_API_URL/v1/
 ```
 
 --- row ---
@@ -47,7 +47,7 @@ https://$API_URL/v1/
 ## Endpoints
 
 Scalingo being available on multiple regions, the API endpoint depends on the
-region your application is hosted on. It's designated by `API_URL` in
+region your application is hosted on. It's designated by `SCALINGO_API_URL` in
 this documentation and must be replaced with one of the following value:
 
 - Agora Calycé Paris: https://api.agora-fr1.scalingo.com
@@ -80,7 +80,7 @@ Parameters for GET and DELETE requests are known as _query parameters_, they are
 Example request:
 
 ```shell
-curl -X GET https://$API_URL/v1/apps/name/events?page=2
+curl -X GET https://$SCALINGO_API_URL/v1/apps/name/events?page=2
 ```
 
 --- row ---
@@ -98,7 +98,7 @@ Example request:
 ```shell
 curl -H 'Accept: application/json' -H 'Content-Type: application/json' \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X POST https://$API_URL/v1/apps -d \
+  -X POST https://$SCALINGO_API_URL/v1/apps -d \
   '{
     "app": {
       "name": "example-app"
@@ -215,7 +215,7 @@ Example request:
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
  -H "Authorization: Bearer $BEARER_TOKEN" \
- -X GET https://$API_URL/v1/apps
+ -X GET https://$SCALINGO_API_URL/v1/apps
 ```
 
 --- row ---
@@ -315,7 +315,7 @@ The JSON you've sent in the payload is is wrongly formatted.
 ```shell
 curl -H 'Content-Type: application/json' -H 'Accept: application/json' \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X POST https://$API_URL/v1/users/sign_in -d '{"user": {'
+  -X POST https://$SCALINGO_API_URL/v1/users/sign_in -d '{"user": {'
 ```
 
 Returns HTTP/1.1 400 Bad Request
@@ -340,7 +340,7 @@ If you try to do an action unauthorized in the free trial, you will get an error
 ```shell
 curl -H 'Content-Type: application/json' -H 'Accept: application/json' \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X POST https://$API_URL/v1/apps -d \
+  -X POST https://$SCALINGO_API_URL/v1/apps -d \
   '{
     "app" : {
       "name" : "my-new-app"
@@ -370,7 +370,7 @@ When you're doing a request to an invalid resource
 ```shell
 curl -H 'Content-Type: application/json' -H 'Accept: application/json' \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X GET https://$API_URL/v1/apps/123
+  -X GET https://$SCALINGO_API_URL/v1/apps/123
 ```
 
 Returns HTTP/1.1 404 Not Found
@@ -395,7 +395,7 @@ There is an invalid field in the JSON payload.
 ```shell
 curl -H 'Content-Type: application/json' -H 'Accept: application/json' \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X POST https://$API_URL/v1/apps -d '{}'
+  -X POST https://$SCALINGO_API_URL/v1/apps -d '{}'
 ```
 
 Returns HTTP/1.1 422 Unprocessable Entity
@@ -421,7 +421,7 @@ Invalid data were sent in the payload.
 ```shell
 curl -H 'Content-Type: application/json' -H 'Accept: application/json' \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X POST https://$API_URL/v1/apps -d \
+  -X POST https://$SCALINGO_API_URL/v1/apps -d \
   '{
     "app" : {
       "name" : "AnotherApp"
@@ -504,7 +504,7 @@ Example request
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X GET 'https://$API_URL/v1/apps/example-app/events?page=4&per_page=20'
+  -X GET 'https://$SCALINGO_API_URL/v1/apps/example-app/events?page=4&per_page=20'
 ```
 
 Returns 200 OK
@@ -727,7 +727,7 @@ Example request
 
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
-  -X PUT -u :$AUTH_TOKEN https://$API_URL/v1/apps/example-app/variables -d \
+  -X PUT -u :$AUTH_TOKEN https://$SCALINGO_API_URL/v1/apps/example-app/variables -d \
   '{
     "variables": [{
       "name":"RAILS_ENV",
@@ -786,7 +786,7 @@ Response
 {
    // ...
    "links": {
-      "output": "https://$API_URL/v1/apps/example-app/deployments/123e4567-e89b-12d3-a456-426655440000/output"
+      "output": "https://$SCALINGO_API_URL/v1/apps/example-app/deployments/123e4567-e89b-12d3-a456-426655440000/output"
    }
 }
 ```
@@ -803,7 +803,7 @@ Example request
 
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" -u :$AUTH_TOKEN \
-  -X POST 'https://$API_URL/v1/apps/example-app/scale' -d \
+  -X POST 'https://$SCALINGO_API_URL/v1/apps/example-app/scale' -d \
   '{
     "containers": [
       {
@@ -817,7 +817,7 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" -u :$AUTH
 
 Returns 202 Accepted (Asynchronous task)
 Headers:
-  * `Location`: 'https://$API_URL/v1/apps/example-app/operations/52fd2357356330032b080000'
+  * `Location`: 'https://$SCALINGO_API_URL/v1/apps/example-app/operations/52fd2357356330032b080000'
 
 ```json
 {
@@ -850,7 +850,7 @@ Example request:
 
 ```sh
 curl -H 'Content-Type: application/json' -H 'Accept: application/json' -u ":$AUTH" \
-  -X GET https://$API_URL/v1/apps/123
+  -X GET https://$SCALINGO_API_URL/v1/apps/123
 ```
 
 Response 404 Not found
@@ -874,13 +874,13 @@ After:
 
 ## Friday 6th March 2015:
 
-  The `user` object has been embedded to the the result of the `/users/sign_in` endpoint
+  The `user` object has been embedded to the result of the `/users/sign_in` endpoint
 
 ||| col |||
 
 ```sh
 curl -H 'Content-Type: application/json' -H 'Accept: application/json' -u ":$AUTH" \
-  -X POST https://$API_URL/v1/users/sign_in -d \
+  -X POST https://$SCALINGO_API_URL/v1/users/sign_in -d \
   '{
     "user": {
       "login": "test-user",
