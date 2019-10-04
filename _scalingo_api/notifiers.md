@@ -208,7 +208,7 @@ Returns 201 Created
 
 --- row ---
 
-## Update a notification
+## Update a notifier
 
 --- row ---
 
@@ -218,12 +218,12 @@ Change notifier attributes
 
 ### Parameters
 
-* `notification.active`
-* `notification.name`
-* `notification.send_all_alerts`
-* `notification.send_all_events`
-* `notification.type_data`
-* `notification.selected_event_ids`
+* `notifier.active`
+* `notifier.name`
+* `notifier.send_all_alerts`
+* `notifier.send_all_events`
+* `notifier.type_data`
+* `notifier.selected_event_ids`
 
 #### Deprecated
 
