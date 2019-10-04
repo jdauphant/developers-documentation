@@ -257,7 +257,7 @@ curl -H "Authorization: Bearer $BEARER_TOKEN" \
 
 --- row ---
 
-## Remove a notiifier
+## Remove a notifier
 
 --- row ---
 
