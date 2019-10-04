@@ -68,7 +68,7 @@ Example object:
 
 --- row ---
 
-## Data sent to the webhook endpoint (non-Slack)
+## Data Sent to the Webhook Endpoint (Non-Slack)
 
 --- row ---
 
@@ -105,7 +105,7 @@ Example of a deployment notification:
 ```
 --- row ---
 
-## List application notifiers
+## List Application Notifiers
 
 --- row ---
 
@@ -173,7 +173,7 @@ Returns 200 OK
 
 --- row ---
 
-## Add a notifier
+## Add a Notifier
 
 --- row ---
 
@@ -208,7 +208,7 @@ Returns 201 Created
 
 --- row ---
 
-## Update a notifier
+## Update a Notifier
 
 --- row ---
 
@@ -242,7 +242,7 @@ Returns 200 OK
 
 --- row ---
 
-## Test a notifier
+## Test a Notifier
 
 `POST https://$SCALINGO_API_URL/v1/apps/[:app]/notifiers/[:notifier_id]/test`
 
@@ -257,7 +257,7 @@ curl -H "Authorization: Bearer $BEARER_TOKEN" \
 
 --- row ---
 
-## Remove a notifier
+## Remove a Notifier
 
 --- row ---
 
