@@ -68,7 +68,7 @@ Example object:
 
 --- row ---
 
-## Data sent to the webhook endpoint (non-Slack)
+## Data Sent to the Webhook Endpoint (Non-Slack)
 
 --- row ---
 
@@ -105,7 +105,7 @@ Example of a deployment notification:
 ```
 --- row ---
 
-## List application notifiers
+## List Application Notifiers
 
 --- row ---
 
@@ -173,7 +173,7 @@ Returns 200 OK
 
 --- row ---
 
-## Add a notifier
+## Add a Notifier
 
 --- row ---
 
@@ -208,7 +208,54 @@ Returns 201 Created
 
 --- row ---
 
-## Update a notification
+## Show a Notifier
+
+--- row ---
+
+`GET https://$SCALINGO_API_URL/v1/apps/[:app]/notifiers/[:notifier_id]`
+
+||| col |||
+
+Example request
+
+```sh
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+ -H "Authorization: Bearer $BEARER_TOKEN" \
+ -X GET https://$SCALINGO_API_URL/v1/apps/myapp/notifiers/no-253ea554-bfe3-419c-aaaa-0bfc5bf51beef
+```
+
+Returns 200 OK
+
+```json
+{
+  "notifier": {
+    "id": "no-253ea554-bfe3-419c-aaaa-0bfc5bf51beef",
+    "name": "Default 'myapp' notifier",
+    "active": true,
+    "type": "email",
+    "platform_id": "59c52ac27651ce002c1d4620",
+    "created_at": "2017-10-30T14:43:15.777+01:00",
+    "updated_at": "2018-11-09T14:51:56.515+01:00",
+    "send_all_alerts": false,
+    "send_all_events": false,
+    "selected_event_ids": [
+      "59c52a9c7651ce001f62f578"
+    ],
+    "app_id": "59f72c73fb0de600aaa1234aaa",
+    "app": "myapp",
+    "type_data": {
+      "user_ids": [
+        "us-07c2180c-b4b4-123a-1234-fabcdbea"
+      ],
+      "emails": []
+    }
+  }
+}
+```
+
+--- row ---
+
+## Update a Notifier
 
 --- row ---
 
@@ -218,12 +265,12 @@ Change notifier attributes
 
 ### Parameters
 
-* `notification.active`
-* `notification.name`
-* `notification.send_all_alerts`
-* `notification.send_all_events`
-* `notification.type_data`
-* `notification.selected_event_ids`
+* `notifier.active`
+* `notifier.name`
+* `notifier.send_all_alerts`
+* `notifier.send_all_events`
+* `notifier.type_data`
+* `notifier.selected_event_ids`
 
 #### Deprecated
 
@@ -242,7 +289,7 @@ Returns 200 OK
 
 --- row ---
 
-## Test a notifier
+## Test a Notifier
 
 `POST https://$SCALINGO_API_URL/v1/apps/[:app]/notifiers/[:notifier_id]/test`
 
@@ -257,7 +304,7 @@ curl -H "Authorization: Bearer $BEARER_TOKEN" \
 
 --- row ---
 
-## Remove a notiifier
+## Remove a Notifier
 
 --- row ---
 
