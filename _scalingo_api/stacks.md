@@ -13,7 +13,7 @@ layout: default
 | field       | type    | description                             |
 | ---         | ---     | ---                                     |
 | id          | string  | unique ID, starts with 'st-'            |
-| name        | string  | stack name display name                 |
+| name        | string  | stack display name                 |
 | base_image  | string  | docker image used to build your app     |
 | default     | boolean | is this the default stack for new app   |
 | created_at  | date    | creation date of the stack              |
