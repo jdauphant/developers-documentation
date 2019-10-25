@@ -28,7 +28,7 @@ layout: default
   "base_image": "scalingo/builder-18:v7",
   "default": true,
   "created_at": "2019-04-15T16:15:00.147Z",
-  "description": "Runtime stack based on Ubuntu 18:04"
+  "description": "Runtime stack based on Ubuntu 18.04"
 }
 ```
 
@@ -60,7 +60,7 @@ Returns 200 OK
       "base_image": "scalingo/builder-18:v7",
       "default": true,
       "created_at": "2019-04-15T16:15:00.147Z",
-      "description": "Runtime stack based on Ubuntu 18:04"
+      "description": "Runtime stack based on Ubuntu 18.04"
     },
     {
       "id": "st-28835645-48b4-4c09-a4da-07aa411724c5",
@@ -68,7 +68,7 @@ Returns 200 OK
       "base_image": "scalingo/builder:v28",
       "default": false,
       "created_at": "2019-01-16T12:26:42.016Z",
-      "description": "Stack based on Ubuntu 14:04"
+      "description": "Stack based on Ubuntu 14.04"
     }
   ]
 }
