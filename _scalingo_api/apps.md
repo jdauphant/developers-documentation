@@ -27,6 +27,7 @@ layout: default
 | last_deployed_at    | date    | date of the last deployment attempt              |
 | last_deployed_by    | string  | user who attempted the last deployment           |
 | last_deployment_id  | string  | id of the last successful deployment             |
+| stack_id            | string  | id of the stack used                             |
 
 ||| col |||
 
