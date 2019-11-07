@@ -16,7 +16,7 @@ Link your Scalingo application to an existing integration.
 | -----                        | -----   | -----                                                                                               |
 | id                           | string  | unique ID                                                                                           |
 | app_id                       | string  | application ID                                                                                      |
-| auth_integration_uuid        | string  | ID of the [scm integration](./scm_integrations.md) linked to for authentication                     |
+| auth_integration_uuid        | string  | ID of the [scm integration](./scm_integrations.md) linked for authentication                        |
 | linker                       | object  | description of the user that linked this repository                                                 |
 | owner                        | string  | repository owner name                                                                               |
 | repo                         | string  | repository name                                                                                     |
