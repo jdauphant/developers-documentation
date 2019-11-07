@@ -112,6 +112,46 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
 
 --- row ---
 
+## Update a SCM Integration Link
+
+--- row ---
+
+`PATCH https://$SCALINGO_API_URL/v1/apps/:app_id/scm_repo_link`
+
+### Parameters
+
+* `branch`: Branch used for the auto deploy feature (optional)
+* `auto_deploy_enabled`: Trigger a new deployment when changes are pushed to the
+  branch specified with the `branch` parameter (optional)
+* `deploy_review_apps_enabled`: Enable the [review
+  app](https://doc.scalingo.com/platform/app/review-apps) feature (optional)
+* `delete_on_close_enabled`: Delete review apps when the linked pull request is
+  closed (optional)
+* `hours_before_delete_on_close`: Time to wait before deleting a review app
+  associated to a closed pull request (optional)
+* `delete_stale_enabled`: Delete review apps when the linked pull request wasn't
+  updated recently (optional)
+* `hours_before_delete_stale`: Time to wait for activity before considering the
+  pull request stale (optional)
+
+||| col |||
+
+Request example:
+
+```bash
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  -X PATCH https://$SCALINGO_API_URL/v1/apps/example-app/scm_repo_link -d \
+  '{
+    "scm_repo_link" : {
+      "branch":"prod",
+      "auto_deploy_enabled": true,
+    }
+  }'
+```
+
+--- row ---
+
 ## Get an Integration Link
 
 Get the integration link associated to an application.
