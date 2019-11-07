@@ -16,7 +16,7 @@ Link your Scalingo application to an existing integration.
 | -----                        | -----   | -----                                                                                               |
 | id                           | string  | unique ID                                                                                           |
 | app_id                       | string  | application ID                                                                                      |
-| scm_integration_uuid         | string  | ID of the existing integration                                                                      |
+| auth_integration_uuid        | string  | ID of the [scm integration](./scm_integrations.md) linked for authentication                        |
 | linker                       | object  | description of the user that linked this repository                                                 |
 | owner                        | string  | repository owner name                                                                               |
 | repo                         | string  | repository name                                                                                     |
@@ -41,7 +41,6 @@ Example object:
 {
   "id": "1d6e59a0-5377-11e8-90e6-0242ac110052",
   "app_id": "1d6e59a0-5377-11e8-90e6-0242ac110052",
-  "scm_integration_uuid": "7270f34c-c415-11e9-b01d-0242ac11003f",
   "auth_integration_uuid": "14235182-54f4-4951-be65-d78020615818",
   "linker": {
     "id":"us-aa263090-9a23-81f5-8c7c-5fd9a50a8fa8",
@@ -74,7 +73,7 @@ Example object:
 
 ### Parameters
 
-* `auth_integration_uuid`: SCM integration ID
+* `auth_integration_uuid`: Unique ID for the authentication of [scm integration](./scm_integrations.md)
 * `source`: URL of the SCM repository to link
 * `branch`: Branch used for the auto deploy feature (optional)
 * `auto_deploy_enabled`: Trigger a new deployment when changes are pushed to the
@@ -133,7 +132,6 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
     {
       "id":"42d04de5-5377-11e8-90e6-0242ac110052",
       "app_id": "1d6e59a0-5377-11e8-90e6-0242ac110052",
-      "scm_integration_uuid": "7270f34c-c415-11e9-b01d-0242ac11003f",
       "auth_integration_uuid": "14235182-54f4-4951-be65-d78020615818",
       "linker": {
         "id":"us-aa263090-9a23-81f5-8c7c-5fd9a50a8fa8",
