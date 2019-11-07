@@ -80,7 +80,6 @@ Example object:
   branch specified with the `branch` parameter (optional)
 * `deploy_review_apps_enabled`: Enable the [review
   app](https://doc.scalingo.com/platform/app/review-apps) feature (optional)
-* `destroy_review_apps_enabled`: WHAT IS THIS?
 * `delete_on_close_enabled`: Delete review apps when the linked pull request is
   closed (optional)
 * `hours_before_delete_on_close`: Time to wait before deleting a review app

@@ -27,6 +27,7 @@ layout: default
 | last_deployed_at    | date    | date of the last deployment attempt              |
 | last_deployed_by    | string  | user who attempted the last deployment           |
 | last_deployment_id  | string  | id of the last successful deployment             |
+| stack_id            | string  | id of the stack used                             |
 
 ||| col |||
 
@@ -72,6 +73,7 @@ Example object:
   hyphens in a row.
 * `app.git_source`: (*Optional*) URL to the future GitHub repository if your need
   to deploy from there without going through the `git push` workflow
+* `app.stack_id`: (*Optional*) ID of the stack that will be used for your app
 
 ### Custom Header
 
@@ -492,6 +494,7 @@ Returns 200 OK
 * `app.force_https`: boolean to enable or disable force HTTPS on the application
 * `app.sticky_session`: boolean to enable or disable sticky session on the application
 * `app.router_logs`: boolean to enable or disable the router logs on the application
+* `app.stack_id`: string that changes your application stack
 
 ||| col |||
 
