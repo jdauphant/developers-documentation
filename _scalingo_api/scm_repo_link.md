@@ -74,16 +74,13 @@ Example object:
 
 ### Parameters
 
-* `auth_integration_uuid`: WHAT IS THIS?
-* `scm_integration_uuid`: WHAT IS THIS?
-* `linker_id`: WHAT IS THIS?
+* `auth_integration_uuid`: SCM integration ID
 * `source`: URL of the SCM repository to link
 * `branch`: Branch used for the auto deploy feature (optional)
 * `auto_deploy_enabled`: Trigger a new deployment when changes are pushed to the
   branch specified with the `branch` parameter (optional)
 * `deploy_review_apps_enabled`: Enable the [review
   app](https://doc.scalingo.com/platform/app/review-apps) feature (optional)
-* `destroy_review_apps_enabled`: WHAT IS THIS?
 * `delete_on_close_enabled`: Delete review apps when the linked pull request is
   closed (optional)
 * `hours_before_delete_on_close`: Time to wait before deleting a review app
