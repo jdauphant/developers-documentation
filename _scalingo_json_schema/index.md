@@ -53,18 +53,30 @@ The keys of the environment object are the name of the variables you want to add
 Each of these keys has to respect the following properties:
 
 {:.table}
-| field          | type   | description                                             |
-| -------------- | ------ | ------------------------------------------------------- |
-| description    | string | Description of the variable to explain what it does     |
-| value          | string | (if no generator) Default value of the variable         |
-| generator      | string | (if no value) Use a generator to define a default value |
-| template       | string | (if generator is 'url') Template to generate value from |
+| field          | type   | description                                                           |
+| -------------- | ------ | --------------------------------------------------------------------- |
+| description    | string | Description of the variable to explain what it does                   |
+| value          | string | (if no generator) Default value of the variable                       |
+| generator      | string | (if no value) Use a generator to define a default value               |
+| template       | string | (if generator is 'url' or 'template') Template to generate value from |
 
-Two generators are available `secret` or `url`:
+Three generators are available `secret`, `template` or `url`:
 
 * `secret`: will generate a unique token as a default value of the variable.
   (Useful for instance when you've to generate a unique encryption seed key),
   example: `90ffea2d3071e8d86cafb89ff5060883`
+
+* `template`: will generate an environment variable based on the content of the
+  content of the `template` field, the following tokens will be substituted dynamically
+  by the expected values when surrounded by `%`:
+
+  * `APP`
+  * `PARENT_APP`
+  * `PR_NUMBER`
+
+  Example: If the review app being deployed is `my-app-pr10`:
+
+  * `Pull Request Number %PR_NUMBER%` -> `Pull Request Number 10`
 
 * `url`: will automatically insert the URL of the application will have once
   deployed. When this generator is used, the `template` property is taken into
