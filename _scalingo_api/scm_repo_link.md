@@ -238,6 +238,22 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
     "branch": "master"
   }'
 ```
+```json
+{
+  "deployment": {
+    "app_id": "54100930736f7563d5030000",
+    "created_at": "2014-09-10T10:49:42.390+02:00",
+    "git_ref": "abcdef1234567890",
+    "status": "build-error",
+    "id": "123e4567-e89b-12d3-a456-426655440000",
+    "pusher": {
+      "email": "user@example.com",
+      "id": "54100245736f7563d5000000",
+      "username": "john"
+    }
+  }
+}
+```
 
 --- row ---
 
