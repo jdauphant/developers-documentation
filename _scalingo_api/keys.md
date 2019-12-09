@@ -38,7 +38,7 @@ Example object:
 
 --- row ---
 
-`GET https://auth.scalingo.com/v1//keys`
+`GET https://auth.scalingo.com/v1/keys`
 
 Return the list of all the public keys which are able to connect to the
 platform.
@@ -120,7 +120,7 @@ Allow a new SSH key pair to deploy applications
 ### Parameters
 
 * `key.name`: Name of the key you want to add
-* `key.content`: Public SSH key content (ie. content of `~/.ssh/id_rsa.pub`)
+* `key.content`: Public SSH key content (i.e. content of `~/.ssh/id_rsa.pub`)
 
 ||| col |||
 
