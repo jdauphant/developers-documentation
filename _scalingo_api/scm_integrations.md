@@ -290,3 +290,122 @@ Returns 201 Created
   ]
 }
 ```
+
+--- row ---
+
+## Search Repositories From an SCM Platform
+
+--- row ---
+
+`GET https://auth.scalingo.com/v1/scm_integrations/[:id]/search_repos?query=XXX`
+
+Search repositories from an SCM platform
+
+||| col |||
+
+Example request
+
+```sh
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  -X POST https://auth.scalingo.com/v1/scm_integrations/5bb2e877-9e5c-a83f-8e0e-7c75eebf212c/search_repos?query=fork:true%20user:john-diggle
+```
+
+Returns 200 OK
+
+```json
+[
+  {
+    "id": 89341704,
+    "name": "example-repository",
+    "fullName": "john-diggle/example-repository",
+    "url": "https://github.com/john-diggle/example-repository",
+    "description": "Example Repository"
+  },
+  {
+    "id": 275241792,
+    "name": "project-docs",
+    "fullName": "john-diggle/project-docs",
+    "url": "https://github.com/john-diggle/project-docs",
+    "description": "Project documentation"
+  }
+]
+```
+
+--- row ---
+
+## Get your Organizations/Groups From an SCM Platform
+
+--- row ---
+
+`GET https://auth.scalingo.com/v1/scm_integrations/[:id]/orgs`
+
+Get your organizations (GitHub) or groups (GitLab) from an SCM platform
+
+||| col |||
+
+Example request
+
+```sh
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  -X POST https://auth.scalingo.com/v1/scm_integrations/5bb2e877-9e5c-a83f-8e0e-7c75eebf212c/orgs
+```
+
+Returns 200 OK
+
+```json
+[
+  {
+    "id": 4698196,
+    "login": "Test",
+    "avatarUrl": "https://avatars1.githubusercontent.com/u/4698196?v=4",
+    "url": "https://api.github.com/orgs/Test",
+    "description": "This is a test GitHub Organization."
+  },
+  {
+    "id": 56149608,
+    "login": "Another Organization",
+    "avatarUrl": "https://avatars3.githubusercontent.com/u/56149608?v=4",
+    "url": "https://api.github.com/orgs/another-org",
+    "description": "This is an another Organization."
+  }
+]
+```
+
+--- row ---
+
+## Search Pull Requests/Merge Requests From an SCM Platform
+
+--- row ---
+
+`GET https://auth.scalingo.com/v1/scm_integrations/[:id]/search_pull_requests?query=XXX`
+
+Search pull requests (GitHub) or merge requests (GitLab) from an SCM platform
+
+||| col |||
+
+Example request
+
+```sh
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  -X POST https://auth.scalingo.com/v1/scm_integrations/5bb2e877-9e5c-a83f-8e0e-7c75eebf212c/search_pull_requests?query=type:pr+is:open+repo:john-diggle/example-repository
+```
+
+Returns 200 OK
+
+```json
+[
+  {
+    "title": "Add logo",
+    "number": 3,
+    "html_url": "https://github.com/john-diggle/example-repository/pull/3"
+  },
+  {
+    "title": "Add feature",
+    "number": 8,
+    "html_url": "https://github.com/john-diggle/example-repository/pull/8"
+  }
+]
+```
