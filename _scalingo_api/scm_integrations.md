@@ -301,7 +301,11 @@ Returns 201 Created
 
 Search repositories from an SCM platform
 
-**Query Parameters for `?query=`**
+**Query Qualifiers**
+
+The format of the search query is: `?query=QUALIFIER_1+QUALIFIER_N`
+
+A query can contain theses supported search qualifiers, separated by `+` character:
 
 {:.table}
 | field                | type     | description                            |
@@ -391,7 +395,11 @@ Returns 200 OK
 
 Search pull requests (GitHub) or merge requests (GitLab) from an SCM platform
 
-**Query Parameters for `?query=`**
+**Query Qualifiers**
+
+The format of the search query is: `?query=QUALIFIER_1+QUALIFIER_N`
+
+A query can contain theses supported search qualifiers, separated by `+` character:
 
 {:.table}
 | field                | type     | description                                           |
