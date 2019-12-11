@@ -301,6 +301,14 @@ Returns 201 Created
 
 Search repositories from an SCM platform
 
+**Query Parameters for `?query=`**
+
+{:.table}
+| field                | type     | description                            |
+| -------------------- | -------- | -------------------------------------- |
+| fork                 | boolean  | Include fork project in the result     |
+| user                 | string   | Search within this user                |
+
 ||| col |||
 
 Example request
@@ -383,6 +391,14 @@ Returns 200 OK
 
 Search pull requests (GitHub) or merge requests (GitLab) from an SCM platform
 
+**Query Parameters for `?query=`**
+
+{:.table}
+| field                | type     | description                                           |
+| -------------------- | -------- | ----------------------------------------------------- |
+| is                   | string   | State: `open` or `closed`                             |
+| repo                 | string   | Search within a user's or organization's repositories |
+
 ||| col |||
 
 Example request
@@ -390,7 +406,7 @@ Example request
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X POST https://auth.scalingo.com/v1/scm_integrations/5bb2e877-9e5c-a83f-8e0e-7c75eebf212c/search_pull_requests?query=type:pr+is:open+repo:john-diggle/example-repository
+  -X POST https://auth.scalingo.com/v1/scm_integrations/5bb2e877-9e5c-a83f-8e0e-7c75eebf212c/search_pull_requests?query=is:open+repo:john-diggle/example-repository
 ```
 
 Returns 200 OK
