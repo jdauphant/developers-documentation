@@ -303,7 +303,7 @@ Search repositories from an SCM platform
 
 **Query Qualifiers**
 
-The format of the search query is: `?query=QUALIFIER_1+QUALIFIER_N`
+The format of the search query is: `?query=SEARCH_KEYWORD_1+SEARCH_KEYWORD_N+QUALIFIER_1+QUALIFIER_N`
 
 A query can contain theses supported search qualifiers, separated by `+` character:
 
@@ -320,33 +320,35 @@ Example request
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X POST https://auth.scalingo.com/v1/scm_integrations/5bb2e877-9e5c-a83f-8e0e-7c75eebf212c/search_repos?query=fork:true%20user:john-diggle
+  -X POST https://auth.scalingo.com/v1/scm_integrations/5bb2e877-9e5c-a83f-8e0e-7c75eebf212c/search_repos?query=example+fork:true+user:john-diggle
 ```
 
 Returns 200 OK
 
 ```json
-[
-  {
-    "id": 89341704,
-    "name": "example-repository",
-    "fullName": "john-diggle/example-repository",
-    "url": "https://github.com/john-diggle/example-repository",
-    "description": "Example Repository"
-  },
-  {
-    "id": 275241792,
-    "name": "project-docs",
-    "fullName": "john-diggle/project-docs",
-    "url": "https://github.com/john-diggle/project-docs",
-    "description": "Project documentation"
-  }
-]
+{
+  "repositories": [
+    {
+      "id": 89341704,
+      "name": "example-repository",
+      "fullName": "john-diggle/example-repository",
+      "url": "https://github.com/john-diggle/example-repository",
+      "description": "Example Repository"
+    },
+    {
+      "id": 275241792,
+      "name": "project-docs-example",
+      "fullName": "john-diggle/project-docs-example",
+      "url": "https://github.com/john-diggle/project-docs-example",
+      "description": "Project documentation example"
+    }
+  ]
+}
 ```
 
 --- row ---
 
-## Get your Organizations/Groups From an SCM Platform
+## Get Your Organizations/Groups From an SCM Platform
 
 --- row ---
 
@@ -367,22 +369,24 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
 Returns 200 OK
 
 ```json
-[
-  {
-    "id": 4698196,
-    "login": "Test",
-    "avatarUrl": "https://avatars1.githubusercontent.com/u/4698196?v=4",
-    "url": "https://api.github.com/orgs/Test",
-    "description": "This is a test GitHub Organization."
-  },
-  {
-    "id": 56149608,
-    "login": "Another Organization",
-    "avatarUrl": "https://avatars3.githubusercontent.com/u/56149608?v=4",
-    "url": "https://api.github.com/orgs/another-org",
-    "description": "This is an another Organization."
-  }
-]
+{
+  "organizations": [
+    {
+      "id": 4698196,
+      "login": "Test",
+      "avatarUrl": "https://avatars1.githubusercontent.com/u/4698196?v=4",
+      "url": "https://api.github.com/orgs/Test",
+      "description": "This is a test GitHub Organization."
+    },
+    {
+      "id": 56149608,
+      "login": "Another Organization",
+      "avatarUrl": "https://avatars3.githubusercontent.com/u/56149608?v=4",
+      "url": "https://api.github.com/orgs/another-org",
+      "description": "This is an another Organization."
+    }
+  ]
+}
 ```
 
 --- row ---
@@ -420,16 +424,18 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
 Returns 200 OK
 
 ```json
-[
-  {
-    "title": "Add logo",
-    "number": 3,
-    "html_url": "https://github.com/john-diggle/example-repository/pull/3"
-  },
-  {
-    "title": "Add feature",
-    "number": 8,
-    "html_url": "https://github.com/john-diggle/example-repository/pull/8"
-  }
-]
+{
+  "pull_requests": [
+    {
+      "title": "Add logo",
+      "number": 3,
+      "html_url": "https://github.com/john-diggle/example-repository/pull/3"
+    },
+    {
+      "title": "Add feature",
+      "number": 8,
+      "html_url": "https://github.com/john-diggle/example-repository/pull/8"
+    }
+  ]
+}
 ```
