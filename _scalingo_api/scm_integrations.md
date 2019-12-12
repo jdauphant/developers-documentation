@@ -290,3 +290,152 @@ Returns 201 Created
   ]
 }
 ```
+
+--- row ---
+
+## Search Repositories From an SCM Platform
+
+--- row ---
+
+`GET https://auth.scalingo.com/v1/scm_integrations/[:id]/search_repos?query=XXX`
+
+Search repositories from an SCM platform
+
+**Query Qualifiers**
+
+The format of the search query is: `?query=SEARCH_KEYWORD_1+SEARCH_KEYWORD_N+QUALIFIER_1+QUALIFIER_N`
+
+A query can contain theses supported search qualifiers, separated by `+` character:
+
+{:.table}
+| field                | type     | description                            |
+| -------------------- | -------- | -------------------------------------- |
+| fork                 | boolean  | Include fork project in the result     |
+| user                 | string   | Search within this user                |
+
+||| col |||
+
+Example request
+
+```sh
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  -X POST https://auth.scalingo.com/v1/scm_integrations/5bb2e877-9e5c-a83f-8e0e-7c75eebf212c/search_repos?query=example+fork:true+user:john-diggle
+```
+
+Returns 200 OK
+
+```json
+{
+  "repositories": [
+    {
+      "id": 89341704,
+      "name": "example-repository",
+      "fullName": "john-diggle/example-repository",
+      "url": "https://github.com/john-diggle/example-repository",
+      "description": "Example Repository"
+    },
+    {
+      "id": 275241792,
+      "name": "project-docs-example",
+      "fullName": "john-diggle/project-docs-example",
+      "url": "https://github.com/john-diggle/project-docs-example",
+      "description": "Project documentation example"
+    }
+  ]
+}
+```
+
+--- row ---
+
+## Get Your Organizations/Groups From an SCM Platform
+
+--- row ---
+
+`GET https://auth.scalingo.com/v1/scm_integrations/[:id]/orgs`
+
+Get your organizations (GitHub) or groups (GitLab) from an SCM platform
+
+||| col |||
+
+Example request
+
+```sh
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  -X POST https://auth.scalingo.com/v1/scm_integrations/5bb2e877-9e5c-a83f-8e0e-7c75eebf212c/orgs
+```
+
+Returns 200 OK
+
+```json
+{
+  "organizations": [
+    {
+      "id": 4698196,
+      "login": "Test",
+      "avatarUrl": "https://avatars1.githubusercontent.com/u/4698196?v=4",
+      "url": "https://api.github.com/orgs/Test",
+      "description": "This is a test GitHub Organization."
+    },
+    {
+      "id": 56149608,
+      "login": "Another Organization",
+      "avatarUrl": "https://avatars3.githubusercontent.com/u/56149608?v=4",
+      "url": "https://api.github.com/orgs/another-org",
+      "description": "This is an another Organization."
+    }
+  ]
+}
+```
+
+--- row ---
+
+## Search Pull Requests/Merge Requests From an SCM Platform
+
+--- row ---
+
+`GET https://auth.scalingo.com/v1/scm_integrations/[:id]/search_pull_requests?query=XXX`
+
+Search pull requests (GitHub) or merge requests (GitLab) from an SCM platform
+
+**Query Qualifiers**
+
+The format of the search query is: `?query=QUALIFIER_1+QUALIFIER_N`
+
+A query can contain theses supported search qualifiers, separated by `+` character:
+
+{:.table}
+| field                | type     | description                                           |
+| -------------------- | -------- | ----------------------------------------------------- |
+| is                   | string   | State: `open` or `closed`                             |
+| repo                 | string   | Search within a user's or organization's repositories |
+
+||| col |||
+
+Example request
+
+```sh
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  -X POST https://auth.scalingo.com/v1/scm_integrations/5bb2e877-9e5c-a83f-8e0e-7c75eebf212c/search_pull_requests?query=is:open+repo:john-diggle/example-repository
+```
+
+Returns 200 OK
+
+```json
+{
+  "pull_requests": [
+    {
+      "title": "Add logo",
+      "number": 3,
+      "html_url": "https://github.com/john-diggle/example-repository/pull/3"
+    },
+    {
+      "title": "Add feature",
+      "number": 8,
+      "html_url": "https://github.com/john-diggle/example-repository/pull/8"
+    }
+  ]
+}
+```
