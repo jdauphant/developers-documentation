@@ -135,17 +135,3 @@ Go:
 date, _ := time.Parse(time.RFC3339Nano, "2015-01-13T09:20:31.123+01:00")
 fmt.Println(date)
 ```
-
---- row ---
-
-# Changelog
-
---- row ---
-
-Wednesday 6th Feb 2019:
-
-* Initial release of our Database API
-  * Add backups endpoints
-  * Add databases endpoints
-  * Add logs endpoints
-  * Add metrics endpoints
