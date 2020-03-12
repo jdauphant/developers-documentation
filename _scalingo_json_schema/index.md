@@ -60,6 +60,8 @@ Each of these keys has to respect the following properties:
 | generator      | string | (if no value) Use a generator to define a default value               |
 | template       | string | (if generator is 'url' or 'template') Template to generate value from |
 
+_Note: supplying `null` or an empty string to `value` will remove the variable from the environment. It can be used to delete environment variables present in the parent app._
+
 Three generators are available `secret`, `template` or `url`:
 
 * `secret`: will generate a unique token as a default value of the variable.
