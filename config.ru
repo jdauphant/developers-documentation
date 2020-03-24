@@ -11,4 +11,10 @@ use Rack::Rewrite do
   }
 end
 
+if ENV['BASIC_AUTH_ENABLED']
+  use Rack::Auth::Basic, "Protected Area" do |username, password|
+    [username, password] == ENV['BASIC_AUTH'].split(":")
+  end
+end
+
 run Rack::Jekyll.new
