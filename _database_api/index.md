@@ -22,6 +22,7 @@ in this documentation and must be replaced with one of the following value:
 
 - Agora Calycé Paris: https://db-api.agora-fr1.scalingo.com
 - 3DS Outscale Paris: https://db-api.osc-fr1.scalingo.com
+- 3DS Outscale Paris SecNumCloud: https://db-api.osc-secnum-fr1.scalingo.com
 
 --- row ---
 
@@ -29,17 +30,11 @@ in this documentation and must be replaced with one of the following value:
 
 --- row ---
 
-Our Database API uses Bearer Token authentication. Those tokens are not
-delivered by the database API but by our main API. To learn how to get this
-token check our [main API documentation](/addons#get-addon-token).
-
---- row ---
-
-
-# Make an authenticated request
-
-HTTP requests have to be authenticated with HTTP bearer auth, with the
-authentication token as password, the username can be empty.
+Requests to the Database API must be authenticated. The authentication uses a
+Bearer Token. Those tokens are delivered by Scalingo main API. The process to
+get such token is explained on this [documentation
+page](/addons#get-addon-token). Then, use this token in the HTTP request as
+shown in the example.
 
 ||| col |||
 

@@ -52,6 +52,7 @@ this documentation and must be replaced with one of the following value:
 
 - Agora Calycé Paris: https://api.agora-fr1.scalingo.com
 - 3DS Outscale Paris: https://api.osc-fr1.scalingo.com
+- 3DS Outscale Paris SecNumCloud: https://api.osc-secnum-fr1.scalingo.com
 
 ## HTTP Verbs
 
