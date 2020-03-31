@@ -162,9 +162,6 @@ Returns 200 OK
 With this helper, you'll be able to trigger a deployment from your application
 without doing it by a `git push`.
 
-> Your application must have been created with the `git_source` attribute to be
-deployable this way.
-
 ### Attributes
 
 ```json
