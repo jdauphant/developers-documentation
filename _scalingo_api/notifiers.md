@@ -94,10 +94,18 @@ Example of a deployment notification:
   "type": "deployment",
   "type_data": {
     "deployment_id" : "5343eccd646aa3012a140230",
+    "deployment_type": "deployment",
     "pusher": "johndoe",
+    "stack": "scalingo-18",
+    "last_commits": {
+      "commits": [],
+      "remaining": 0
+    },
     "git_ref" : "0123456789abcdef",
+    "git_ref_url": "https://github.com/johndoe/appname/commit/0123456789abcdef",
     "status": "success",
-    "duration": 40
+    "duration": 40,
+    "finished_at": "2020-04-16T14:55:05.338+00:00"
   }
 }
 ```
