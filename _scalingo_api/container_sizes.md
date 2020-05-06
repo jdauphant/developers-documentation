@@ -20,6 +20,7 @@ layout: default
 | thirtydays_price | integer | Price for 30 days in cents                        |
 | memory           | integer | RAM allocated to the containers in bytes          |
 | human_cpu        | string  | Human representation of the CPU priority          |
+| sku              | string  | Stock Keeping Unit aka Products catalog ID        |
 
 ||| col |||
 
