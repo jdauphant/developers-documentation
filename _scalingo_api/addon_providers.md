@@ -44,13 +44,15 @@ Example object:
     "name": "free",
     "display_name": "512MB Free Tier",
     "price": 0.0,
-    "description": "[Markdown Description]"
+    "description": "[Markdown Description]",
+    "sku": "osc-fr1-redis-free"
   }, {
     "id": "5474a6c66461730001010000",
     "name": "1g",
     "display_name": "1G Database",
     "price": 14.4,
-    "description": "[Markdown Description]"
+    "description": "[Markdown Description]",
+    "sku": "osc-fr1-redis-1g"
   }]
 }
 ```
@@ -60,13 +62,14 @@ Example object:
 **Addon plan attributes**
 
 {:.table}
-| field        | type   | description               |
-| ------------ | ------ | ------------------------- |
-| id           | string | unique ID                 |
-| name         | string | name (internal reference) |
-| display_name | string | user friendly name        |
-| price        | float  | in euros                  |
-| description  | string | description of this plan  |
+| field        | type   | description                                |
+| ------------ | ------ | ------------------------------------------ |
+| id           | string | unique ID                                  |
+| name         | string | name (internal reference)                  |
+| display_name | string | user friendly name                         |
+| price        | float  | in euros                                   |
+| description  | string | description of this plan                   |
+| sku          | string | Stock Keeping Unit aka Products catalog ID |
 
 ||| col |||
 
@@ -78,7 +81,8 @@ Example object:
   "name": "free",
   "display_name": "512MB Free Tier",
   "price": 0.0,
-  "description": "[Markdown Description]"
+  "description": "[Markdown Description]",
+  "sku": "osc-fr1-redis-free"
 }
 ```
 
@@ -153,13 +157,15 @@ Returns 200 OK
             "name": "free",
             "display_name": "512MB Free Tier",
             "price": 0.0,
-            "description": "[Markdown Description]"
+            "description": "[Markdown Description]",
+            "sku": "osc-fr1-redis-free"
         }, {
             "id": "5474a6c66461730001010000",
             "name": "1g",
             "display_name": "1G Database",
             "price": 14.4,
-            "description": "[Markdown Description]"
+            "description": "[Markdown Description]",
+            "sku": "osc-fr1-redis-1g"
         }, ... ]
     }, {
         "name": "Scalingo MySQL",
