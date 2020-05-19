@@ -221,3 +221,615 @@ Returns 201 Created
   "operation_id": "5c10e85ca506b701f42f92dc"
 }
 ```
+
+--- row ---
+
+## Actions over Database Management System
+
+--- row---
+
+`POST https://db-api.scalingo.com/api/databases/[:db_id]/action`
+
+This generic endpoint aims at wrapping direct actions over the running
+database. The different possible actions depend on the type of the database,
+as well as their parameters and return value.
+
+Generic Parameters:
+
+```json
+{
+  "action_name": "name-of-the-action",
+  "params": {
+    "option1": "value1"
+  }
+}
+```
+
+Generic Success response
+
+```json
+{
+  "ok": 1,
+  "result": {"prop1": "value1"}
+}
+```
+
+Generic Error Response:
+
+```json
+{
+  "ok": 0,
+  "error": "something bad happened"
+}
+```
+
+### MySQL
+
+#### Logical Database Management
+
+* `list-databases`: List all logical databases of the database deployment
+
+||| col |||
+
+Result:
+
+```json
+{
+  "ok": 1,
+  "result": [
+    {
+      "name": "database-name-1234",
+      "protected": true
+    }, {
+      "name": "custom-db",
+      "protected": false
+    }
+  ]
+}
+```
+
+--- row ---
+
+* `create-database`: Create a new logical database
+
+||| col |||
+
+Params:
+
+```json
+{
+  "action_name": "create-database",
+  "params":  {
+    "database_name": "custom-db"
+  }
+}
+```
+
+Response:
+
+```json
+{
+  "ok": 1,
+  "result": {
+    "name": "custom-db",
+    "protected": false
+  }
+}
+```
+
+--- row ---
+
+* `delete-database`: Delete a logical database
+
+||| col |||
+
+Params:
+
+```json
+{
+  "action_name": "delete-database",
+  "params":  {
+    "database_name": "custom-db"
+  }
+}
+```
+
+Response:
+
+```json
+{
+  "ok": 1,
+  "result": null
+}
+```
+
+--- row ---
+
+* `reset-database`: Delete all data inside a logical database
+
+||| col |||
+
+Params:
+
+```json
+{
+  "action_name": "delete-database",
+  "params":  {
+    "database_name": "custom-db"
+  }
+}
+```
+
+Response:
+
+```json
+{
+  "ok": 1,
+  "result": null
+}
+```
+
+#### SQL Mode Configuration
+
+* `get-sqlmode`: Get the current SQL Mode of the database
+
+||| col |||
+
+Params:
+
+```json
+{
+  "action_name": "get-sqlmode",
+  "params":  null
+}
+```
+
+Response:
+
+```json
+{
+  "ok": 1,
+  "result": "ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
+}
+```
+
+--- row ---
+
+* `set-sqlmode`: Set the SQL Mode of the database
+
+||| col |||
+
+```json
+{
+  "action_name": "set-sqlmode",
+  "params":  "NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO"
+}
+```
+
+Response:
+
+```json
+{
+  "ok": 1,
+  "result": null
+}
+```
+
+--- row ---
+
+[MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html)
+
+### PostgreSQL
+
+#### Extensions Management
+
+* `list-extensions`: List enabled PostgreSQL extensions and their version
+
+||| col |||
+
+```json
+{
+  "action_name": "list-extensions",
+  "params": null
+}
+```
+
+Response:
+
+```json
+{
+  "ok": 1,
+  "result": [
+    {
+      "name": "plpgsql",
+      "version": "v1.0"
+    }, {
+      "name": "postgis",
+      "version": "v2.5.0"
+    }
+  ]
+}
+```
+
+--- row ---
+
+#### Running Query Management
+
+* `pg-list-queries`: List running and idle queries of the database
+
+||| col |||
+
+Params:
+
+```json
+{
+  "action_name": "pg-list-queries"
+}
+```
+
+Response:
+
+```javascript
+{
+  "ok": 1,
+  "result": [
+    {
+      "query": "SELECT * FROM users",
+      "state": "active",
+      "username": "username_1234",
+      "query_start": "2020-05-10T09:00:00Z",
+      "pid": 2000,
+      "query_duration": 1000000000
+    }, {
+      // ...
+    }
+  ]
+}
+```
+
+*`query_duration` is in nanoseconds*
+
+--- row ---
+
+* `pg-cancel-query`: Ask PostgreSQL to cancel: (`pg_cancel_backend` method)
+
+||| col |||
+
+Params:
+
+```json
+{
+  "action_name": "pg-cancel-query",
+  "params": {
+    "pid": 2000
+  }
+}
+```
+
+Response:
+
+```json
+{
+  "ok": 1,
+  "result": null
+}
+```
+
+--- row ---
+
+* `pg-terminate-query`: Force stop a running query (`pg_terminate_backend` method)
+
+||| col |||
+
+Params:
+
+```json
+{
+  "action_name": "pg-terminate-query",
+  "params": {
+    "pid": 2000
+  }
+}
+```
+
+Response:
+
+```json
+{
+  "ok": 1,
+  "result": null
+}
+```
+
+--- row ---
+
+[PostgreSQL documentation](https://www.postgresql.org/docs/12/functions-admin.html#FUNCTIONS-ADMIN-SIGNAL)
+
+#### Query Stats
+
+* `pg-stat-statements-enable`: Enable the collect of stats using the extension pg-stat-statements.
+
+||| col |||
+
+Params:
+
+```json
+{
+  "action_name": "pg-stat-statements-enable"
+}
+```
+
+Response:
+
+```json
+{
+  "ok": 1,
+  "result": null
+}
+```
+
+--- row ---
+
+* `pg-stat-statements-reset`: Reset stats collect
+
+||| col |||
+
+Params:
+
+```json
+{
+  "action_name": "pg-stat-statements-reset"
+}
+```
+
+Response:
+
+```json
+{
+  "ok": 1,
+  "result": null
+}
+```
+
+--- row ---
+
+* `pg-stat-statements-list`: List current stats
+
+||| col |||
+
+Params:
+
+```json
+{
+  "action_name": "pg-stat-statements-list"
+}
+```
+
+Response:
+
+```javascript
+{
+  "ok": 1,
+  "result": [
+    {
+      "user_id": 1000,
+      "query": "SELECT * FROM users",
+      "calls": 24512,
+      "rows": 500,
+      "total_time": 1837.1,
+      "min_time": 0.2,
+      "max_time": 3.5,
+      "mean_time": 0.6,
+      "std_dev": 0.1
+    }, {
+       // ...
+    }
+  ]
+}
+```
+
+--- row ---
+
+
+[PostgreSQL documentation](https://www.postgresql.org/docs/12/pgstatstatements.html)
+
+### MongoDB
+
+#### Logical Database Management
+
+* `list-databases`: List all logical databases of the database deployment
+
+|||  col |||
+
+Result:
+
+```json
+{
+  "ok": 1,
+  "result": [
+    {
+      "name": "database-name-1234",
+      "protected": true
+    }, {
+      "name": "custom-db",
+      "protected": false
+    }
+  ]
+}
+```
+
+--- row ---
+
+* `create-database`: Create a new logical database
+
+|||  col |||
+
+Params:
+
+```json
+{
+  "action_name": "create-database",
+  "params":  {
+    "database_name": "custom-db"
+  }
+}
+```
+
+Response:
+
+```json
+{
+  "ok": 1,
+  "result": {
+    "name": "custom-db",
+    "protected": false
+  }
+}
+```
+
+--- row ---
+
+* `delete-database`: Delete a logical database
+
+|||  col |||
+
+Params:
+
+```json
+{
+  "action_name": "delete-database",
+  "params":  {
+    "database_name": "custom-db"
+  }
+}
+```
+
+Response:
+
+```json
+{
+  "ok": 1,
+  "result": null
+}
+```
+
+--- row ---
+
+* `reset-database`: Delete all data inside a logical database
+
+|||  col |||
+
+Params:
+
+```json
+{
+  "action_name": "delete-database",
+  "params":  {
+    "database_name": "custom-db"
+  }
+}
+```
+
+Response:
+
+```json
+{
+  "ok": 1,
+  "result": null
+}
+```
+
+--- row ---
+
+### InfluxDB
+
+#### Retention Policy Management
+
+* `list-retention-policies`: List existing retention policies
+
+||| col |||
+
+Params:
+
+```json
+{
+  "action_name": "list-retention-policies"
+}
+```
+
+Response:
+
+```json
+{
+  "ok": 1,
+  "result":  [
+    {
+      "name": "autogen",
+      "duration": "0",
+      "default": true
+    }, {
+      "name": "30-days",
+      "duration": "30d",
+      "default": false
+    }
+  ]
+}
+```
+
+--- row ---
+
+* `add-retention-policy`: Create a new retention policy
+
+||| col |||
+
+Params:
+
+```json
+{
+  "action_name": "add-retention-policy",
+  "params":  {
+    "name": "30-days",
+    "duration": "30d",
+    "default": true
+  }
+}
+```
+
+Response:
+
+```json
+{
+  "ok": 1,
+  "result": null
+}
+```
+
+--- row ---
+
+* `del-retention-policy`: Delete an existing retention policy
+
+||| col |||
+
+Params:
+
+```json
+{
+  "action_name": "del-retention-policy",
+  "params":  {
+    "name": "30-days"
+  }
+}
+```
+
+Response:
+
+```json
+{
+  "ok": 1,
+  "result": null
+}
+```
+
+--- row ---
+
+[InfluxDB documentation](https://docs.influxdata.com/influxdb/v1.8/query_language/manage-database/)
