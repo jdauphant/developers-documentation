@@ -230,8 +230,8 @@ Returns 201 Created
 
 `POST https://db-api.scalingo.com/api/databases/[:db_id]/action`
 
-This generic endpoints aims are wrapping direct actions over the running
-database. The different actions possible depend of the type of the database,
+This generic endpoint aims at wrapping direct actions over the running
+database. The different possible actions depend on the type of the database,
 as well as their parameters and return value.
 
 Generic Parameters:
@@ -455,7 +455,7 @@ Response:
 
 #### Running Query Management
 
-* `pg-list-queries`: List running and idle queries to the database
+* `pg-list-queries`: List running and idle queries of the database
 
 ||| col |||
 
@@ -517,7 +517,7 @@ Response:
 
 --- row ---
 
-* `pg-terminate-query`: Force stop a running query: (`pg_terminate_backend` method)
+* `pg-terminate-query`: Force stop a running query (`pg_terminate_backend` method)
 
 ||| col |||
 
