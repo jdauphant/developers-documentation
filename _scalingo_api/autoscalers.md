@@ -47,7 +47,7 @@ Example object:
 
 --- row ---
 
-## List autoscalers of an app
+## List Autoscalers of an App
 
 --- row ---
 
@@ -80,7 +80,7 @@ Returns 200 OK
       "max_containers": 7,
       "metric": "rpm_per_container",
       "target": 150,
-      "disabled": false,
+      "disabled": false
     }
   ]
 }
@@ -88,7 +88,7 @@ Returns 200 OK
 
 --- row ---
 
-## Create a new autoscaler
+## Create a New Autoscaler
 
 --- row ---
 
@@ -144,7 +144,7 @@ Returns 201 Created
 
 --- row ---
 
-## Get an autoscaler
+## Get an Autoscaler
 
 --- row ---
 
@@ -183,7 +183,7 @@ Returns 200 OK
 
 --- row ---
 
-## Update an autoscaler
+## Update an Autoscaler
 
 --- row ---
 
@@ -199,7 +199,7 @@ Updates the autoscaler attributes.
 
 All parameters are optional.
 
-* `metric:
+* `metric`:
 * `target`
 * `min_containers`
 * `max_containers`
@@ -242,7 +242,7 @@ Returns 200 OK
 
 --- row ---
 
-## Delete an autoscaler
+## Delete an Autoscaler
 
 --- row ---
 
