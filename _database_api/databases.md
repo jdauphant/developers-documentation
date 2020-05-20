@@ -369,6 +369,8 @@ Response:
 }
 ```
 
+--- row ---
+
 #### SQL Mode Configuration
 
 * `get-sqlmode`: Get the current SQL Mode of the database
