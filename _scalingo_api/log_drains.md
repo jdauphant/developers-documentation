@@ -150,3 +150,33 @@ Returns 201 Created
 ```
 
 --- row ---
+
+## Delete a log drain
+
+--- row ---
+
+`DELETE https://$SCALINGO_API_URL/v1/apps/:app/log_drains`
+
+### Parameter
+
+* `url`: formatted URL return by create request or list request
+
+||| col |||
+
+Example request
+
+```shell
+curl -H 'Accept: application/json' -H 'Content-Type: application/json' -u ":$AUTH_TOKEN" \
+  -X DELETE https://$SCALINGO_API_URL/v1/apps/example-app/log_drains -d \
+  '{
+    "url": "ovh://:5af97be7-34e5-47b6-a016-8d0001228ffb@tag1.logs.ovh.com:6514"
+   }'
+```
+
+Returns 200 Ok
+
+```json
+{}
+```
+
+--- row ---
