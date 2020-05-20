@@ -11,7 +11,7 @@ layout: default
 
 {:.table}
 | field                         | type    | description                                    |
-| ------------------            | ------- | ---------------------------------------------- |
+| ----------------------------  | ------- | ---------------------------------------------- |
 | id                            | string  | unique ID                                      |
 | resource_id                   | string  | resource reference                             |
 | app_name                      | string  | name of the linked application                 |
@@ -68,7 +68,7 @@ Example object:
         "hostname": "a7ecbaf9-7f3c-4324-bf35-975f546718c2.test-db.redis.dbs.scalingo.com",
         "port": 1234,
         "status": "running",
-        "type": "db-node",
+        "type": "db-node"
       }
     ],
     "readable_version": "3.2.9-1",
@@ -226,7 +226,7 @@ Returns 201 Created
 
 ## Actions over Database Management System
 
---- row---
+--- row ---
 
 `POST https://db-api.scalingo.com/api/databases/[:db_id]/action`
 
@@ -630,7 +630,6 @@ Response:
 
 --- row ---
 
-
 [PostgreSQL documentation](https://www.postgresql.org/docs/12/pgstatstatements.html)
 
 ### MongoDB
@@ -639,7 +638,7 @@ Response:
 
 * `list-databases`: List all logical databases of the database deployment
 
-|||  col |||
+||| col |||
 
 Result:
 
@@ -662,7 +661,7 @@ Result:
 
 * `create-database`: Create a new logical database
 
-|||  col |||
+||| col |||
 
 Params:
 
@@ -691,7 +690,7 @@ Response:
 
 * `delete-database`: Delete a logical database
 
-|||  col |||
+||| col |||
 
 Params:
 
@@ -717,7 +716,7 @@ Response:
 
 * `reset-database`: Delete all data inside a logical database
 
-|||  col |||
+||| col |||
 
 Params:
 
