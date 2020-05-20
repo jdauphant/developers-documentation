@@ -1,29 +1,30 @@
 ---
-title: Log drains
+title: Log Drains
 layout: default
 ---
 
-# Log drains
+# Log Drains
 
-Log from an application can be redirect to a management service.
-You can add multiple log drains from a single application.
-You can also remove or list log drains by application.
+Logs from an application can be redirected to a log management service.
+You can add multiple log drains to a single application.
+You can also remove or list log drains of an application.
 
-You will find how to enable this service from the CLI on the <a href="https://doc.scalingo.com/platform/app/log-drain">public documentation</a>
+You will find how to enable this service using the CLI on the
+<a href="https://doc.scalingo.com/platform/app/log-drain">public documentation</a>.
 
 --- row ---
 
 **Supported protocol and logs management services with their parameter**
 
 {:.table}
-| Logs management service   | type        | token | host | port | drain_region | url | will format urls:                                    |
-| ------------------------- | ------------| ----- | ---- | ---- | ------------ | --- | ---------------------------------------------------- |
-| Datadog                   | datadog     | ✓     |      |      | ✓            |     | datadog://`TOKEN`?region=`DRAIN_REGION`              |
-| OVH hosted Graylog        | ovh-graylog | ✓     | ✓    |      |              |     | ovh://:`TOKEN`@`HOST`:6514                           |
-| Logentries                | logentries  | ✓     |      |      |              |     | https://webhook.logentries.com/noformat/logs/`TOKEN` |
-| Papertrail                | papertrail  |       | ✓    | ✓    |              |     | tcp+tls://`HOST`:`PORT`                              |
-| Syslog                    | syslog      |       | ✓    | ✓    |              |     | tcp+tls://`HOST`:`PORT`                              |
-| Self-hosted ELK stack     | elk         |       |      |      |              | ✓   | `URL`                                                |
+| Logs management service   | type        | token | host | port | drain_region | url |
+| ------------------------- | ------------| ----- | ---- | ---- | ------------ | --- |
+| Datadog                   | datadog     | ✓     |      |      | ✓            |     |
+| OVH hosted Graylog        | ovh-graylog | ✓     | ✓    |      |              |     |
+| Logentries                | logentries  | ✓     |      |      |              |     |
+| Papertrail                | papertrail  |       | ✓    | ✓    |              |     |
+| Syslog                    | syslog      |       | ✓    | ✓    |              |     |
+| Self-hosted ELK stack     | elk         |       |      |      |              | ✓   |
 
 --- row ---
 
@@ -40,13 +41,14 @@ You will find how to enable this service from the CLI on the <a href="https://do
 | url                 | string  | URL of self hosted ELK                                           |
 
 
-Note: `type` is mandatory.
+Note: `type` is mandatory. Mandatory attributes will depend on the chosen type, please
+refer to the first table.
 
 ||| col |||
 
 --- row ---
 
-## List log drains of an app
+## List Log Drains of an App
 
 --- row ---
 
@@ -78,7 +80,7 @@ Returns 200 OK
 
 --- row ---
 
-## Create a new log drain
+## Add a new Log Drain
 
 --- row ---
 
@@ -86,16 +88,18 @@ Returns 200 OK
 
 ### Parameters
 
-* `type`: can be any supported log management services type (e.g. papertrail, datadog...)
-* `token`: used by certain vendor for authentication
-* `host`: host of logs management service
-* `port`: port of logs management service
-* `drain_region`: region used by logs management service to identify their servers (e.g. region provided by datadog)
+* `type`: can be any supported log management services type (e.g. papertrail,
+datadog...)
+* `token`: used by certain vendor for authentication (optional)
+* `host`: host of logs management service (optional)
+* `port`: port of logs management service (optional)
+* `drain_region`: region used by logs management service to identify their
+servers (e.g. region provided by datadog) (optional)
 * `url`: URL of self hosted ELK
 
 ||| col |||
 
-Example request
+Example requests
 
 ```shell
 curl -H 'Accept: application/json' -H 'Content-Type: application/json' -u ":$AUTH_TOKEN" \
