@@ -80,7 +80,7 @@ Returns 200 OK
       "max_containers": 7,
       "metric": "rpm_per_container",
       "target": 150,
-      "disabled": false,
+      "disabled": false
     }
   ]
 }
@@ -199,7 +199,7 @@ Updates the autoscaler attributes.
 
 All parameters are optional.
 
-* `metric:
+* `metric`:
 * `target`
 * `min_containers`
 * `max_containers`
