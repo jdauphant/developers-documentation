@@ -95,7 +95,7 @@ datadog...)
 * `port`: port of logs management service (optional)
 * `drain_region`: region used by logs management service to identify their
 servers (e.g. region provided by datadog) (optional)
-* `url`: URL of self hosted ELK
+* `url`: URL of self hosted ELK (optional)
 
 ||| col |||
 
