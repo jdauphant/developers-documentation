@@ -80,7 +80,7 @@ Parameters for GET and DELETE requests are known as _query parameters_, they are
 
 Example request:
 
-```sh
+```shell
 curl -X GET https://$SCALINGO_API_URL/v1/apps/name/events?page=2
 ```
 
@@ -96,7 +96,7 @@ they should be encoded as JSON with the following header: `Content-Type:
 
 Example request:
 
-```sh
+```shell
 curl -H 'Accept: application/json' -H 'Content-Type: application/json' \
   -H "Authorization: Bearer $BEARER_TOKEN" \
   -X POST https://$SCALINGO_API_URL/v1/apps -d \
@@ -301,27 +301,20 @@ fmt.Println(date)
 
 # Errors
 
-## Client Errors - Status Codes: 4xx
+## Client errors - Status codes: 4xx
 
 --- row ---
 
-### 400 Bad Request
+### Invalid JSON - 400 Bad Request
 
 --- row ---
 
-Returned in various cases:
-
-- The JSON you sent in the payload is wrongly formatted.
-- A parameter is missing in the request (e.g. missing `plan_id` when
-    provisioning a new addon).
-- A parameter is not valid.
-- The resource creation is impossible because the same resource already exists
-    (e.g. autoscaler, migration)
+The JSON you've sent in the payload is is wrongly formatted.
 
 ||| col |||
 
-```sh
-curl -H "Content-Type: application/json" -H "Accept: application/json" \
+```shell
+curl -H 'Content-Type: application/json' -H 'Accept: application/json' \
   -H "Authorization: Bearer $BEARER_TOKEN" \
   -X POST https://$SCALINGO_API_URL/v1/users/sign_in -d '{"user": {'
 ```
@@ -330,14 +323,13 @@ Returns HTTP/1.1 400 Bad Request
 
 ```json
 {
-  "error" : "There was a problem in the JSON you submitted: 795: unexpected token at '{\"user\": {'",
-  "code": "TODO"
+  "error" : "There was a problem in the JSON you submitted: 795: unexpected token at '{\"user\": {'"
 }
 ```
 
 --- row ---
 
-### 402 Payment Required - Exceeding free trial
+### Exceeding free trial - 402 Payment Required
 
 --- row ---
 
@@ -346,8 +338,8 @@ If you try to do an action unauthorized in the free trial, you will get an error
 
 ||| col |||
 
-```sh
-curl -H "Content-Type: application/json" -H "Accept: application/json" \
+```shell
+curl -H 'Content-Type: application/json' -H 'Accept: application/json' \
   -H "Authorization: Bearer $BEARER_TOKEN" \
   -X POST https://$SCALINGO_API_URL/v1/apps -d \
   '{
@@ -368,18 +360,18 @@ Returns 402 Payment Required if user is not allowed to create a new app.
 
 --- row ---
 
-### 404 Not Found
+### Resource not found - 404 Not found
 
 --- row ---
 
-When you execute a request to an unknown resource.
+When you're doing a request to an invalid resource
 
 ||| col |||
 
-```sh
-curl -H "Content-Type: application/json" -H "Accept: application/json" \
+```shell
+curl -H 'Content-Type: application/json' -H 'Accept: application/json' \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X GET https://$SCALINGO_API_URL/v1/apps/unknown-app
+  -X GET https://$SCALINGO_API_URL/v1/apps/123
 ```
 
 Returns HTTP/1.1 404 Not Found
@@ -393,7 +385,7 @@ Returns HTTP/1.1 404 Not Found
 
 --- row ---
 
-### 422 Unprocessable Entity - Invalid Field
+### Invalid field - 422 Unprocessable Entity
 
 --- row ---
 
@@ -401,15 +393,10 @@ There is an invalid field in the JSON payload.
 
 ||| col |||
 
-```sh
-curl -H "Content-Type: application/json" -H "Accept: application/json" \
+```shell
+curl -H 'Content-Type: application/json' -H 'Accept: application/json' \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X POST https://$SCALINGO_API_URL/v1/apps/example-app/domains -d \
-  '{
-    "domain" : {
-      "name" : "-example.com"
-    }
-  }'
+  -X POST https://$SCALINGO_API_URL/v1/apps -d '{}'
 ```
 
 Returns HTTP/1.1 422 Unprocessable Entity
@@ -417,14 +404,14 @@ Returns HTTP/1.1 422 Unprocessable Entity
 ```json
 {
   "errors" : {
-    "name": [ "invalid domain name" ]
+    "app": [ "missing field" ]
   }
 }
 ```
 
 --- row ---
 
-### 422 Unprocessable Entity - Invalid Data
+### Invalid data - 422 Unprocessable Entity
 
 --- row ---
 
@@ -432,13 +419,13 @@ Invalid data were sent in the payload.
 
 ||| col |||
 
-```sh
+```shell
 curl -H 'Content-Type: application/json' -H 'Accept: application/json' \
   -H "Authorization: Bearer $BEARER_TOKEN" \
   -X POST https://$SCALINGO_API_URL/v1/apps -d \
   '{
     "app" : {
-      "name" : "-myapp"
+      "name" : "AnotherApp"
     }
   }'
 ```
@@ -448,14 +435,14 @@ Returns HTTP/1.1 422 Unprocessable Entity
 ```json
 {
   "errors": {
-    "name": [ "can't start with an hyphen" ]
+    "name": [ "should contain only lowercap letters, digits and hyphens" ]
   }
 }
 ```
 
 --- row ---
 
-### 50x - Server Errors
+### Server errors - 50x
 
 --- row ---
 
@@ -477,18 +464,19 @@ Example of error 500:
 
 # Pagination
 
-Some resources provided by the platform API are paginated. To ensure you can
-correctly handle it, metadata are added to the JSON of the response.
+Some resources provided by the platform API are paginated. To
+ensure you can correctly handle it, metadata are added to the JSON of the
+response.
 
 --- row ---
 
-## Request Parameters
+## Request parameters
 
 * `page`: Requested page number
 * `per_page`: Number of entries per page.
   Each resource has a maximum for this value to avoid oversized requests
 
-## Response Meta Values
+## Response meta values
 
 The returned JSON object will include a `meta` key including pagination
 metadata:
