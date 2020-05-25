@@ -40,7 +40,7 @@ Example object:
 
 --- row ---
 
-## Display Your Referral Statistics
+## Get the List of Regions
 
 `GET https://$SCALINGO_AUTH_URL/v1/regions`
 
