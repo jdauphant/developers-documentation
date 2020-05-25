@@ -173,10 +173,7 @@ curl -H 'Accept: application/json' -H 'Content-Type: application/json' -u ":$AUT
    }'
 ```
 
-Returns 200 Ok
+Returns 204 No Content
 
-```json
-{}
-```
 
 --- row ---
