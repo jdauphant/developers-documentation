@@ -151,7 +151,7 @@ Returns 201 Created
 
 --- row ---
 
-## Delete a log drain
+## Delete a Log Drain
 
 --- row ---
 
@@ -159,7 +159,8 @@ Returns 201 Created
 
 ### Parameter
 
-* `url`: formatted URL return by create request or list request
+* `url`: logs drain URL to delete. You can get it by listing the logs drain of
+an application.
 
 ||| col |||
 
