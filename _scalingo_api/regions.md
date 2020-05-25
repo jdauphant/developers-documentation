@@ -7,7 +7,7 @@ layout: default
 
 --- row ---
 
-**Referral Stats Attributes**
+**Region Attributes**
 
 {:.table}
 | field           | type   | description                                    |
