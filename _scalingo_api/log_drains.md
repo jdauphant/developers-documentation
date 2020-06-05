@@ -66,16 +66,18 @@ curl -H 'Accept: application/json' -H 'Content-Type: application/json' -u ":$AUT
 Returns 200 OK
 
 ```json
-[
-    {
-        "app_id": "5af97be7ff688d0001228ffb",
-        "url": "ovh://:id@tag1.logs.ovh.com:6514"
-    },
-    {
-        "app_id": "5af97be7ff688d0001228ffb",
-        "url": "syslog://:id@custom.logs.com:port"
-    }
-]
+{
+    "drains": [
+        {
+            "app_id": "5af97be7ff688d0001228ffb",
+            "url": "ovh://:id@tag1.logs.ovh.com:6514"
+        },
+        {
+            "app_id": "5af97be7ff688d0001228ffb",
+            "url": "syslog://:id@custom.logs.com:port"
+        }
+    ]
+}
 ```
 
 --- row ---
