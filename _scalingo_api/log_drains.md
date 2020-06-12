@@ -5,9 +5,9 @@ layout: default
 
 # Log Drains
 
-Logs from an application can be redirected to a log management service.
-You can add multiple log drains to a single application.
-You can also remove or list log drains of an application.
+Logs from an application or addon can be redirected to a log management service.
+You can add multiple log drains to a single application or addon. You can also
+remove or list log drains of an application or addon.
 
 You will find how to enable this service using the CLI on the
 <a href="https://doc.scalingo.com/platform/app/log-drain">public documentation</a>.
@@ -39,6 +39,7 @@ You will find how to enable this service using the CLI on the
 | port                | string  | Port of logs management service                                  |
 | drain-region        | string  | Region used by logs management service to identify their servers |
 | url                 | string  | URL of self hosted ELK                                           |
+| addon_id            | string  | UUID of the addon you want to add it to                          |
 
 
 Note: `type` is mandatory. Mandatory attributes will depend on the chosen type, please
@@ -74,6 +75,44 @@ Returns 200 OK
         },
         {
             "app_id": "5af97be7ff688d0001228ffb",
+            "url": "syslog://:id@custom.logs.com:port"
+        }
+    ]
+}
+```
+
+--- row ---
+
+## List Log Drains of an Addon
+
+--- row ---
+
+`GET https://$SCALINGO_API_URL/v1/apps/:app/log_drains?addon_id=ad-9be0fc04-bee6-4981-a403-a9dd4981bd1f`
+
+### Parameter
+
+* `addon_id`: UUID of the addon you want to add it
+
+||| col |||
+
+Example request
+
+```shell
+curl -H 'Accept: application/json' -H 'Content-Type: application/json' -u ":$AUTH_TOKEN" \
+ -X GET "https://$SCALINGO_API_URL/v1/apps/example-app/log_drains?addon_id=ad-9be0fc04-bee6-4981-a403-a9dd4981bd1f"
+```
+
+Returns 200 OK
+
+```json
+{
+    "drains": [
+        {
+            "app_id": "5ede0fa8c6f3480089aa415c",
+            "url": "ovh://:id@tag1.logs.ovh.com:6514"
+        },
+        {
+            "app_id": "5ede0fa8c6f3480089aa415c",
             "url": "syslog://:id@custom.logs.com:port"
         }
     ]
