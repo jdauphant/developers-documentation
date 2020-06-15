@@ -265,7 +265,7 @@ Generic Error Response:
 
 ### MySQL
 
-#### Logical Database Management
+#### MySQL Logical Databases Management
 
 * `list-databases`: List all logical databases of the database deployment
 
@@ -371,7 +371,7 @@ Response:
 
 --- row ---
 
-#### SQL Mode Configuration
+#### MySQL SQL Mode Configuration
 
 * `get-sqlmode`: Get the current SQL Mode of the database
 
@@ -423,7 +423,7 @@ Response:
 
 ### PostgreSQL
 
-#### Extensions Management
+#### PostgreSQL Extensions Management
 
 * `list-extensions`: List enabled PostgreSQL extensions and their version
 
@@ -455,7 +455,7 @@ Response:
 
 --- row ---
 
-#### Running Query Management
+#### PostgreSQL Running Queries Management
 
 * `pg-list-queries`: List running and idle queries of the database
 
@@ -547,7 +547,7 @@ Response:
 
 [PostgreSQL documentation](https://www.postgresql.org/docs/12/functions-admin.html#FUNCTIONS-ADMIN-SIGNAL)
 
-#### Query Stats
+#### PostgreSQL Query Stats
 
 * `pg-stat-statements-enable`: Enable the collect of stats using the extension pg-stat-statements.
 
@@ -636,7 +636,7 @@ Response:
 
 ### MongoDB
 
-#### Logical Database Management
+#### MongoDB Logical Databases Management
 
 * `list-databases`: List all logical databases of the database deployment
 
@@ -744,7 +744,7 @@ Response:
 
 ### InfluxDB
 
-#### Retention Policy Management
+#### InfluxDB Retention Policy Management
 
 * `list-retention-policies`: List existing retention policies
 
