@@ -119,7 +119,7 @@ scalingo.json of
   },
   "addons": ["scalingo-mongodb:mongo-starter-256"],
   "scripts": {
-    "first-deploy" "echo 'first deployment'",
+    "first-deploy": "echo 'first deployment'",
     "postdeploy": "echo hello"
   },
   "formation": {
