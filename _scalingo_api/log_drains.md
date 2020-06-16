@@ -87,11 +87,7 @@ Returns 200 OK
 
 --- row ---
 
-`GET https://$SCALINGO_API_URL/v1/apps/:app/log_drains?addon_id=ad-9be0fc04-bee6-4981-a403-a9dd4981bd1f`
-
-### Parameter
-
-* `addon_id`: UUID of the addon you want to add it
+`GET https://$SCALINGO_API_URL/v1/apps/:app/addons/:addon_id/log_drains`
 
 ||| col |||
 
@@ -99,21 +95,25 @@ Example request
 
 ```shell
 curl -H 'Accept: application/json' -H 'Content-Type: application/json' -u ":$AUTH_TOKEN" \
- -X GET "https://$SCALINGO_API_URL/v1/apps/example-app/log_drains?addon_id=ad-9be0fc04-bee6-4981-a403-a9dd4981bd1f"
+ -X GET "https://$SCALINGO_API_URL/v1/apps/example-app/addons/ad-9be0fc04-bee6-4981-a403-a9dd4981bd1f/log_drains"
 ```
 
 Returns 200 OK
 
 ```json
 {
+    "addon": {
+        "id": "5edea403c6f3498189aa4981",
+        "name": "example-app-4918"
+    },
     "drains": [
         {
-            "app_id": "5ede0fa8c6f3480089aa415c",
-            "url": "ovh://:id@tag1.logs.ovh.com:6514"
+            "app_id": "5edea403c6f3498189aa4981",
+            "url": "ovh://:id@tag1.logs.ovh.com:6514",
         },
         {
-            "app_id": "5ede0fa8c6f3480089aa415c",
-            "url": "syslog://:id@custom.logs.com:port"
+            "app_id": "5edea403c6f3498189aa4981",
+            "url": "syslog://:id@custom.logs.com:port",
         }
     ]
 }
