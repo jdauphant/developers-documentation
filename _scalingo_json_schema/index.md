@@ -39,12 +39,10 @@ or `scalingo.json`. The latter will always take priority over the first one.
 
 Optional arguments are in italics.
 
-The _addons_ field contains an array of string using the format `addon-name:plan-id`
-like: `scalingo-mongodb:mongo-starter-256` or `scalingo-redis:free`.
-
 **Environment**
 
-The keys of the environment object are the name of the variables you want to add
+The keys of the environment object are the name of the variables you want to
+add.
 
 {:.table}
 | field          | type   | description                                       |
@@ -87,8 +85,7 @@ Three generators are available `secret`, `template` or `url`:
 
 ||| col |||
 
-scalingo.json of
-[sample-go-martini](https://github.com/Scalingo/sample-go-martini/tree/dev-oneclick)
+scalingo.json example
 
 ```json
 {
@@ -117,9 +114,16 @@ scalingo.json of
       "template": "%URL%/admin"
     }
   },
-  "addons": ["scalingo-mongodb:mongo-starter-256"],
+  "addons": [
+    {
+      "plan": "mongodb:mongo-starter-256",
+      "options": {
+        "version": "4.0.16-1"
+      }
+    }
+  ],
   "scripts": {
-    "first-deploy" "echo 'first deployment'",
+    "first-deploy": "echo 'first deployment'",
     "postdeploy": "echo hello"
   },
   "formation": {
@@ -134,6 +138,28 @@ scalingo.json of
   }
 }
 ```
+
+--- row ---
+
+**Addons**
+
+If no `addons` key is specified, the default behaviour is to duplicate the
+addons from the parent application.
+
+The _addons_ field contains an array of object describing the addons you need to
+deploy for your review app. The object must have the following properties:
+
+{:.table}
+| field    | type   | description                           |
+| -------- | ------ | ------------------------------------- |
+| plan     | string | Plan of the addon of the review app   |
+| options  | object | Various options regarding the addon   |
+
+The `plan` uses the format `addon-name:plan-id`. E.g.
+`mongodb:mongo-starter-256` or `redis:redis-sandbox`.
+
+The only `options` field is `version` which contains the version to deploy (e.g.
+`4.0.16-1`).
 
 --- row ---
 
@@ -178,7 +204,7 @@ Example:
 **Scripts**
 
 > The `scripts.postdeploy` key is now deprecated in favor of postdeploy hook in the `Procfile`. More information
-on the [dedicated page](https://doc.scalingo.com/platform/app/postdeploy-hook).
+> on the [dedicated page](https://doc.scalingo.com/platform/app/postdeploy-hook).
 
 {:.table}
 | field          | type   | description                                                                                     |
