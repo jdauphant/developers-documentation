@@ -186,6 +186,74 @@ Returns 201 Created
 }
 ```
 
+## Add a new Log Drain to an Addon
+
+--- row ---
+
+`POST https://$SCALINGO_API_URL/v1/apps/:app/addons/:addon_uuid/log_drains`
+
+### Parameters
+
+* `type`: can be any supported log management services type (e.g. papertrail,
+datadog...)
+* `token`: used by certain vendor for authentication (optional)
+* `host`: host of logs management service (optional)
+* `port`: port of logs management service (optional)
+* `drain_region`: region used by logs management service to identify their
+servers (e.g. region provided by datadog) (optional)
+* `url`: URL of self hosted ELK (optional)
+
+||| col |||
+
+Example requests
+
+```shell
+curl -H 'Accept: application/json' -H 'Content-Type: application/json' -u ":$AUTH_TOKEN" \
+  -X POST https://$SCALINGO_API_URL/v1/apps/example-app/addons/ad-9be0fc04-bee6-4981-a403-a9dd4981bd1f/log_drains -d \
+  '{
+    "drain": {
+        "type": "ovh-graylog",
+        "token": "5af97be7-34e5-47b6-a016-8d0001228ffb",
+        "host": "tag1.logs.ovh.com"
+    }
+  }'
+```
+
+Returns 201 Created
+
+```json
+{
+  "drain":
+    {
+      "url": "ovh://:5af97be7-34e5-47b6-a016-8d0001228ffb@tag1.logs.ovh.com:6514"
+    }
+}
+```
+
+
+```shell
+curl -H 'Accept: application/json' -H 'Content-Type: application/json' -u ":$AUTH_TOKEN" \
+  -X POST https://$SCALINGO_API_URL/v1/apps/example-app/addons/ad-9be0fc04-bee6-4981-a403-a9dd4981bd1f/log_drains -d \
+  '{
+    "drain": {
+        "type": "datadog",
+        "token": "5af97be7-34e5-47b6-a016-8d0001228ffb",
+        "drain_region": "eu-west-2"
+    }
+  }'
+```
+
+Returns 201 Created
+
+```json
+{
+  "drain":
+    {
+      "url": "datadog://5af97be7-34e5-47b6-a016-8d0001228ffb?region=eu-west-2"
+    }
+}
+```
+
 --- row ---
 
 ## Delete a Log Drain
