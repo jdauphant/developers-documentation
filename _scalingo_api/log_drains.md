@@ -39,7 +39,7 @@ You will find how to enable this service using the CLI on the
 | port                | string  | Port of logs management service                                  |
 | drain-region        | string  | Region used by logs management service to identify their servers |
 | url                 | string  | URL of self hosted ELK                                           |
-| addon_id            | string  | UUID of the addon you want to add it to                          |
+| addon_uuid          | string  | UUID of the addon you want to add it to                          |
 
 
 Note: `type` is mandatory. Mandatory attributes will depend on the chosen type, please
@@ -71,11 +71,11 @@ Returns 200 OK
     "drains": [
         {
             "app_id": "5af97be7ff688d0001228ffb",
-            "url": "ovh://:id@tag1.logs.ovh.com:6514"
+            "url": "ovh://:5af97be7-34e5-47b6-a016-8d0001228ffb@tag1.logs.ovh.com:6514"
         },
         {
             "app_id": "5af97be7ff688d0001228ffb",
-            "url": "syslog://:id@custom.logs.com:port"
+            "url": "syslog://:5af97b34e547b6a016@custom.logs.com:1234"
         }
     ]
 }
@@ -87,7 +87,7 @@ Returns 200 OK
 
 --- row ---
 
-`GET https://$SCALINGO_API_URL/v1/apps/:app/addons/:addon_id/log_drains`
+`GET https://$SCALINGO_API_URL/v1/apps/:app/addons/:addon_uuid/log_drains`
 
 ||| col |||
 
@@ -102,18 +102,14 @@ Returns 200 OK
 
 ```json
 {
-    "addon": {
-        "id": "5edea403c6f3498189aa4981",
-        "name": "example-app-4918"
-    },
     "drains": [
         {
             "app_id": "5edea403c6f3498189aa4981",
-            "url": "ovh://:id@tag1.logs.ovh.com:6514",
+            "url": "ovh://:5af97be7-34e5-47b6-a016-8d0001228ffb@tag1.logs.ovh.com:6514",
         },
         {
             "app_id": "5edea403c6f3498189aa4981",
-            "url": "syslog://:id@custom.logs.com:port",
+            "url": "syslog://:5af97b34e547b6a016@custom.logs.com:1234",
         }
     ]
 }
