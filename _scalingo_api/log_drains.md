@@ -7,7 +7,7 @@ layout: default
 
 Logs from an application or addon can be redirected to a log management service.
 You can add multiple log drains to a single application or addon. You can also
-remove or list log drains of an application or addon.
+remove or list log drains of an application and addon.
 
 You will find how to enable this service using the CLI on the
 <a href="https://doc.scalingo.com/platform/app/log-drain">public documentation</a>.
@@ -39,7 +39,7 @@ You will find how to enable this service using the CLI on the
 | port                | string  | Port of logs management service                                  |
 | drain-region        | string  | Region used by logs management service to identify their servers |
 | url                 | string  | URL of self hosted ELK                                           |
-| addon_uuid          | string  | UUID of the addon you want to add it to                          |
+| addon_uuid          | string  | UUID of the addon you want to add the log drain to                          |
 
 
 Note: `type` is mandatory. Mandatory attributes will depend on the chosen type, please
