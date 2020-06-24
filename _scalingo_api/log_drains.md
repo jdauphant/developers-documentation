@@ -39,7 +39,7 @@ You will find how to enable this service using the CLI on the
 | port                | string  | Port of logs management service                                  |
 | drain-region        | string  | Region used by logs management service to identify their servers |
 | url                 | string  | URL of self hosted ELK                                           |
-| addon_uuid          | string  | UUID of the addon you want to add the log drain to                          |
+| addon_uuid          | string  | UUID of the addon you want to add the log drain to               |
 
 
 Note: `type` is mandatory. Mandatory attributes will depend on the chosen type, please
