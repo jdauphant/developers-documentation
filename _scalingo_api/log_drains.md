@@ -186,7 +186,7 @@ Returns 201 Created
 }
 ```
 
-## Add a new Log Drain to an Addon
+## Add a New Log Drain to an Addon
 
 --- row ---
 
