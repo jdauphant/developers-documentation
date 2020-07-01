@@ -1,5 +1,5 @@
 ---
-title: Status
+title: Instance Status
 layout: default
 ---
 
