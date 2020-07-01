@@ -16,7 +16,7 @@ layout: default
 {:.table}
 | field | type   | description                              |
 | --    | --     | --                                       |
-| id    | string | Instance Id                              |
+| id    | string | Instance ID                              |
 | type  | string | Instance type                            |
 | status| string | Instance status                          |
 | healthy| bool   | Instance healthy or not                 |
