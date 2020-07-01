@@ -7,7 +7,7 @@ layout: default
 
 --- row ---
 
-## Get database instances status
+## Get Database Instances Status
 
 --- row ---
 
@@ -68,5 +68,4 @@ Returns 200 OK
   }
 ]
 ```
-
 
