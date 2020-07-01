@@ -23,6 +23,9 @@ layout: default
 | role  | string | Instance role in the cluster             |
 
 The request provides information about the instances of a given database.
+Type is about the instance type, so either "db-node" or "gateway" node. An additional service type "utility" can exist.
+Status is about the instance current status. The functional status is "running". Others possibilities are "booting", "restarting", "migrating", "upgrading", "stopped", "removing".
+Role is about the instance role in the cluster. For DB nodes, it will depends of the DB type. Generic values are "leader" and "follower".
 
 ||| col |||
 
@@ -50,21 +53,21 @@ Returns 200 OK
     "type": "db-node",
     "status": "running",
     "healthy": true,
-    "role": "primary"
+    "role": "leader"
   },
   {
     "id": "9597fb2e-b3ee-4917-bca8-d7c4333c8cc6",
     "type": "gateway",
     "status": "running",
     "healthy": true,
-    "role": "secondary"
+    "role": "follower"
   },
   {
     "id": "33067baf-807c-4a9a-a966-25008945968b",
     "type": "gateway",
     "status": "running",
     "healthy": true,
-    "role": "secondary"
+    "role": "follower"
   }
 ]
 ```
