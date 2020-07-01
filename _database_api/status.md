@@ -22,7 +22,7 @@ layout: default
 | healthy| bool   | Instance healthy or not                 |
 | role  | string | Instance role in the cluster             |
 
-The request will generate will provide information about the instances of a given database
+The request provides information about the instances of a given database.
 
 ||| col |||
 
