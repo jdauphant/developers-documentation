@@ -3,7 +3,7 @@ title: Status
 layout: default
 ---
 
-# Logs
+# Instance Status
 
 --- row ---
 
@@ -68,4 +68,3 @@ Returns 200 OK
   }
 ]
 ```
-
