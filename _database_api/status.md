@@ -31,7 +31,7 @@ Example request
 ```sh
 curl -H "Accent: application/json" \
   -H "Authorization: Bearer $DB_BEARER_TOKEN" \
-  -X GET https://db-api.scalingo.com/api/my-awesome-db-1234/instances_status
+  -X GET https://$DB_API_URL/api/my-awesome-db-1234/instances_status
 ```
 
 Returns 200 OK
