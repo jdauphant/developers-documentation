@@ -283,3 +283,30 @@ Returns 204 No Content
 
 
 --- row ---
+
+## Delete a Log Drain from an Addon
+
+--- row ---
+
+`DELETE https://$SCALINGO_API_URL/v1/apps/:app/addons/:addon_uuid/log_drains`
+
+### Parameter
+
+* `url`: logs drain URL to delete. You can get it by listing the logs drain of
+an application.
+
+||| col |||
+
+Example request
+
+```shell
+curl -H 'Accept: application/json' -H 'Content-Type: application/json' -u ":$AUTH_TOKEN" \
+  -X DELETE https://$SCALINGO_API_URL/v1/apps/example-app/addons/ad-9be0fc04-bee6-4981-a403-a9dd4981bd1f/log_drains -d \
+  '{
+    "url": "ovh://:5af97be7-34e5-47b6-a016-8d0001228ffb@tag1.logs.ovh.com:6514"
+   }'
+```
+
+Returns 204 No Content
+
+--- row ---
