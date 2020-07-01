@@ -11,7 +11,7 @@ layout: default
 
 --- row ---
 
-`GET https://db-api.scalingo.com/dapi/databases/[:database_id]/instances_status`
+`GET https://$DB_API_URL/api/databases/[:database_id]/instances_status`
 
 {:.table}
 | field | type   | description                              |
