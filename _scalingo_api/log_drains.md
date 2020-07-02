@@ -264,7 +264,7 @@ Returns 201 Created
 
 ### Parameter
 
-* `url`: logs drain URL to delete. You can get it by listing the logs drain of
+* `url`: log drain URL to delete. You can get it by listing the log drain of
 an application.
 
 ||| col |||
@@ -284,7 +284,7 @@ Returns 204 No Content
 
 --- row ---
 
-## Delete a Log Drain from an Addon
+## Delete a Log Drain From an Addon
 
 --- row ---
 
@@ -292,7 +292,7 @@ Returns 204 No Content
 
 ### Parameter
 
-* `url`: logs drain URL to delete. You can get it by listing the logs drain of
+* `url`: log drain URL to delete. You can get it by listing the log drain of
 an application.
 
 ||| col |||
