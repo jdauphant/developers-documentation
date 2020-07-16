@@ -19,7 +19,6 @@ layout: default
 | id    | string | Instance ID                              |
 | type  | string | Instance type                            |
 | status| string | Instance status                          |
-| healthy| bool   | Instance healthy or not                 |
 | role  | string | Instance role in the cluster             |
 
 The request provides information about the instances of a given database.
@@ -45,28 +44,24 @@ Returns 200 OK
     "id": "5b8a26d4-160b-484a-be7f-258ae4cad80d",
     "type": "gateway",
     "status": "running",
-    "healthy": true,
     "role": ""
   },
   {
     "id": "a541dfb5-1fa6-40d7-87de-159ab721322c",
     "type": "db-node",
     "status": "running",
-    "healthy": true,
     "role": "leader"
   },
   {
     "id": "9597fb2e-b3ee-4917-bca8-d7c4333c8cc6",
     "type": "gateway",
     "status": "running",
-    "healthy": true,
     "role": "follower"
   },
   {
     "id": "33067baf-807c-4a9a-a966-25008945968b",
     "type": "gateway",
     "status": "running",
-    "healthy": true,
     "role": "follower"
   }
 ]
