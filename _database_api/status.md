@@ -54,13 +54,13 @@ Returns 200 OK
   },
   {
     "id": "9597fb2e-b3ee-4917-bca8-d7c4333c8cc6",
-    "type": "gateway",
+    "type": "db-node",
     "status": "running",
     "role": "follower"
   },
   {
     "id": "33067baf-807c-4a9a-a966-25008945968b",
-    "type": "gateway",
+    "type": "db-node",
     "status": "running",
     "role": "follower"
   }
