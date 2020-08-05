@@ -22,9 +22,9 @@ layout: default
 | role  | string | Instance role in the cluster             |
 
 The request provides information about the instances of a given database.
-Type is about the instance type, so either `db-node` or `gateway` node. An additional service type `utility` can exist (for example in the redis case, for sentinel).
+Type contains the type of the instance: `db-node` or `gateway`. An additional service type `utility` can exist (for example in the Redis case, for sentinel).
 Status is about the instance current status. The functional status is `running`. Others possibilities are `booting`, `restarting`, `migrating`, `upgrading`, `stopped`, `removing`.
-Role is about the instance role in the cluster. For DB nodes, it will depends of the DB type. Generic values are `leader` and `follower`.
+Role is about the instance role in the cluster. For DB nodes, possible values are `leader` and `follower`.
 
 ||| col |||
 
