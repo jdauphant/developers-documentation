@@ -377,16 +377,17 @@ You'll receive different types of message from the websocket:
 * `status` the deployment goes through multiple states during its lifetime:
 
 ```
-  building → pushing → starting → success
-           → pushing → starting → crashed-error
-           → pushing → starting → timeout-error
-           → pushing → aborted
-           → aborted
-           → build-error
+  queued -> building → pushing → starting → success
+                     → pushing → starting → crashed-error
+                     → pushing → starting → timeout-error
+                     → pushing → aborted
+                     → aborted
+                     → build-error
 ```
 
 ### Details about the deployment statuses
 
+* `queued`: whe received the deployment it's waiting for a slot on our schedulers
 * `building`: when the buildpack is chosen and executed
 * `pushing`: the generated Docker image is pushed to our registry
 * `starting`: the order to start your app has been transmitted to our scheduler
