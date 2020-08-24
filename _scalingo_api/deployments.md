@@ -71,7 +71,7 @@ Example object:
 
 This endpoint returns data of several deployments
 
-> Feature: pagination
+This endpoint supports [pagination](/#pagination).
 
 ||| col |||
 
