@@ -30,7 +30,7 @@ Example: `https://user:password@$SCALINGO_API_URL/v1/provider/apps`
 
 `GET https://$SCALINGO_API_URL/v1/provider/apps`
 
-> Feature: Pagination
+This endpoint supports <a href="/#pagination">pagination</a>.
 
 ||| col |||
 

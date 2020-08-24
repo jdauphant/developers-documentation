@@ -963,7 +963,7 @@ Example object:
 
 --- row ---
 
-## List the events of an app
+## List the Events of an App
 
 --- row ---
 
@@ -975,7 +975,7 @@ With this list of events, you can reconstruct the timeline of an application.
 
 * `from` (Optional, min: 1, max: 72): Send the event from the last N hours. (Override any pagination options)
 
-> Feature: pagination
+This endpoint supports <a href="/#pagination">pagination</a>.
 
 ||| col |||
 
@@ -1040,7 +1040,7 @@ Response
 
 --- row ---
 
-## List current user events
+## List Current User Events
 
 --- row ---
 

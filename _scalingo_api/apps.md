@@ -738,7 +738,7 @@ Returns 201 Created
 
 This endpoint let you list the different child apps of an application
 
-> Feature: pagination
+This endpoint supports <a href="/#pagination">pagination</a>.
 
 ||| col |||
 
