@@ -32,7 +32,7 @@ Example object:
 
 --- row ---
 
-## List collaborators of an app
+## List Collaborators of an App
 
 --- row ---
 
@@ -74,7 +74,7 @@ Returns 200 OK
 
 --- row ---
 
-## Invite collaborator to work on an app
+## Invite Collaborator To Work on an App
 
 --- row ---
 
@@ -113,13 +113,14 @@ Returns 201 Created
 
 ```json
 {
-    "collaborators": [
+    "collaborator": [
         {
             "email": "collaborator@example.com",
             "id": "54101e25736f7563d5060000",
             "status": "pending",
             "username": "n/a",
-            "invitation_link": "https://my.scalingo.com/apps/collaboration?token=8415965b809c928c807dc99790e5745d97f05b8c"
+            "invitation_link": "https://my.scalingo.com/apps/collaboration?token=8415965b809c928c807dc99790e5745d97f05b8c",
+            "app_id": "5343eccd646173000a140000"
         }
     ]
 }
@@ -127,7 +128,7 @@ Returns 201 Created
 
 --- row ---
 
-## Accept an invitation to collaborate
+## Accept an Invitation to Collaborate
 
 --- row ---
 
@@ -176,7 +177,7 @@ Returns 200 OK
 
 --- row ---
 
-## Delete a collaborator
+## Delete a Collaborator
 
 --- row ---
 
