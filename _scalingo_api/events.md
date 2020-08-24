@@ -975,7 +975,7 @@ With this list of events, you can reconstruct the timeline of an application.
 
 * `from` (Optional, min: 1, max: 72): Send the event from the last N hours. (Override any pagination options)
 
-This endpoint supports <a href="/#pagination">pagination</a>.
+This endpoint supports [pagination](/#pagination).
 
 ||| col |||
 

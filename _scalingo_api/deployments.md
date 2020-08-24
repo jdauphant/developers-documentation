@@ -71,7 +71,7 @@ Example object:
 
 This endpoint returns data of several deployments
 
-This endpoint supports <a href="/#pagination">pagination</a>.
+This endpoint supports [pagination](/#pagination).
 
 ||| col |||
 
