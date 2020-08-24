@@ -113,13 +113,14 @@ Returns 201 Created
 
 ```json
 {
-    "collaborators": [
+    "collaborator": [
         {
             "email": "collaborator@example.com",
             "id": "54101e25736f7563d5060000",
             "status": "pending",
             "username": "n/a",
-            "invitation_link": "https://my.scalingo.com/apps/collaboration?token=8415965b809c928c807dc99790e5745d97f05b8c"
+            "invitation_link": "https://my.scalingo.com/apps/collaboration?token=8415965b809c928c807dc99790e5745d97f05b8c",
+            "app_id": "5343eccd646173000a140000"
         }
     ]
 }
