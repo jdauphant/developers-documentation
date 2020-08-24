@@ -32,7 +32,7 @@ Example object:
 
 --- row ---
 
-## List collaborators of an app
+## List Collaborators of an App
 
 --- row ---
 
@@ -74,7 +74,7 @@ Returns 200 OK
 
 --- row ---
 
-## Invite collaborator to work on an app
+## Invite Collaborator To Work on an App
 
 --- row ---
 
@@ -127,7 +127,7 @@ Returns 201 Created
 
 --- row ---
 
-## Accept an invitation to collaborate
+## Accept an Invitation to Collaborate
 
 --- row ---
 
@@ -176,7 +176,7 @@ Returns 200 OK
 
 --- row ---
 
-## Delete a collaborator
+## Delete a Collaborator
 
 --- row ---
 
