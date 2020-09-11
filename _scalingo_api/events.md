@@ -963,6 +963,140 @@ Example object:
 
 --- row ---
 
+* **New Log Drain event**
+
+_When:_ Each time a log drain is added to an app
+`type=new_log_drain`
+
+{:.table}
+| field  | type   | description          |
+| -------| ------ | -------------------- |
+| url    | string | URL of the log drain |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "54dcdd4a73636100011a0000",
+  "created_at": "2015-02-12T18:05:14.226+01:00",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
+  },
+  "type": "new_log_drain",
+  "type_data": {
+    "url": "tcp+tls://localhost:8080"
+  }
+}
+```
+
+--- row ---
+
+* **Delete Log Drain event**
+
+_When:_ Each time a log drain is deleted from an app
+`type=delete_log_drain`
+
+{:.table}
+| field  | type   | description          |
+| -------| ------ | -------------------- |
+| url    | string | URL of the log drain |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "54dcdd4a73636100011a0000",
+  "created_at": "2015-02-12T18:05:14.226+01:00",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
+  },
+  "type": "delete_log_drain",
+  "type_data": {
+    "url": "tcp+tls://localhost:8080"
+  }
+}
+```
+
+--- row ---
+
+* **New Addon Log Drain event**
+
+_When:_ Each time a log drain is added to an addon
+`type=new_addon_log_drain`
+
+{:.table}
+| field      | type   | description          |
+| ---------- | ------ | -------------------- |
+| url        | string | URL of the log drain |
+| addon_uuid | string | UUID of the addon    |
+| addon_name | string | Name of the addon    |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "54dcdd4a73636100011a0000",
+  "created_at": "2015-02-12T18:05:14.226+01:00",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
+  },
+  "type": "new_log_drain",
+  "type_data": {
+    "url": "tcp+tls://localhost:8080",
+    "addon_uuid": "0abcdef-123456-bcccde-1bcdef",
+    "addon_name": "mongo"
+  }
+}
+```
+
+--- row ---
+
+* **Delete Addon Log Drain event**
+
+_When:_ Each time a log drain is deleted from an addon
+`type=delete_addon_log_drain`
+
+{:.table}
+| field      | type   | description          |
+| ---------- | ------ | -------------------- |
+| url        | string | URL of the log drain |
+| addon_uuid | string | UUID of the addon    |
+| addon_name | string | Name of the addon    |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "54dcdd4a73636100011a0000",
+  "created_at": "2015-02-12T18:05:14.226+01:00",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
+  },
+  "type": "delete_log_drain",
+  "type_data": {
+    "url": "tcp+tls://localhost:8080",
+    "addon_uuid": "0abcdef-123456-bcccde-1bcdef",
+    "addon_name": "mongo"
+  }
+}
+```
+
 ## List the Events of an App
 
 --- row ---
