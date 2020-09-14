@@ -48,7 +48,7 @@ Example object:
   "addon_provider" : {
     "id" : "scalingo-redis",
     "name" : "Scalingo Redis",
-    "logo_url" : "//storage.sbg1.cloud.ovh.net/v1/AUTH_be65d32d71a6435589a419eac98613f2/scalingo/redis.png"
+    "logo_url" : "//cdn.scalingo.com/addons/Scalingo_Redis_20171006.svg"
   }
 }
 ```
@@ -99,7 +99,7 @@ Returns 200 OK
     "addon_provider" : {
       "id" : "scalingo-redis",
       "name" : "Scalingo Redis",
-      "logo_url" : "//storage.sbg1.cloud.ovh.net/v1/AUTH_be65d32d71a6435589a419eac98613f2/scalingo/redis.png"
+      "logo_url" : "//cdn.scalingo.com/addons/Scalingo_Redis_20171006.svg"
     }
   }]
 }
@@ -223,7 +223,7 @@ Returns 200 OK
     "addon_provider" : {
       "id" : "scalingo-redis",
       "name" : "Scalingo Redis",
-      "logo_url" : "//storage.sbg1.cloud.ovh.net/v1/AUTH_be65d32d71a6435589a419eac98613f2/scalingo/redis.png"
+      "logo_url" : "//cdn.scalingo.com/addons/Scalingo_Redis_20171006.svg"
     }
   }
 }
@@ -289,7 +289,7 @@ an hour.
     "addon_provider" : {
       "id" : "scalingo-redis",
       "name" : "Scalingo Redis",
-      "logo_url" : "//storage.sbg1.cloud.ovh.net/v1/AUTH_be65d32d71a6435589a419eac98613f2/scalingo/redis.png"
+      "logo_url" : "//cdn.scalingo.com/addons/Scalingo_Redis_20171006.svg"
     }
     "token": "[REDACTED]"
   }
