@@ -332,7 +332,7 @@ Get an authenticated URL to connect to the web dashboard of your addon. This URL
     "addon_provider" : {
       "id" : "scalingo-redis",
       "name" : "Scalingo Redis",
-      "logo_url" : "//storage.sbg1.cloud.ovh.net/v1/AUTH_be65d32d71a6435589a419eac98613f2/scalingo/redis.png"
+      "logo_url" : "//cdn.scalingo.com/addons/Scalingo_Redis_20171006.svg"
     }
     "sso_url": "https://db-osc-fr1.scalingo.com/sso?id=example_app_3083&token=b4ffb0d1139f23629b44aadf6700eb45c411df25&timestamp=1600073910"
   }
