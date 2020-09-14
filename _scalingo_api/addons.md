@@ -228,3 +228,43 @@ an hour.
 }
 ```
 
+--- row ---
+
+## Get Dashboard Addon Authenticated URL
+
+--- row ---
+
+`POST https://$SCALINGO_API_URL/v1/apps/[:app]/addons/[:addon_id]/sso`
+
+Get an authenticated URL to connect to the web dashboard of your addon. This URL expires after one hour.
+
+||| col |||
+
+```json
+{
+  "addon": {
+    "id": "5c599fd66409d300019abf32",
+    "app_id": "5b0bfa3b3a6bbc00017e4e3d",
+    "resource_id": "lolapp-2107",
+    "addon_provider": {
+      "id": "scalingo-redis",
+      "name": "Scalingo Redis",
+      "logo_url": "//cdn.scalingo.com/addons/Scalingo_Redis.svg"
+    },
+    "plan": {
+      "id": "599c1a2121276700011caadc",
+      "name": "free",
+      "display_name": "64MB Free tier",
+      "price": 0,
+      "description": "<p>Free plan</p>\n",
+      "text_description": null,
+      "position": 1,
+      "on_demand": null
+    },
+    "provisioned_at": "2019-02-05T15:38:14.223+01:00",
+    "deprovisioned_at": null,
+    "status": "provisioning",
+    "sso_url": "https://db-osc-fr1.scalingo.com/sso?id=example_app_3083&token=b4ffb0d1139f23629b44aadf6700eb45c411df25&timestamp=1600073910"
+  }
+}
+```
