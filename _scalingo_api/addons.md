@@ -46,7 +46,7 @@ Example object:
 
 --- row ---
 
-## List application addons
+## List Application Addons
 
 --- row ---
 
@@ -91,7 +91,7 @@ Returns 200 OK
 
 --- row ---
 
-## Provision an addon
+## Provision an Addon
 
 --- row ---
 
@@ -122,7 +122,7 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
 
 --- row ---
 
-## Upgrade an addon
+## Upgrade an Addon
 
 --- row ---
 
@@ -165,7 +165,7 @@ Returns 200 OK
 
 --- row ---
 
-## Remove an addon
+## Remove an Addon
 
 --- row ---
 
@@ -187,7 +187,7 @@ Returns 204 No Content
 
 --- row ---
 
-## Get addon token
+## Get Addon Token
 
 --- row ---
 
