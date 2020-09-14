@@ -69,7 +69,7 @@ Returns 200 OK
 ```json
 {
     "addons": [{
-	 "id" : "5415beca646173000b015000",
+         "id" : "5415beca646173000b015000",
          "provisioned_at": "2015-02-22T18:55:02.766+01:00",
          "deprovisioned_at": null,
          "plan" : {
@@ -165,6 +165,49 @@ Returns 200 OK
 
 --- row ---
 
+## Get an Addon
+
+--- row ---
+
+`GET https://$SCALINGO_API_URL/v1/apps/[:app]/addons/[:addon_id]`
+
+Get a specific addon of an application.
+
+||| col |||
+
+```shell
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  -X GET https://$SCALINGO_API_URL/v1/apps/[:app]/addons/[:addon_id]
+```
+
+Returns 200 OK
+
+```json
+{
+    "addon": {
+         "id" : "5415beca646173000b015000",
+         "provisioned_at": "2015-02-22T18:55:02.766+01:00",
+         "deprovisioned_at": null,
+         "plan" : {
+            "description" : "[Markdown description]",
+            "display_name" : "64MB Free tier",
+            "id" : "52fd2357356330032b080000",
+            "name" : "free",
+            "price" : 0
+         },
+         "resource_id" : "example_app_3083",
+         "addon_provider" : {
+            "id" : "scalingo-redis",
+            "name" : "Scalingo Redis",
+            "logo_url" : "//storage.sbg1.cloud.ovh.net/v1/AUTH_be65d32d71a6435589a419eac98613f2/scalingo/redis.png"
+         }
+    }
+}
+```
+
+--- row ---
+
 ## Remove an Addon
 
 --- row ---
@@ -180,7 +223,7 @@ Be cautious when deleting addons, be sure of what you're doing.
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X DELETE https://$SCALINGO_API_URL/v1/apps/[:app]/addons/[:addon_id] \
+  -X DELETE https://$SCALINGO_API_URL/v1/apps/[:app]/addons/[:addon_id]
 ```
 
 Returns 204 No Content
