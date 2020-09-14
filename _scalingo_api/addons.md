@@ -15,7 +15,9 @@ layout: default
 | id               | string | unique ID identifying the addon               |
 | provisioned_at   | date   | when the addon has been created               |
 | deprovisioned_at | date   | when the addon has been removed/upgraded      |
+| app_id           | string | ID of the application which owns the addon    |
 | resource_id      | string | resource reference                            |
+| status           | string | current status of the addon                   |
 | plan             | object | embedded reference to Plan resource           |
 | addon_provider   | object | embedded reference to AddonProvider resource  |
 
@@ -26,14 +28,21 @@ Example object:
 ```json
 {
   "id" : "5415beca646173000b015000",
+  "app_id": "54100930736f7563d5030000",
   "provisioned_at": "2015-02-22T18:55:02.766+01:00",
   "deprovisioned_at": null,
+  "status": "running",
   "plan" : {
+    "id": "599c1a2121276700011caadc",
+    "name": "redis-sandbox",
+    "display_name": "Sandbox",
+    "price": 0,
     "description" : "[Markdown description]",
-    "display_name" : "64MB Free tier",
-    "id" : "52fd2357356330032b080000",
-    "name" : "free",
-    "price" : 0.0
+    "position": 1,
+    "on_demand": false,
+    "disabled": false,
+    "disabled_alternative_plan_id": null,
+    "sku": "osc-fr1-redis-sandbox"
   },
   "resource_id" : "example_app_3083",
   "addon_provider" : {
@@ -68,24 +77,31 @@ Returns 200 OK
 
 ```json
 {
-    "addons": [{
-         "id" : "5415beca646173000b015000",
-         "provisioned_at": "2015-02-22T18:55:02.766+01:00",
-         "deprovisioned_at": null,
-         "plan" : {
-            "description" : "[Markdown description]",
-            "display_name" : "64MB Free tier",
-            "id" : "52fd2357356330032b080000",
-            "name" : "free",
-            "price" : 0
-         },
-         "resource_id" : "example_app_3083",
-         "addon_provider" : {
-            "id" : "scalingo-redis",
-            "name" : "Scalingo Redis",
-            "logo_url" : "//storage.sbg1.cloud.ovh.net/v1/AUTH_be65d32d71a6435589a419eac98613f2/scalingo/redis.png"
-         }
-    }]
+  "addons": [{
+    "id" : "5415beca646173000b015000",
+    "app_id": "54100930736f7563d5030000",
+    "resource_id" : "example_app_3083",
+    "provisioned_at": "2015-02-22T18:55:02.766+01:00",
+    "deprovisioned_at": null,
+    "status": "running",
+    "plan" : {
+      "id": "599c1a2121276700011caadc",
+      "name": "redis-sandbox",
+      "display_name": "Sandbox",
+      "price": 0,
+      "description" : "[Markdown description]",
+      "position": 1,
+      "on_demand": false,
+      "disabled": false,
+      "disabled_alternative_plan_id": null,
+      "sku": "osc-fr1-redis-sandbox"
+    },
+    "addon_provider" : {
+      "id" : "scalingo-redis",
+      "name" : "Scalingo Redis",
+      "logo_url" : "//storage.sbg1.cloud.ovh.net/v1/AUTH_be65d32d71a6435589a419eac98613f2/scalingo/redis.png"
+    }
+  }]
 }
 ```
 
@@ -185,24 +201,31 @@ Returns 200 OK
 
 ```json
 {
-    "addon": {
-         "id" : "5415beca646173000b015000",
-         "provisioned_at": "2015-02-22T18:55:02.766+01:00",
-         "deprovisioned_at": null,
-         "plan" : {
-            "description" : "[Markdown description]",
-            "display_name" : "64MB Free tier",
-            "id" : "52fd2357356330032b080000",
-            "name" : "free",
-            "price" : 0
-         },
-         "resource_id" : "example_app_3083",
-         "addon_provider" : {
-            "id" : "scalingo-redis",
-            "name" : "Scalingo Redis",
-            "logo_url" : "//storage.sbg1.cloud.ovh.net/v1/AUTH_be65d32d71a6435589a419eac98613f2/scalingo/redis.png"
-         }
+  "addon": {
+    "id" : "5415beca646173000b015000",
+    "app_id": "54100930736f7563d5030000",
+    "resource_id" : "example_app_3083",
+    "provisioned_at": "2015-02-22T18:55:02.766+01:00",
+    "deprovisioned_at": null,
+    "status": "running",
+    "plan" : {
+      "id": "599c1a2121276700011caadc",
+      "name": "redis-sandbox",
+      "display_name": "Sandbox",
+      "price": 0,
+      "description" : "[Markdown description]",
+      "position": 1,
+      "on_demand": false,
+      "disabled": false,
+      "disabled_alternative_plan_id": null,
+      "sku": "osc-fr1-redis-sandbox"
+    },
+    "addon_provider" : {
+      "id" : "scalingo-redis",
+      "name" : "Scalingo Redis",
+      "logo_url" : "//storage.sbg1.cloud.ovh.net/v1/AUTH_be65d32d71a6435589a419eac98613f2/scalingo/redis.png"
     }
+  }
 }
 ```
 
@@ -245,27 +268,29 @@ an hour.
 ```json
 {
   "addon": {
-    "id": "5c599fd66409d300019abf32",
-    "app_id": "5b0bfa3b3a6bbc00017e4e3d",
-    "resource_id": "lolapp-2107",
-    "addon_provider": {
-      "id": "scalingo-redis",
-      "name": "Scalingo Redis",
-      "logo_url": "//cdn.scalingo.com/addons/Scalingo_Redis.svg"
-    },
-    "plan": {
-      "id": "599c1a2121276700011caadc",
-      "name": "free",
-      "display_name": "64MB Free tier",
-      "price": 0,
-      "description": "<p>Free plan</p>\n",
-      "text_description": null,
-      "position": 1,
-      "on_demand": null
-    },
-    "provisioned_at": "2019-02-05T15:38:14.223+01:00",
+    "id" : "5415beca646173000b015000",
+    "app_id": "54100930736f7563d5030000",
+    "resource_id" : "example_app_3083",
+    "provisioned_at": "2015-02-22T18:55:02.766+01:00",
     "deprovisioned_at": null,
-    "status": "provisioning",
+    "status": "running",
+    "plan" : {
+      "id": "599c1a2121276700011caadc",
+      "name": "redis-sandbox",
+      "display_name": "Sandbox",
+      "price": 0,
+      "description" : "[Markdown description]",
+      "position": 1,
+      "on_demand": false,
+      "disabled": false,
+      "disabled_alternative_plan_id": null,
+      "sku": "osc-fr1-redis-sandbox"
+    },
+    "addon_provider" : {
+      "id" : "scalingo-redis",
+      "name" : "Scalingo Redis",
+      "logo_url" : "//storage.sbg1.cloud.ovh.net/v1/AUTH_be65d32d71a6435589a419eac98613f2/scalingo/redis.png"
+    }
     "token": "[REDACTED]"
   }
 }
@@ -286,27 +311,29 @@ Get an authenticated URL to connect to the web dashboard of your addon. This URL
 ```json
 {
   "addon": {
-    "id": "5c599fd66409d300019abf32",
-    "app_id": "5b0bfa3b3a6bbc00017e4e3d",
-    "resource_id": "lolapp-2107",
-    "addon_provider": {
-      "id": "scalingo-redis",
-      "name": "Scalingo Redis",
-      "logo_url": "//cdn.scalingo.com/addons/Scalingo_Redis.svg"
-    },
-    "plan": {
-      "id": "599c1a2121276700011caadc",
-      "name": "free",
-      "display_name": "64MB Free tier",
-      "price": 0,
-      "description": "<p>Free plan</p>\n",
-      "text_description": null,
-      "position": 1,
-      "on_demand": null
-    },
-    "provisioned_at": "2019-02-05T15:38:14.223+01:00",
+    "id" : "5415beca646173000b015000",
+    "app_id": "54100930736f7563d5030000",
+    "resource_id" : "example_app_3083",
+    "provisioned_at": "2015-02-22T18:55:02.766+01:00",
     "deprovisioned_at": null,
-    "status": "provisioning",
+    "status": "running",
+    "plan" : {
+      "id": "599c1a2121276700011caadc",
+      "name": "redis-sandbox",
+      "display_name": "Sandbox",
+      "price": 0,
+      "description" : "[Markdown description]",
+      "position": 1,
+      "on_demand": false,
+      "disabled": false,
+      "disabled_alternative_plan_id": null,
+      "sku": "osc-fr1-redis-sandbox"
+    },
+    "addon_provider" : {
+      "id" : "scalingo-redis",
+      "name" : "Scalingo Redis",
+      "logo_url" : "//storage.sbg1.cloud.ovh.net/v1/AUTH_be65d32d71a6435589a419eac98613f2/scalingo/redis.png"
+    }
     "sso_url": "https://db-osc-fr1.scalingo.com/sso?id=example_app_3083&token=b4ffb0d1139f23629b44aadf6700eb45c411df25&timestamp=1600073910"
   }
 }
