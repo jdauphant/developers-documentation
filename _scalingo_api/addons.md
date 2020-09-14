@@ -290,7 +290,7 @@ an hour.
       "id" : "scalingo-redis",
       "name" : "Scalingo Redis",
       "logo_url" : "//cdn.scalingo.com/addons/Scalingo_Redis_20171006.svg"
-    }
+    },
     "token": "[REDACTED]"
   }
 }
@@ -333,7 +333,7 @@ Get an authenticated URL to connect to the web dashboard of your addon. This URL
       "id" : "scalingo-redis",
       "name" : "Scalingo Redis",
       "logo_url" : "//cdn.scalingo.com/addons/Scalingo_Redis_20171006.svg"
-    }
+    },
     "sso_url": "https://db-osc-fr1.scalingo.com/sso?id=example_app_3083&token=b4ffb0d1139f23629b44aadf6700eb45c411df25&timestamp=1600073910"
   }
 }
