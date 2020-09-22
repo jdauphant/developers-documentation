@@ -1107,11 +1107,11 @@ With this list of events, you can reconstruct the timeline of an application.
 
 `GET https://$SCALINGO_API_URL/v1/apps/[:app]/events`
 
+> Feature: This endpoint supports [pagination](/#pagination).
+
 ### Parameters
 
 * `from` (Optional, min: 1, max: 72): Send the event from the last N hours. (Override any pagination options)
-
-This endpoint supports [pagination](/#pagination).
 
 Request Example
 
@@ -1185,7 +1185,7 @@ get the events which have been done by the user on themself, and on their apps.
 
 `GET https://$SCALINGO_API_URL/v1/events`
 
-> Feature: pagination
+> Feature: This endpoint supports [pagination](/#pagination).
 
 --- row ---
 
