@@ -254,13 +254,26 @@ _When:_ A deployment has been done
 `type=deployment`
 
 {:.table}
-| field         | type    | description                                                             |
-| ------------- | ------- | ----------------------------------------------------------------------- |
-| deployment_id | string  | Unique ID of the [Deployment](/deployments) associated to the event     |
-| pusher        | string  | Username of the user having pushed the code                             |
-| git_ref       | string  | GIT SHA of the deployed code                                            |
-| status        | string  | Status of the deployment ([details](/deployments))                      |
-| duration      | integer | Duration of the deployment in seconds                                   |
+| field           | type     | description                                                             |
+| --------------- | -------- | ----------------------------------------------------------------------- |
+| deployment_id   | string   | Unique ID of the [Deployment](/deployments) associated to the event     |
+| deployment_type | string   | Type of deployment (deployment or archive)                              |
+| pusher          | string   | Username of the user having pushed the code                             |
+| git_ref         | string   | GIT SHA of the deployed code                                            |
+| git_ref_url     | string   | SCM Integration URL of the git ref deployed                             |
+| status          | string   | Status of the deployment ([details](/deployments))                      |
+| stack           | string   | [Stack](/stacks) used by the deployment                                 |
+| duration        | integer  | Duration of the deployment in seconds                                   |
+| finished_at     | datetime | Date & Time when deployment was done                                    |
+| last_commits    | object   | Object containing last commits of the deployment
+
+Last commits:
+
+{:.table}
+| field     | type   | description           |
+| --------- | ------ | --------------------- |
+| commits   | array  | List of commits       |
+| remaining | int    | Number of commits     |
 
 ||| col |||
 
@@ -280,10 +293,18 @@ Example object:
   "type": "deployment",
   "type_data": {
     "deployment_id" : "5343eccd646aa3012a140230",
+    "deployment_type": "deployment",
     "pusher": "johndoe",
     "git_ref": "0123456789abcdef",
+    "git_ref_url": "https://github.com/johndoe/repo/commit/58c778ff1c6d275c49af18adca456acd98db4ad0",
     "status": "success",
-    "duration": 40
+    "duration": 40,
+    "stack": "scalingo-18",
+    "finished_at": "2019-12-24T01:00:00.000+00:00",
+    "last_commits": {
+      "commits": [],
+      "remaining": 0
+    }
   }
 }
 ```
@@ -394,9 +415,9 @@ Example object:
   "app_name": "appname",
   "type": "edit_domain",
   "type_data": {
-    "hostname" : "example.com",
-    "old_ssl" : false,
-    "ssl" : true
+    "hostname": "example.com",
+    "old_ssl": false,
+    "ssl": true
   }
 }
 ```
