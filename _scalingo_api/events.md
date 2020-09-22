@@ -1097,6 +1097,8 @@ Example object:
 }
 ```
 
+--- row ---
+
 ## List the Events of an App
 
 --- row ---
@@ -1111,9 +1113,7 @@ With this list of events, you can reconstruct the timeline of an application.
 
 This endpoint supports [pagination](/#pagination).
 
-||| col |||
-
-Example
+Request Example
 
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
@@ -1122,7 +1122,9 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
 
 Returns 200 OK
 
-Response
+||| col |||
+
+Response object:
 
 ```json
 {
@@ -1185,9 +1187,9 @@ get the events which have been done by the user on themself, and on their apps.
 
 > Feature: pagination
 
-||| col |||
+--- row ---
 
-Example
+Request Example
 
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
@@ -1196,7 +1198,9 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
 
 Returns 200 OK
 
-Response
+||| col |||
+
+Response object:
 
 ```json
 {
