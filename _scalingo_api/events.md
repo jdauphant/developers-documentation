@@ -40,9 +40,9 @@ Example object:
   "id": "54dcdd4a73636100011a0000",
   "created_at": "2015-02-12T18:05:14.226+01:00",
   "user": {
-      "username": "johndoe",
-      "email": "john@doe.com",
-      "id": "51e6bc626edfe40bbb000001"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
@@ -71,9 +71,9 @@ Example object:
   "id": "54dcdd4a73636100011a0000",
   "created_at": "2015-02-12T18:05:14.226+01:00",
   "user": {
-      "username": "johndoe",
-      "email": "john@doe.com",
-      "id": "51e6bc626edfe40bbb000001"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
@@ -106,16 +106,16 @@ Example object:
   "id": "54dcdd4a73636100011a0000",
   "created_at": "2015-02-12T18:05:14.226+01:00",
   "user": {
-      "username": "johndoe",
-      "email": "john@doe.com",
-      "id": "51e6bc626edfe40bbb000001"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
   "type": "rename_app",
   "type_data": {
-      "old_name": "old-app-name",
-      "new_name": "new-app-name"
+    "old_name": "old-app-name",
+    "new_name": "new-app-name"
   }
 }
 ```
@@ -146,24 +146,24 @@ Example object:
   "id": "54dcdd4a73636100011a0000",
   "created_at": "2015-02-12T18:05:14.226+01:00",
   "user": {
-      "username": "johndoe",
-      "email": "john@doe.com",
-      "id": "51e6bc626edfe40bbb000001"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
   "type": "rename_app",
   "type_data": {
-      "old_owner": {
-          "username": "johndoe",
-          "email": "john@doe.com",
-          "id": "51e6bc626edfe40bbb000001"
-      },
-      "new_owner": {
-          "username": "new-johndoe",
-          "email": "new-john@doe.com",
-          "id": "51e6bc626edfe40bbb000002"
-      }
+    "old_owner": {
+      "username": "johndoe",
+      "email": "john@doe.com",
+      "id": "51e6bc626edfe40bbb000001"
+    },
+    "new_owner": {
+      "username": "new-johndoe",
+      "email": "new-john@doe.com",
+      "id": "51e6bc626edfe40bbb000002"
+    }
   }
 }
 ```
@@ -190,17 +190,17 @@ Example object:
 ```json
 {
   "id": "54dcdd4a73636100011a0000",
-  "created_at" : "2015-02-12T18:05:14.226+01:00",
-  "user" : {
-      "username" : "johndoe",
-      "email" : "john@doe.com",
-      "id" : "51e6bc626edfe40bbb000001"
+  "created_at": "2015-02-12T18:05:14.226+01:00",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
-  "app_id" : "5343eccd646173000a140000",
+  "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
-  "type" : "restart",
+  "type": "restart",
   "type_data": {
-    "scope" : ["web", "worker"]
+    "scope": ["web", "worker"]
   }
 }
 ```
@@ -225,25 +225,25 @@ Example object:
 ```json
 {
   "id": "54dcdd4a73636100011a0000",
-  "created_at" : "2015-02-12T18:05:14.226+01:00",
-  "user" : {
-      "username" : "johndoe",
-      "email" : "john@doe.com",
-      "id" : "51e6bc626edfe40bbb000001"
+  "created_at": "2015-02-12T18:05:14.226+01:00",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
-  "app_id" : "5343eccd646173000a140000",
+  "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
   "type": "scale",
   "type_data": {
-      "previous_containers" : {
-          "web" : 1,
-          "worker": 0
-      },
-      "containers" : {
-          "web" : 2,
-          "worker" : 1
-        }
+    "previous_containers": {
+      "web": 1,
+      "worker": 0
+    },
+    "containers": {
+      "web": 2,
+      "worker": 1
     }
+  }
 }
 ```
 --- row ---
@@ -269,19 +269,19 @@ Example object:
 ```json
 {
   "id": "54dcdd4a73636100011a0000",
-  "created_at" : "2015-02-12T18:05:14.226+01:00",
-  "user" : {
-    "username" : "johndoe",
-    "email" : "john@doe.com",
-    "id" : "51e6bc626edfe40bbb000001"
+  "created_at": "2015-02-12T18:05:14.226+01:00",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
-  "app_id" : "5343eccd646173000a140000",
+  "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
   "type": "deployment",
   "type_data": {
     "deployment_id" : "5343eccd646aa3012a140230",
     "pusher": "johndoe",
-    "git_ref" : "0123456789abcdef",
+    "git_ref": "0123456789abcdef",
     "status": "success",
     "duration": 40
   }
@@ -312,9 +312,9 @@ Example object:
   "id": "54dcdd4a73636100011a0000",
   "created_at": "2015-02-12T18:05:14.226+01:00",
   "user": {
-      "username": "johndoe",
-      "email": "john@doe.com",
-      "id": "51e6bc626edfe40bbb000001"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
@@ -349,16 +349,16 @@ Example object:
   "id": "54dcdd4a73636100011a0000",
   "created_at": "2015-02-12T18:05:14.226+01:00",
   "user": {
-      "username": "johndoe",
-      "email": "john@doe.com",
-      "id": "51e6bc626edfe40bbb000001"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
   "type": "new_domain",
   "type_data": {
-      "name" : "example.com",
-      "ssl" : false
+    "name" : "example.com",
+    "ssl" : false
   }
 }
 ```
@@ -386,17 +386,17 @@ Example object:
   "id": "54dcdd4a73636100011a0000",
   "created_at": "2015-02-12T18:05:14.226+01:00",
   "user": {
-      "username": "johndoe",
-      "email": "john@doe.com",
-      "id": "51e6bc626edfe40bbb000001"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
   "type": "edit_domain",
   "type_data": {
-      "hostname" : "example.com",
-      "old_ssl" : false,
-      "ssl" : true
+    "hostname" : "example.com",
+    "old_ssl" : false,
+    "ssl" : true
   }
 }
 ```
@@ -422,15 +422,15 @@ Example object:
   "id": "54dcdd4a73636100011a0000",
   "created_at": "2015-02-12T18:05:14.226+01:00",
   "user": {
-      "username": "johndoe",
-      "email": "john@doe.com",
-      "id": "51e6bc626edfe40bbb000001"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
   "type": "delete_domain",
   "type_data": {
-      "hostname" : "example.com"
+    "hostname" : "example.com"
   }
 }
 ```
@@ -458,17 +458,17 @@ Example object:
   "id": "54dcdd4a73636100011a0000",
   "created_at": "2015-02-12T18:05:14.226+01:00",
   "user": {
-      "username": "johndoe",
-      "email": "john@doe.com",
-      "id": "51e6bc626edfe40bbb000001"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
   "type": "new_addon",
   "type_data": {
-      "addon_provider_name": "scalingo-mysql",
-      "plan_name" : "free",
-      "resource_id": "0abcdef-123456-bcccde-1bcdef"
+    "addon_provider_name": "scalingo-mysql",
+    "plan_name" : "free",
+    "resource_id": "0abcdef-123456-bcccde-1bcdef"
   }
 }
 ```
@@ -497,18 +497,18 @@ Example object:
   "id": "54dcdd4a73636100011a0000",
   "created_at": "2015-02-12T18:05:14.226+01:00",
   "user": {
-      "username": "johndoe",
-      "email": "john@doe.com",
-      "id": "51e6bc626edfe40bbb000001"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
   "type": "new_addon",
   "type_data": {
-      "addon_provider_name": "scalingo-mysql",
-      "old_plan_name" : "free",
-      "plan_name" : "1g",
-      "resource_id": "0abcdef-123456-bcccde-1bcdef"
+    "addon_provider_name": "scalingo-mysql",
+    "old_plan_name" : "free",
+    "plan_name" : "1g",
+    "resource_id": "0abcdef-123456-bcccde-1bcdef"
   }
 }
 ```
@@ -536,17 +536,17 @@ Example object:
   "id": "54dcdd4a73636100011a0000",
   "created_at": "2015-02-12T18:05:14.226+01:00",
   "user": {
-      "username": "johndoe",
-      "email": "john@doe.com",
-      "id": "51e6bc626edfe40bbb000001"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
   "type": "new_addon",
   "type_data": {
-      "addon_provider_name": "scalingo-mysql",
-      "plan_name" : "1g",
-      "resource_id": "0abcdef-123456-bcccde-1bcdef"
+    "addon_provider_name": "scalingo-mysql",
+    "plan_name" : "1g",
+    "resource_id": "0abcdef-123456-bcccde-1bcdef"
   }
 }
 ```
@@ -574,17 +574,17 @@ Example object:
   "id": "54dcdd4a73636100011a0000",
   "created_at": "2015-02-12T18:05:14.226+01:00",
   "user": {
-      "username": "johndoe",
-      "email": "john@doe.com",
-      "id": "51e6bc626edfe40bbb000001"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
   "type": "new_collaborator",
   "type_data": {
-      "collaborator": {
-          "email": "test@example.com"
-      }
+    "collaborator": {
+      "email": "test@example.com"
+    }
   }
 }
 ```
@@ -614,23 +614,23 @@ Example object:
   "id": "54dcdd4a73636100011a0000",
   "created_at": "2015-02-12T18:05:14.226+01:00",
   "user": {
-      "username": "test-example",
-      "email": "test@example.com",
-      "id": "51e6bc626edfe40bbb000002"
+    "username": "test-example",
+    "email": "test@example.com",
+    "id": "51e6bc626edfe40bbb000002"
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
   "type": "edit_collaborator",
   "type_data": {
-      "collaborator": {
-          "id": "51e6bc626edfe40bbb000001",
-          "email": "test@example.com",
-          "username": "text-example",
-          "inviter": {
-              "email": "john@doe.com",
-              "username": "johndoe"
-          }
+    "collaborator": {
+      "id": "51e6bc626edfe40bbb000001",
+      "email": "test@example.com",
+      "username": "text-example",
+      "inviter": {
+        "email": "john@doe.com",
+        "username": "johndoe"
       }
+    }
   }
 }
 ```
@@ -658,19 +658,19 @@ Example object:
   "id": "54dcdd4a73636100011a0000",
   "created_at": "2015-02-12T18:05:14.226+01:00",
   "user": {
-      "username": "johndoe",
-      "email": "john@doe.com",
-      "id": "51e6bc626edfe40bbb000001"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
   "type": "delete_collaborator",
   "type_data": {
-      "collaborator": {
-          "id": "51e6bc626edfe40bbb000002",
-          "username": "test-example",
-          "email": "test@example.com"
-      }
+    "collaborator": {
+      "id": "51e6bc626edfe40bbb000002",
+      "username": "test-example",
+      "email": "test@example.com"
+    }
   }
 }
 ```
@@ -697,16 +697,16 @@ Example object:
   "id": "54dcdd4a73636100011a0000",
   "created_at": "2015-02-12T18:05:14.226+01:00",
   "user": {
-      "username": "johndoe",
-      "email": "john@doe.com",
-      "id": "51e6bc626edfe40bbb000001"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
   "type": "new_event",
   "type_data": {
-      "name" : "VAR1",
-      "value" : "VAL1"
+    "name" : "VAR1",
+    "value" : "VAL1"
   }
 }
 ```
@@ -734,17 +734,17 @@ Example object:
   "id": "54dcdd4a73636100011a0000",
   "created_at": "2015-02-12T18:05:14.226+01:00",
   "user": {
-      "username": "johndoe",
-      "email": "john@doe.com",
-      "id": "51e6bc626edfe40bbb000001"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
   "type": "edit_variable",
   "type_data": {
-      "name" : "VAR1",
-      "old_value" : "VAL1",
-      "value" : "VAL2"
+    "name" : "VAR1",
+    "old_value" : "VAL1",
+    "value" : "VAL2"
   }
 }
 ```
@@ -779,23 +779,23 @@ Example object
   "id": "54dcdd4a73636100011a0000",
   "created_at": "2015-02-12T18:05:14.226+01:00",
   "user": {
-      "username": "johndoe",
-      "email": "john@doe.com",
-      "id": "51e6bc626edfe40bbb000001"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
   "type": "edit_variable",
   "type_data": {
-      "updated_vars": [{
-          "name": "VAR1",
-          "value": "VAL1"
-      }],
-      "new_vars": [{
-          "name": "VAR2",
-          "value": "VAL2",
-          "old_value": "OLD_VAL2"
-      }]
+    "updated_vars": [{
+      "name": "VAR1",
+      "value": "VAL1"
+    }],
+    "new_vars": [{
+      "name": "VAR2",
+      "value": "VAL2",
+      "old_value": "OLD_VAL2"
+    }]
   }
 }
 ```
@@ -1128,49 +1128,49 @@ Response object:
 
 ```json
 {
-    "events": [
-    {
-        "id": "54dcdd4a73636100011a0000",
-        "created_at": "2015-02-12T18:05:14.226+01:00",
-        "user": {
-            "username": "johndoe",
-            "email": "john@doe.com",
-            "id": "51e6bc626edfe40bbb000001"
-        },
-        "app_id": "5343eccd646173000a140000",
-        "app_name": "appname",
-        "type": "run",
-        "type_data": {
-            "command": "rake db:migrate"
-        }
-    }, {
-      "id": "54dcdd4a73636100011a0000",
-      "created_at" : "2015-02-12T18:05:14.226+01:00",
-      "user" : {
-        "username" : "johndoe",
-        "email" : "john@doe.com",
-        "id" : "51e6bc626edfe40bbb000001"
-      },
-      "app_id" : "5343eccd646173000a140000",
-      "app_name": "appname",
-      "type": "deployment",
-      "type_data": {
-        "deployment_id" : "5343eccd646aa3012a140230",
-        "pusher": "johndoe",
-        "git_ref" : "0123456789abcdef",
-        "status": "success",
-        "duration": 40
-      }
-    }, (...)],
-    "meta": {
-        "pagination": {
-            "current_page": 1,
-            "next_page": 2,
-            "prev_page": null,
-            "total_pages": 4,
-            "total_count": 61
-        }
+  "events": [
+  {
+    "id": "54dcdd4a73636100011a0000",
+    "created_at": "2015-02-12T18:05:14.226+01:00",
+    "user": {
+      "username": "johndoe",
+      "email": "john@doe.com",
+      "id": "51e6bc626edfe40bbb000001"
+    },
+    "app_id": "5343eccd646173000a140000",
+    "app_name": "appname",
+    "type": "run",
+    "type_data": {
+      "command": "rake db:migrate"
     }
+  }, {
+    "id": "54dcdd4a73636100011a0000",
+    "created_at": "2015-02-12T18:05:14.226+01:00",
+    "user": {
+      "username": "johndoe",
+      "email": "john@doe.com",
+      "id": "51e6bc626edfe40bbb000001"
+    },
+    "app_id": "5343eccd646173000a140000",
+    "app_name": "appname",
+    "type": "deployment",
+    "type_data": {
+      "deployment_id": "5343eccd646aa3012a140230",
+      "pusher": "johndoe",
+      "git_ref" : "0123456789abcdef",
+      "status": "success",
+      "duration": 40
+    }
+  }, (...)],
+  "meta": {
+    "pagination": {
+      "current_page": 1,
+      "next_page": 2,
+      "prev_page": null,
+      "total_pages": 4,
+      "total_count": 61
+    }
+  }
 }
 ```
 
