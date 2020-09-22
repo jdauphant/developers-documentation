@@ -265,7 +265,7 @@ _When:_ A deployment has been done
 | stack           | string   | [Stack](/stacks) used by the deployment                                 |
 | duration        | integer  | Duration of the deployment in seconds                                   |
 | finished_at     | datetime | Date & Time when deployment was done                                    |
-| last_commits    | object   | Object containing last commits of the deployment
+| last_commits    | object   | Object containing last commits of the deployment                        |
 
 Last commits:
 
