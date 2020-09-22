@@ -1099,6 +1099,82 @@ Example object:
 
 --- row ---
 
+* **Link an SCM integration to an App event**
+
+_When:_ Each time an SCM integration link is created to an app
+`type=link_scm`
+
+{:.table}
+| field           | type   | description                                 |
+| --------------- | ------ | ------------------------------------------- |
+| repo_name       | string | Name of the repository                      |
+| linker_username | string | Username of the linker                      |
+| source          | string | Source URL of the repository                |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "54dcdd4a73636100011a0000",
+  "created_at": "2020-09-22T09:00:00.000Z",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
+  },
+  "app_id": "5343eccd646173000a140000",
+  "app_name": "appname",
+  "type": "link_scm",
+  "type_data": {
+    "repo_name": "johndoe/sample-go-martini",
+    "linker_username": "johndoe",
+    "source": "https://github.com/johndoe/sample-go-martini"
+  }
+}
+```
+
+--- row ---
+
+* **Unlink an SCM integration from an App event**
+
+_When:_ Each time an SCM integration link is deleted from an app
+`type=unlink_scm`
+
+{:.table}
+| field             | type   | description                                 |
+| ----------------- | ------ | ------------------------------------------- |
+| repo_name         | string | Name of the repository                      |
+| unlinker_username | string | Username of the unlinker                    |
+| source            | string | Source URL of the repository                |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "54dcdd4a73636100011a0000",
+  "created_at": "2020-09-22T09:10:00.000Z",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
+  },
+  "app_id": "5343eccd646173000a140000",
+  "app_name": "appname",
+  "type": "unlink_scm",
+  "type_data": {
+    "repo_name": "johndoe/sample-go-martini",
+    "linker_username": "johndoe",
+    "source": "https://github.com/johndoe/sample-go-martini"
+  }
+}
+```
+
+--- row ---
+
 ## List the Events of an App
 
 --- row ---
