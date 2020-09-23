@@ -40,9 +40,9 @@ Example object:
   "id": "54dcdd4a73636100011a0000",
   "created_at": "2015-02-12T18:05:14.226+01:00",
   "user": {
-      "username": "johndoe",
-      "email": "john@doe.com",
-      "id": "51e6bc626edfe40bbb000001"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
@@ -71,9 +71,9 @@ Example object:
   "id": "54dcdd4a73636100011a0000",
   "created_at": "2015-02-12T18:05:14.226+01:00",
   "user": {
-      "username": "johndoe",
-      "email": "john@doe.com",
-      "id": "51e6bc626edfe40bbb000001"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
@@ -106,16 +106,16 @@ Example object:
   "id": "54dcdd4a73636100011a0000",
   "created_at": "2015-02-12T18:05:14.226+01:00",
   "user": {
-      "username": "johndoe",
-      "email": "john@doe.com",
-      "id": "51e6bc626edfe40bbb000001"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
   "type": "rename_app",
   "type_data": {
-      "old_name": "old-app-name",
-      "new_name": "new-app-name"
+    "old_name": "old-app-name",
+    "new_name": "new-app-name"
   }
 }
 ```
@@ -146,24 +146,24 @@ Example object:
   "id": "54dcdd4a73636100011a0000",
   "created_at": "2015-02-12T18:05:14.226+01:00",
   "user": {
-      "username": "johndoe",
-      "email": "john@doe.com",
-      "id": "51e6bc626edfe40bbb000001"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
   "type": "rename_app",
   "type_data": {
-      "old_owner": {
-          "username": "johndoe",
-          "email": "john@doe.com",
-          "id": "51e6bc626edfe40bbb000001"
-      },
-      "new_owner": {
-          "username": "new-johndoe",
-          "email": "new-john@doe.com",
-          "id": "51e6bc626edfe40bbb000002"
-      }
+    "old_owner": {
+      "username": "johndoe",
+      "email": "john@doe.com",
+      "id": "51e6bc626edfe40bbb000001"
+    },
+    "new_owner": {
+      "username": "new-johndoe",
+      "email": "new-john@doe.com",
+      "id": "51e6bc626edfe40bbb000002"
+    }
   }
 }
 ```
@@ -190,17 +190,17 @@ Example object:
 ```json
 {
   "id": "54dcdd4a73636100011a0000",
-  "created_at" : "2015-02-12T18:05:14.226+01:00",
-  "user" : {
-      "username" : "johndoe",
-      "email" : "john@doe.com",
-      "id" : "51e6bc626edfe40bbb000001"
+  "created_at": "2015-02-12T18:05:14.226+01:00",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
-  "app_id" : "5343eccd646173000a140000",
+  "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
-  "type" : "restart",
+  "type": "restart",
   "type_data": {
-    "scope" : ["web", "worker"]
+    "scope": ["web", "worker"]
   }
 }
 ```
@@ -225,25 +225,25 @@ Example object:
 ```json
 {
   "id": "54dcdd4a73636100011a0000",
-  "created_at" : "2015-02-12T18:05:14.226+01:00",
-  "user" : {
-      "username" : "johndoe",
-      "email" : "john@doe.com",
-      "id" : "51e6bc626edfe40bbb000001"
+  "created_at": "2015-02-12T18:05:14.226+01:00",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
-  "app_id" : "5343eccd646173000a140000",
+  "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
   "type": "scale",
   "type_data": {
-      "previous_containers" : {
-          "web" : 1,
-          "worker": 0
-      },
-      "containers" : {
-          "web" : 2,
-          "worker" : 1
-        }
+    "previous_containers": {
+      "web": 1,
+      "worker": 0
+    },
+    "containers": {
+      "web": 2,
+      "worker": 1
     }
+  }
 }
 ```
 --- row ---
@@ -254,13 +254,26 @@ _When:_ A deployment has been done
 `type=deployment`
 
 {:.table}
-| field         | type    | description                                                             |
-| ------------- | ------- | ----------------------------------------------------------------------- |
-| deployment_id | string  | Unique ID of the [Deployment](/deployments) associated to the event     |
-| pusher        | string  | Username of the user having pushed the code                             |
-| git_ref       | string  | GIT SHA of the deployed code                                            |
-| status        | string  | Status of the deployment ([details](/deployments))                      |
-| duration      | integer | Duration of the deployment in seconds                                   |
+| field           | type     | description                                                             |
+| --------------- | -------- | ----------------------------------------------------------------------- |
+| deployment_id   | string   | Unique ID of the [Deployment](/deployments) associated to the event     |
+| deployment_type | string   | Type of deployment (deployment or archive)                              |
+| pusher          | string   | Username of the user having pushed the code                             |
+| git_ref         | string   | GIT SHA of the deployed code                                            |
+| git_ref_url     | string   | SCM Integration URL of the git ref deployed                             |
+| status          | string   | Status of the deployment ([details](/deployments))                      |
+| stack           | string   | [Stack](/stacks) used by the deployment                                 |
+| duration        | integer  | Duration of the deployment in seconds                                   |
+| finished_at     | datetime | Date & Time when deployment was done                                    |
+| last_commits    | object   | Object containing last commits of the deployment                        |
+
+Last commits:
+
+{:.table}
+| field     | type   | description           |
+| --------- | ------ | --------------------- |
+| commits   | array  | List of commits       |
+| remaining | int    | Number of commits     |
 
 ||| col |||
 
@@ -269,21 +282,29 @@ Example object:
 ```json
 {
   "id": "54dcdd4a73636100011a0000",
-  "created_at" : "2015-02-12T18:05:14.226+01:00",
-  "user" : {
-    "username" : "johndoe",
-    "email" : "john@doe.com",
-    "id" : "51e6bc626edfe40bbb000001"
+  "created_at": "2015-02-12T18:05:14.226+01:00",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
-  "app_id" : "5343eccd646173000a140000",
+  "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
   "type": "deployment",
   "type_data": {
     "deployment_id" : "5343eccd646aa3012a140230",
+    "deployment_type": "deployment",
     "pusher": "johndoe",
-    "git_ref" : "0123456789abcdef",
+    "git_ref": "0123456789abcdef",
+    "git_ref_url": "https://github.com/johndoe/repo/commit/58c778ff1c6d275c49af18adca456acd98db4ad0",
     "status": "success",
-    "duration": 40
+    "duration": 40,
+    "stack": "scalingo-18",
+    "finished_at": "2019-12-24T01:00:00.000+00:00",
+    "last_commits": {
+      "commits": [],
+      "remaining": 0
+    }
   }
 }
 ```
@@ -312,9 +333,9 @@ Example object:
   "id": "54dcdd4a73636100011a0000",
   "created_at": "2015-02-12T18:05:14.226+01:00",
   "user": {
-      "username": "johndoe",
-      "email": "john@doe.com",
-      "id": "51e6bc626edfe40bbb000001"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
@@ -349,16 +370,16 @@ Example object:
   "id": "54dcdd4a73636100011a0000",
   "created_at": "2015-02-12T18:05:14.226+01:00",
   "user": {
-      "username": "johndoe",
-      "email": "john@doe.com",
-      "id": "51e6bc626edfe40bbb000001"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
   "type": "new_domain",
   "type_data": {
-      "name" : "example.com",
-      "ssl" : false
+    "name" : "example.com",
+    "ssl" : false
   }
 }
 ```
@@ -386,17 +407,17 @@ Example object:
   "id": "54dcdd4a73636100011a0000",
   "created_at": "2015-02-12T18:05:14.226+01:00",
   "user": {
-      "username": "johndoe",
-      "email": "john@doe.com",
-      "id": "51e6bc626edfe40bbb000001"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
   "type": "edit_domain",
   "type_data": {
-      "hostname" : "example.com",
-      "old_ssl" : false,
-      "ssl" : true
+    "hostname": "example.com",
+    "old_ssl": false,
+    "ssl": true
   }
 }
 ```
@@ -422,15 +443,15 @@ Example object:
   "id": "54dcdd4a73636100011a0000",
   "created_at": "2015-02-12T18:05:14.226+01:00",
   "user": {
-      "username": "johndoe",
-      "email": "john@doe.com",
-      "id": "51e6bc626edfe40bbb000001"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
   "type": "delete_domain",
   "type_data": {
-      "hostname" : "example.com"
+    "hostname" : "example.com"
   }
 }
 ```
@@ -458,17 +479,17 @@ Example object:
   "id": "54dcdd4a73636100011a0000",
   "created_at": "2015-02-12T18:05:14.226+01:00",
   "user": {
-      "username": "johndoe",
-      "email": "john@doe.com",
-      "id": "51e6bc626edfe40bbb000001"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
   "type": "new_addon",
   "type_data": {
-      "addon_provider_name": "scalingo-mysql",
-      "plan_name" : "free",
-      "resource_id": "0abcdef-123456-bcccde-1bcdef"
+    "addon_provider_name": "scalingo-mysql",
+    "plan_name" : "free",
+    "resource_id": "0abcdef-123456-bcccde-1bcdef"
   }
 }
 ```
@@ -497,18 +518,18 @@ Example object:
   "id": "54dcdd4a73636100011a0000",
   "created_at": "2015-02-12T18:05:14.226+01:00",
   "user": {
-      "username": "johndoe",
-      "email": "john@doe.com",
-      "id": "51e6bc626edfe40bbb000001"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
   "type": "new_addon",
   "type_data": {
-      "addon_provider_name": "scalingo-mysql",
-      "old_plan_name" : "free",
-      "plan_name" : "1g",
-      "resource_id": "0abcdef-123456-bcccde-1bcdef"
+    "addon_provider_name": "scalingo-mysql",
+    "old_plan_name" : "free",
+    "plan_name" : "1g",
+    "resource_id": "0abcdef-123456-bcccde-1bcdef"
   }
 }
 ```
@@ -536,17 +557,17 @@ Example object:
   "id": "54dcdd4a73636100011a0000",
   "created_at": "2015-02-12T18:05:14.226+01:00",
   "user": {
-      "username": "johndoe",
-      "email": "john@doe.com",
-      "id": "51e6bc626edfe40bbb000001"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
   "type": "new_addon",
   "type_data": {
-      "addon_provider_name": "scalingo-mysql",
-      "plan_name" : "1g",
-      "resource_id": "0abcdef-123456-bcccde-1bcdef"
+    "addon_provider_name": "scalingo-mysql",
+    "plan_name" : "1g",
+    "resource_id": "0abcdef-123456-bcccde-1bcdef"
   }
 }
 ```
@@ -574,17 +595,17 @@ Example object:
   "id": "54dcdd4a73636100011a0000",
   "created_at": "2015-02-12T18:05:14.226+01:00",
   "user": {
-      "username": "johndoe",
-      "email": "john@doe.com",
-      "id": "51e6bc626edfe40bbb000001"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
   "type": "new_collaborator",
   "type_data": {
-      "collaborator": {
-          "email": "test@example.com"
-      }
+    "collaborator": {
+      "email": "test@example.com"
+    }
   }
 }
 ```
@@ -614,23 +635,23 @@ Example object:
   "id": "54dcdd4a73636100011a0000",
   "created_at": "2015-02-12T18:05:14.226+01:00",
   "user": {
-      "username": "test-example",
-      "email": "test@example.com",
-      "id": "51e6bc626edfe40bbb000002"
+    "username": "test-example",
+    "email": "test@example.com",
+    "id": "51e6bc626edfe40bbb000002"
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
   "type": "edit_collaborator",
   "type_data": {
-      "collaborator": {
-          "id": "51e6bc626edfe40bbb000001",
-          "email": "test@example.com",
-          "username": "text-example",
-          "inviter": {
-              "email": "john@doe.com",
-              "username": "johndoe"
-          }
+    "collaborator": {
+      "id": "51e6bc626edfe40bbb000001",
+      "email": "test@example.com",
+      "username": "text-example",
+      "inviter": {
+        "email": "john@doe.com",
+        "username": "johndoe"
       }
+    }
   }
 }
 ```
@@ -658,19 +679,19 @@ Example object:
   "id": "54dcdd4a73636100011a0000",
   "created_at": "2015-02-12T18:05:14.226+01:00",
   "user": {
-      "username": "johndoe",
-      "email": "john@doe.com",
-      "id": "51e6bc626edfe40bbb000001"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
   "type": "delete_collaborator",
   "type_data": {
-      "collaborator": {
-          "id": "51e6bc626edfe40bbb000002",
-          "username": "test-example",
-          "email": "test@example.com"
-      }
+    "collaborator": {
+      "id": "51e6bc626edfe40bbb000002",
+      "username": "test-example",
+      "email": "test@example.com"
+    }
   }
 }
 ```
@@ -697,16 +718,16 @@ Example object:
   "id": "54dcdd4a73636100011a0000",
   "created_at": "2015-02-12T18:05:14.226+01:00",
   "user": {
-      "username": "johndoe",
-      "email": "john@doe.com",
-      "id": "51e6bc626edfe40bbb000001"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
   "type": "new_event",
   "type_data": {
-      "name" : "VAR1",
-      "value" : "VAL1"
+    "name" : "VAR1",
+    "value" : "VAL1"
   }
 }
 ```
@@ -734,17 +755,17 @@ Example object:
   "id": "54dcdd4a73636100011a0000",
   "created_at": "2015-02-12T18:05:14.226+01:00",
   "user": {
-      "username": "johndoe",
-      "email": "john@doe.com",
-      "id": "51e6bc626edfe40bbb000001"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
   "type": "edit_variable",
   "type_data": {
-      "name" : "VAR1",
-      "old_value" : "VAL1",
-      "value" : "VAL2"
+    "name" : "VAR1",
+    "old_value" : "VAL1",
+    "value" : "VAL2"
   }
 }
 ```
@@ -779,23 +800,23 @@ Example object
   "id": "54dcdd4a73636100011a0000",
   "created_at": "2015-02-12T18:05:14.226+01:00",
   "user": {
-      "username": "johndoe",
-      "email": "john@doe.com",
-      "id": "51e6bc626edfe40bbb000001"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "51e6bc626edfe40bbb000001"
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
   "type": "edit_variable",
   "type_data": {
-      "updated_vars": [{
-          "name": "VAR1",
-          "value": "VAL1"
-      }],
-      "new_vars": [{
-          "name": "VAR2",
-          "value": "VAL2",
-          "old_value": "OLD_VAL2"
-      }]
+    "updated_vars": [{
+      "name": "VAR1",
+      "value": "VAL1"
+    }],
+    "new_vars": [{
+      "name": "VAR2",
+      "value": "VAL2",
+      "old_value": "OLD_VAL2"
+    }]
   }
 }
 ```
@@ -1097,6 +1118,84 @@ Example object:
 }
 ```
 
+--- row ---
+
+* **Link an SCM integration to an App event**
+
+_When:_ Each time an SCM integration link is created to an app
+`type=link_scm`
+
+{:.table}
+| field           | type   | description                                 |
+| --------------- | ------ | ------------------------------------------- |
+| repo_name       | string | Name of the repository                      |
+| linker_username | string | Username of the linker                      |
+| source          | string | Source URL of the repository                |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "54dcdd4a73636100011a0000",
+  "created_at": "2020-09-22T09:00:00.000Z",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
+  },
+  "app_id": "5343eccd646173000a140000",
+  "app_name": "appname",
+  "type": "link_scm",
+  "type_data": {
+    "repo_name": "johndoe/sample-go-martini",
+    "linker_username": "johndoe",
+    "source": "https://github.com/johndoe/sample-go-martini"
+  }
+}
+```
+
+--- row ---
+
+* **Unlink an SCM integration from an App event**
+
+_When:_ Each time an SCM integration link is deleted from an app
+`type=unlink_scm`
+
+{:.table}
+| field             | type   | description                                 |
+| ----------------- | ------ | ------------------------------------------- |
+| repo_name         | string | Name of the repository                      |
+| unlinker_username | string | Username of the unlinker                    |
+| source            | string | Source URL of the repository                |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "54dcdd4a73636100011a0000",
+  "created_at": "2020-09-22T09:10:00.000Z",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
+  },
+  "app_id": "5343eccd646173000a140000",
+  "app_name": "appname",
+  "type": "unlink_scm",
+  "type_data": {
+    "repo_name": "johndoe/sample-go-martini",
+    "linker_username": "johndoe",
+    "source": "https://github.com/johndoe/sample-go-martini"
+  }
+}
+```
+
+--- row ---
+
 ## List the Events of an App
 
 --- row ---
@@ -1105,15 +1204,13 @@ With this list of events, you can reconstruct the timeline of an application.
 
 `GET https://$SCALINGO_API_URL/v1/apps/[:app]/events`
 
+> Feature: This endpoint supports [pagination](/#pagination).
+
 ### Parameters
 
 * `from` (Optional, min: 1, max: 72): Send the event from the last N hours. (Override any pagination options)
 
-This endpoint supports [pagination](/#pagination).
-
-||| col |||
-
-Example
+Request Example
 
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
@@ -1122,53 +1219,55 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
 
 Returns 200 OK
 
-Response
+||| col |||
+
+Response object:
 
 ```json
 {
-    "events": [
-    {
-        "id": "54dcdd4a73636100011a0000",
-        "created_at": "2015-02-12T18:05:14.226+01:00",
-        "user": {
-            "username": "johndoe",
-            "email": "john@doe.com",
-            "id": "51e6bc626edfe40bbb000001"
-        },
-        "app_id": "5343eccd646173000a140000",
-        "app_name": "appname",
-        "type": "run",
-        "type_data": {
-            "command": "rake db:migrate"
-        }
-    }, {
-      "id": "54dcdd4a73636100011a0000",
-      "created_at" : "2015-02-12T18:05:14.226+01:00",
-      "user" : {
-        "username" : "johndoe",
-        "email" : "john@doe.com",
-        "id" : "51e6bc626edfe40bbb000001"
-      },
-      "app_id" : "5343eccd646173000a140000",
-      "app_name": "appname",
-      "type": "deployment",
-      "type_data": {
-        "deployment_id" : "5343eccd646aa3012a140230",
-        "pusher": "johndoe",
-        "git_ref" : "0123456789abcdef",
-        "status": "success",
-        "duration": 40
-      }
-    }, (...)],
-    "meta": {
-        "pagination": {
-            "current_page": 1,
-            "next_page": 2,
-            "prev_page": null,
-            "total_pages": 4,
-            "total_count": 61
-        }
+  "events": [
+  {
+    "id": "54dcdd4a73636100011a0000",
+    "created_at": "2015-02-12T18:05:14.226+01:00",
+    "user": {
+      "username": "johndoe",
+      "email": "john@doe.com",
+      "id": "51e6bc626edfe40bbb000001"
+    },
+    "app_id": "5343eccd646173000a140000",
+    "app_name": "appname",
+    "type": "run",
+    "type_data": {
+      "command": "rake db:migrate"
     }
+  }, {
+    "id": "54dcdd4a73636100011a0000",
+    "created_at": "2015-02-12T18:05:14.226+01:00",
+    "user": {
+      "username": "johndoe",
+      "email": "john@doe.com",
+      "id": "51e6bc626edfe40bbb000001"
+    },
+    "app_id": "5343eccd646173000a140000",
+    "app_name": "appname",
+    "type": "deployment",
+    "type_data": {
+      "deployment_id": "5343eccd646aa3012a140230",
+      "pusher": "johndoe",
+      "git_ref" : "0123456789abcdef",
+      "status": "success",
+      "duration": 40
+    }
+  }, (...)],
+  "meta": {
+    "pagination": {
+      "current_page": 1,
+      "next_page": 2,
+      "prev_page": null,
+      "total_pages": 4,
+      "total_count": 61
+    }
+  }
 }
 ```
 
@@ -1183,11 +1282,11 @@ get the events which have been done by the user on themself, and on their apps.
 
 `GET https://$SCALINGO_API_URL/v1/events`
 
-> Feature: pagination
+> Feature: This endpoint supports [pagination](/#pagination).
 
-||| col |||
+--- row ---
 
-Example
+Request Example
 
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
@@ -1196,7 +1295,9 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
 
 Returns 200 OK
 
-Response
+||| col |||
+
+Response object:
 
 ```json
 {
