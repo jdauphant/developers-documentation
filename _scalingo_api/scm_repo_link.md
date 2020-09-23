@@ -45,7 +45,7 @@ Example object:
   "linker": {
     "id":"us-aa263090-9a23-81f5-8c7c-5fd9a50a8fa8",
     "username":"john",
-    "email":"john.doe@example.com",
+    "email":"john.doe@example.com"
   },
   "created_at": "2018-05-09T12:52:49.985+02:00",
   "updated_at": "2019-08-08T17:42:03.386+02:00",
@@ -60,6 +60,82 @@ Example object:
   "delete_stale_enabled": false,
   "hours_before_delete_stale": 0,
   "last_auto_deploy_at":"2019-08-30T17:42:03.385+02:00"
+}
+```
+
+--- row ---
+
+## Get all SCM Integration Links linked by your account
+
+--- row ---
+
+`GET https://$SCALINGO_API_URL/v1/scm_repo_links`
+
+### Parameters
+
+* `auth_integration_uuid`: Filter by [scm integration](./scm_integrations.md)
+
+||| col |||
+
+Request example:
+
+```bash
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  https://$SCALINGO_API_URL/v1/scm_repo_links
+```
+
+```json
+{
+  "scm_repo_links": [
+    {
+      "id":"42d04de5-5377-11e8-90e6-0242ac110052",
+      "app_id": "1d6e59a0-5377-11e8-90e6-0242ac110052",
+      "auth_integration_uuid": "14235182-54f4-4951-be65-d78020615818",
+      "linker": {
+        "id":"us-aa263090-9a23-81f5-8c7c-5fd9a50a8fa8",
+        "username":"john",
+        "email":"john.doe@example.com"
+      },
+      "created_at":"2018-05-09T12:53:52.276+02:00",
+      "updated_at":"2018-06-01T11:45:26.078+02:00",
+      "owner": "my-username",
+      "repo": "my-project-1",
+      "branch": "master",
+      "scm_type": "github",
+      "auto_deploy_enabled":true,
+      "github_integration_uuid":"42d04de5-5377-11e8-90e6-0242ac110052",
+      "deploy_review_apps_enabled":false,
+      "delete_on_close_enabled":false,
+      "hours_before_delete_on_close":0,
+      "delete_stale_enabled":false,
+      "hours_before_delete_stale":0,
+      "last_auto_deploy_at":"2018-06-01T11:45:26.077+02:00"
+    }, {
+      "id":"0d7955a7-0c80-462a-84e7-bd06047103f4",
+      "app_id": "3c212baa-80aa-48a4-81b1-ea8daa9b508d",
+      "auth_integration_uuid": "14235182-54f4-4951-be65-d78020615818",
+      "linker": {
+        "id":"us-aa263090-9a23-81f5-8c7c-5fd9a50a8fa8",
+        "username":"john",
+        "email":"john.doe@example.com"
+      },
+      "created_at":"2018-05-09T12:53:52.276+02:00",
+      "updated_at":"2018-06-01T11:45:26.078+02:00",
+      "owner": "my-username",
+      "repo": "my-project-2",
+      "branch": "master",
+      "scm_type": "github",
+      "auto_deploy_enabled":true,
+      "github_integration_uuid":"42d04de5-5377-11e8-90e6-0242ac110052",
+      "deploy_review_apps_enabled":false,
+      "delete_on_close_enabled":false,
+      "hours_before_delete_on_close":0,
+      "delete_stale_enabled":false,
+      "hours_before_delete_stale":0,
+      "last_auto_deploy_at":"2018-06-01T11:45:26.077+02:00"
+    }
+  ]
 }
 ```
 
@@ -166,34 +242,33 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
   https://$SCALINGO_API_URL/v1/apps/example-app/scm_repo_link
 ```
+
 ```json
 {
-  "scm_repo_link": [
-    {
-      "id":"42d04de5-5377-11e8-90e6-0242ac110052",
-      "app_id": "1d6e59a0-5377-11e8-90e6-0242ac110052",
-      "auth_integration_uuid": "14235182-54f4-4951-be65-d78020615818",
-      "linker": {
-        "id":"us-aa263090-9a23-81f5-8c7c-5fd9a50a8fa8",
-        "username":"john",
-        "email":"john.doe@example.com"
-      },
-      "created_at":"2018-05-09T12:53:52.276+02:00",
-      "updated_at":"2018-06-01T11:45:26.078+02:00",
-      "owner": "my-username",
-      "repo": "my-company",
-      "branch": "master",
-      "scm_type": "github",
-      "auto_deploy_enabled":true,
-      "github_integration_uuid":"42d04de5-5377-11e8-90e6-0242ac110052",
-      "deploy_review_apps_enabled":false,
-      "delete_on_close_enabled":false,
-      "hours_before_delete_on_close":0,
-      "delete_stale_enabled":false,
-      "hours_before_delete_stale":0,
-      "last_auto_deploy_at":"2018-06-01T11:45:26.077+02:00"
-    }
-  ]
+  "scm_repo_link": {
+    "id":"42d04de5-5377-11e8-90e6-0242ac110052",
+    "app_id": "1d6e59a0-5377-11e8-90e6-0242ac110052",
+    "auth_integration_uuid": "14235182-54f4-4951-be65-d78020615818",
+    "linker": {
+      "id":"us-aa263090-9a23-81f5-8c7c-5fd9a50a8fa8",
+      "username":"john",
+      "email":"john.doe@example.com"
+    },
+    "created_at":"2018-05-09T12:53:52.276+02:00",
+    "updated_at":"2018-06-01T11:45:26.078+02:00",
+    "owner": "my-username",
+    "repo": "my-company",
+    "branch": "master",
+    "scm_type": "github",
+    "auto_deploy_enabled":true,
+    "github_integration_uuid":"42d04de5-5377-11e8-90e6-0242ac110052",
+    "deploy_review_apps_enabled":false,
+    "delete_on_close_enabled":false,
+    "hours_before_delete_on_close":0,
+    "delete_stale_enabled":false,
+    "hours_before_delete_stale":0,
+    "last_auto_deploy_at":"2018-06-01T11:45:26.077+02:00"
+  }
 }
 ```
 
