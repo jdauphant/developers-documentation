@@ -3,7 +3,7 @@ title: Notification Platforms
 layout: default
 ---
 
-# Notifications platform
+# Notifications Platform
 
 Scalingo lets you use different platforms to send your notifications.
 
@@ -44,7 +44,7 @@ Example object:
 
 --- row ---
 
-## List all notification platforms
+## List All Notification Platforms
 
 --- row ---
 
