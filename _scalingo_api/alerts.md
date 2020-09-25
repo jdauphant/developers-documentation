@@ -54,7 +54,7 @@ Example object:
 
 --- row ---
 
-## List alerts of an app
+## List Alerts of an App
 
 --- row ---
 
@@ -98,7 +98,7 @@ Returns 200 OK
 ```
 
 --- row ---
-## Create a new alert
+## Create a New Alert
 
 --- row ---
 
@@ -159,7 +159,7 @@ Returns 201 Created
 
 --- row ---
 
-## Get an alert
+## Get an Alert
 
 --- row ---
 
@@ -199,7 +199,7 @@ Returns 200 OK
 
 --- row ---
 
-## Update an alert
+## Update an Alert
 
 --- row ---
 
@@ -265,7 +265,7 @@ Returns 200 OK
 
 --- row ---
 
-## Delete an alert
+## Delete an Alert
 
 --- row ---
 
