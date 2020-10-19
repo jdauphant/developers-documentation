@@ -60,7 +60,7 @@ Example object:
 
 --- row ---
 
-## Create an application
+## Create an Application
 
 --- row ---
 
@@ -81,7 +81,7 @@ Example object:
   application can be created with the given parameters. The same errors and responses
   are sent, but the application **is not** actually created.
 
-### Free usage limit
+### Free Usage Limit
 
 You can only have 1 application without having defined [a payment
 method](https://my.scalingo.com/apps/billing).
@@ -129,7 +129,7 @@ Returns 201 Created
 
 --- row ---
 
-## List your applications
+## List Your Applications
 
 `GET https://$SCALINGO_API_URL/v1/apps`
 
@@ -163,7 +163,7 @@ Returns 200 OK
 
 --- row ---
 
-## Get a precise application
+## Get a Precise Application
 
 --- row ---
 
@@ -222,7 +222,7 @@ Returns 200 OK
 
 --- row ---
 
-## Get containers list
+## Get Containers List
 
 --- row ---
 
@@ -272,7 +272,7 @@ Returns 200 OK
 
 --- row ---
 
-## Scale an application
+## Scale an Application
 
 --- row ---
 
@@ -297,7 +297,7 @@ not currently scaled.
   * `container.size` (optional): Target size of container (not changed if empty).
     [Container sizes list](https://doc.scalingo.com/platform/internals/container-sizes).
 
-### Free usage limit
+### Free Usage Limit
 
 You can only have 1 small or medium 'web' container without having defined [a payment
 method](https://my.scalingo.com/apps/billing).
@@ -350,7 +350,7 @@ Headers:
 
 --- row ---
 
-## Restart an application
+## Restart an Application
 
 --- row ---
 
@@ -389,7 +389,7 @@ Return 202 Accepted (Asynchronous task) - Empty body
 
 --- row ---
 
-## Delete an application
+## Delete an Application
 
 `DELETE https://$SCALINGO_API_URL/v1/apps/[:app]`
 
@@ -411,7 +411,7 @@ Returns 204 No Content
 
 --- row ---
 
-## Rename an application
+## Rename an Application
 
 `POST https://$SCALINGO_API_URL/v1/apps/[:app]/rename`
 
@@ -447,7 +447,7 @@ Returns 200 OK
 
 --- row ---
 
-## Transfer ownership of an application
+## Transfer Ownership of an Application
 
 `PATCH https://$SCALINGO_API_URL/v1/apps/[:app]`
 
@@ -485,7 +485,7 @@ Returns 200 OK
 
 --- row ---
 
-## Update application settings
+## Update Application Settings
 
 `PATCH https://$SCALINGO_API_URL/v1/apps/[:app]`
 
@@ -525,7 +525,7 @@ Returns 200 OK
 
 --- row ---
 
-## Access to the application logs
+## Access to the Application Logs
 
 --- row ---
 
@@ -556,7 +556,7 @@ Returns 200 OK
 
 --- row ---
 
-## Access to the application logs archives
+## Access to the Application Logs Archives
 
 --- row ---
 
@@ -600,7 +600,7 @@ Returns 200 OK
 
 --- row ---
 
-## Run a one-off container
+## Run a One-off Container
 
 Similar to `scalingo run`
 
@@ -621,7 +621,7 @@ executed in the environment your application.
 * `detached` (*boolean*, default `false`): Foreground task by default, set to `true` if the container has to be run in background.
 
 
-### Background vs Foreground one-off
+### Background vs Foreground One-off
 
 By default one-off containers are started as **attached** command, it means it
 will only get started when a terminal interactively connect to it through the
@@ -671,7 +671,7 @@ Returns 200 OK
 
 --- row ---
 
-## Create a child application
+## Create a Child Application
 
 --- row ---
 
@@ -732,7 +732,7 @@ Returns 201 Created
 
 --- row ---
 
-## List child apps of an application
+## List Child Apps of an Application
 
 --- row ---
 
@@ -775,7 +775,7 @@ Returns 201 Created
 
 --- row ---
 
-## Get recommended value for a metric
+## Get Recommended Value for a Metric
 
 --- row ---
 
@@ -826,7 +826,7 @@ Returns 200 OK
 
 --- row ---
 
-## Get metrics data of an application
+## Get Metrics Data of an Application
 
 --- row ---
 
@@ -895,7 +895,7 @@ Returns 200 OK
 
 --- row ---
 
-## Get real time stats of an application
+## Get Real Time Stats of an Application
 
 --- row ---
 

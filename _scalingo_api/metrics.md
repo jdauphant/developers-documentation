@@ -32,7 +32,7 @@ Example object:
 
 --- row ---
 
-## List the metrics available
+## List the Metrics Available
 
 --- row ---
 
