@@ -830,7 +830,7 @@ Returns 200 OK
 
 --- row ---
 
-The stats endpoint let you get metrics about the containers of an application.
+The stats endpoint lets you get metrics about the containers of an application.
 These data include the CPU usage and the memory usage, split between RAM
 and Swap memory. But also the number of request per minute handled by your app.
 
