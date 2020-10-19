@@ -781,7 +781,7 @@ Returns 201 Created
 
 The recommended value endpoint let you get the value we recommend to use for the autoscaling.
 
-`GET /stats/:metrics/recommended_value`
+`GET https://$SCALINGO_API_URL/v1/stats/:metrics/recommended_value`
 
 The metrics are aggregated by container types. If a type have more than one
 container and the container index is not passed, it will return the mean value
@@ -834,7 +834,7 @@ The stats endpoint let you get metrics about the containers of an application.
 These data include the CPU usage and the memory usage, split between RAM
 and Swap memory. But also the number of request per minute handled by your app.
 
-`GET /stats/:metrics(/:container)(/:index)`
+`GET https://$SCALINGO_API_URL/v1/stats/:metrics(/:container)(/:index)`
 
 The metrics are aggregated by container types. If a type have more than one
 container and the container index is not passed, it will return the mean value
