@@ -56,49 +56,49 @@ Returns 200 OK
 
 ```json
 {
-	"metrics": [
-		{
-			"id": "cpu",
-			"label": "CPU",
-			"suffix": "%",
-			"type": "global"
-		},
-		{
-			"id": "memory",
-			"label": "RAM",
-			"suffix": "%",
-			"type": "global"
-		},
-		{
-			"id": "swap",
-			"label": "Swap",
-			"suffix": "%",
-			"type": "global"
-		},
-		{
-			"id": "p95_response_time",
-			"label": "Response Time",
-			"suffix": "ms",
-			"type": "router"
-		},
-		{
-			"id": "5XX",
-			"label": "5xx Errors",
-			"suffix": "",
-			"type": "router"
-		},
-		{
-			"id": "all",
-			"label": "Requests per Minute",
-			"suffix": "rpm",
-			"type": "router"
-		},
-		{
-			"id": "rpm_per_container",
-			"label": "RPM per Container",
-			"suffix": "rpm",
-			"type": "router"
-		}
-	]
+  "metrics": [
+    {
+      "id": "cpu",
+      "label": "CPU",
+      "suffix": "%",
+      "type": "global"
+    },
+    {
+      "id": "memory",
+      "label": "RAM",
+      "suffix": "%",
+      "type": "global"
+    },
+    {
+      "id": "swap",
+      "label": "Swap",
+      "suffix": "%",
+      "type": "global"
+    },
+    {
+      "id": "p95_response_time",
+      "label": "Response Time",
+      "suffix": "ms",
+      "type": "router"
+    },
+    {
+      "id": "5XX",
+      "label": "5xx Errors",
+      "suffix": "",
+      "type": "router"
+    },
+    {
+      "id": "all",
+      "label": "Requests per Minute",
+      "suffix": "rpm",
+      "type": "router"
+    },
+    {
+      "id": "rpm_per_container",
+      "label": "RPM per Container",
+      "suffix": "rpm",
+      "type": "router"
+    }
+  ]
 }
 ```
