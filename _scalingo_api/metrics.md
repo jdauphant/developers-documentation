@@ -32,15 +32,11 @@ Example object:
 
 --- row ---
 
-## Unauthenticated
-
-This endpoint can be reached unauthenticated.
-
---- row ---
-
 ## List the metrics available
 
 --- row ---
+
+This endpoint can be reached unauthenticated.
 
 `GET https://$SCALINGO_API_URL/v1/features/metrics`
 
