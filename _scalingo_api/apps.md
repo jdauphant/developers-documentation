@@ -77,7 +77,7 @@ Example object:
 
 ### Custom Header
 
-* `X-Dry-Run: <boolean>`: If set to true, the operation will only check if the
+* `X-Dry-Run: <boolean>`: If set to true, the operation only checks if the
   application can be created with the given parameters. The same errors and responses
   are sent, but the application **is not** actually created.
 
@@ -531,7 +531,7 @@ Returns 200 OK
 
 `GET https://$SCALINGO_API_URL/v1/apps/[:app]/logs`
 
-The request will generate an URL you can use to access the logs of your application.
+The request generates an URL you can use to access the logs of your application.
 
 How to use this endpoint: [more information here](/logs.html)
 
@@ -562,7 +562,7 @@ Returns 200 OK
 
 `GET https://$SCALINGO_API_URL/v1/apps/[:app]/logs_archives(?cursor=123456)`
 
-The request will generate a list of URLs you can use to download your logs archives.
+The request generates a list of URLs you can use to download your logs archives.
 URLs are valid for a duration of 60 minutes.
 
 They are paginated so a response contain a boolean indicating if there is more
@@ -609,9 +609,9 @@ Similar to `scalingo run`
 `POST https://$SCALINGO_API_URL/v1/apps/[:app]/run`
 
 To run a batch job, or an administrative task, you have to start a one-off
-container. As its name mean it's a container you will start for a given task
+container. It is a container you can start for a given task
 and which will be destroyed after it. It can be any command which will be
-executed in the environment your application.
+executed in the environment of your application.
 
 ### Parameters
 
@@ -623,14 +623,14 @@ executed in the environment your application.
 
 ### Background vs Foreground One-off
 
-By default one-off containers are started as **attached** command, it means it
+By default one-off containers are started as **attached** command. They
 will only get started when a terminal interactively connect to it through the
 [one-off endpoint](/one-off.html). Once attached, data should be sent to the
 one-off or from it, otherwise the connection will be automatically closed after
 30 minutes and the container stopped. So for long interactive jobs, make sure
 the process is writing something to *stdout* or *stderr*.
 
-If the `detached` option is set to `true`, the container will be started as a
+If the `detached` option is set to `true`, the container starts as a
 background one-off container. In this case the container is started instantly
 logs from the job are aggregated to the total logs of the application. You have
 to make sure this job ends at some point.
@@ -784,7 +784,7 @@ The recommended value endpoint let you get the value we recommend to use for the
 `GET https://$SCALINGO_API_URL/v1/stats/:metrics/recommended_value`
 
 The metrics are aggregated by container types. If a type have more than one
-container and the container index is not passed, it will return the mean value
+container and the container index is not passed, it returns the mean value
 of all the containers of the same type. The explanation about this value is in the
 [documentation](https://doc.scalingo.com/platform/app/autoscaler).
 
@@ -848,7 +848,7 @@ The `metrics` available are:
 * `router`
 
 If the metrics type is `router` the container and index parameters are ignored.
-But you can pass a `status_code` get variable which will filter router metrics by
+But you can pass a `status_code` get variable which filters router metrics by
 their status code.
 
 Possible values are:
