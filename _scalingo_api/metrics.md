@@ -32,6 +32,14 @@ Example object:
 
 --- row ---
 
+## Get Application Metrics
+
+--- row ---
+
+The endpoint to get an application metrics is described <a href="/apps#get-metrics-data-of-an-application">here</a>.
+
+--- row ---
+
 ## List the Metrics Available
 
 --- row ---
