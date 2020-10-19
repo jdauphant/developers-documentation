@@ -847,7 +847,7 @@ The `metrics` available are:
 * `swap`
 * `router`
 
-If the metrics type is `router` the container and index params are ignored.
+If the metrics type is `router` the container and index parameters are ignored.
 But you can pass a `status_code` get variable which will filter router metrics by
 their status code.
 
