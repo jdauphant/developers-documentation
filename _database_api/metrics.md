@@ -7,11 +7,11 @@ layout: default
 
 --- row ---
 
-## Get database metrics
+## Get Database Metrics
 
 `GET https://db-api.scalingo.com/api/databases/[:database_id]/metrics`
 
-### Database metrics
+### Database Metrics
 
 {:.table}
 | field            | type                           | description                  |
@@ -44,7 +44,7 @@ layout: default
 | real_disk_size   | Bytes              | Size of the instance on disk  |
 | memory           | See Memory Metrics | Memory usage of this instance |
 
-### Database stats
+### Database Stats
 
 The database stats are database dependent
 

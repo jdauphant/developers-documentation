@@ -100,7 +100,7 @@ Returns 200 OK
 * `min_containers`: lower limit of containers
 * `max_containers`: upper limit of containers
 * `metric`: e.g. RPM per container, RAM consumption. The list of available metrics is <a
-href="/metrics.html">here</a>.
+href="/metrics">here</a>.
 * `target`: the autoscaler will keep the metric value as close to the target as possible by scaling
 the application
 
