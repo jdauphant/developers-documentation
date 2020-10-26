@@ -22,10 +22,10 @@ result in the presence of one resource domain.
 | tlscert (write)      | string   | content of the SSL certificate you want to use                    |
 | tlskey (read)        | string   | private key type and length                                       |
 | tlskey (write)       | string   | content of the private key used to generate the certificate       |
-| ssl (read-only)      | bool     | flag if SSL with a custom certificate is enabled                  |
+| ssl (read-only)      | boolean  | flag if SSL with a custom certificate is enabled                  |
 | validity (read-only) | datetime | once a certificate has been submitted, display the validity of it |
-| canonical            | bool     | the domain is the canonical domain of this application            |
-| letsencrypt          | bool     | the domain is using a Let's Encrypt certificate                   |
+| canonical            | boolean  | the domain is the canonical domain of this application            |
+| letsencrypt          | boolean  | the domain is using a Let's Encrypt certificate                   |
 | letsencrypt_status   | string   | Let's Encrypt certificate generation status                       |
 | acme_dns_fqdn        | string   | ACME DNS-01 TXT entry FQDN                                        |
 | acme_dns_value       | string   | ACME DNS-01 TXT entry value                                       |
