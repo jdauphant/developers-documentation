@@ -132,9 +132,9 @@ All attributes are optional.
 
 ||| col |||
 
-```shell
-
 Example Request
+
+```shell
 
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
@@ -174,3 +174,27 @@ Returns 200 OK
   }
 }
 ```
+
+--- row ---
+
+## Delete User Account
+
+--- row ---
+
+`DELETE https://$SCALINGO_API_URL/v1/users`
+
+Deletes the user account.
+
+> This action deletes all the owned applications.
+
+||| col |||
+
+Example Request
+
+```shell
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  -X DELETE https://$SCALINGO_API_URL/v1/users
+```
+
+Returns 204 No Content
