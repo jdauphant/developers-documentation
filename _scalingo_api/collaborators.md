@@ -38,8 +38,8 @@ Example object:
 
 `GET https://$SCALINGO_API_URL/v1/apps/[:app]/collaborators`
 
-List all the collabors of an app, except the owner. It also displays
-the state of the invitation of thoses collaborators.
+List all the collaborators of an app, except the owner. It also displays
+the state of the invitation of those collaborators.
 
 ||| col |||
 
