@@ -108,3 +108,69 @@ Returns 200 OK
   }
 }
 ```
+
+--- row ---
+
+## Update User Account
+
+--- row ---
+
+`PATCH https://$SCALINGO_API_URL/v1/users/[:user_id]`
+
+or
+
+`PUT https://$SCALINGO_API_URL/v1/users/[:user_id]`
+
+Updates some user account information.
+
+### Parameters
+
+* `user.email`: new email address.
+* `user.username`: new username.
+
+All attributes are optional.
+
+||| col |||
+
+```shell
+
+Example Request
+
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  -X PATCH https://$SCALINGO_API_URL/v1/users/[:user_id] -d \
+  '{
+     "user": {
+       "email":"new-documentation@scalingo.com"
+      }
+   }'
+```
+
+Returns 200 OK
+
+```json
+{
+  "user": {
+    "id": "us-d13d3065-e7fa-4b1a-827a-ce1c92415f9c",
+    "created_at": "2016-06-02T17:07:39.000Z",
+    "email": "new-documentation@scalingo.com",
+    "username": "doc-account",
+    "uuid": "us-d13d3065-e7fa-4b1a-827a-ce1c92415f9c",
+    "company": "Scalingo",
+    "location": "Strasbourg",
+    "fullname": "Étienne Michon",
+    "tos_accepted": true,
+    "flags": {},
+    "limits": {
+      "free_trial_apps": "10"
+    },
+    "referral_url": "https://sclng.io/r/81e5168dadc0bfe0",
+    "referral_clicks": 23,
+    "free_trial_started_at": "2016-06-02T17:07:39.000Z",
+    "free_trial_end_time": "2016-07-02T23:07:00.000Z",
+    "suspended_at": null,
+    "suspension_reason": null,
+    "email_newsletter": false
+  }
+}
+```
