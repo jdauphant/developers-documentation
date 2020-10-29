@@ -20,8 +20,8 @@ layout: default
 | type               | string   | notifier type                                   |
 | app_id             | string   | app reference                                   |
 | platform_id        | string   | notification platform used by this notifer      |
-| send_all_alerts    | bool     | should the notifier accept all alerts           |
-| send_all_events    | bool     | should the notifier accept all events           |
+| send_all_alerts    | boolean  | should the notifier accept all alerts           |
+| send_all_events    | boolean  | should the notifier accept all events           |
 | selected_event_ids | []string | list of events accepted by this notifier        |
 | type_data          | object   | notitication platform dependant additional data |
 

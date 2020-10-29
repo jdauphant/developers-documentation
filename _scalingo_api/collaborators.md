@@ -38,8 +38,8 @@ Example object:
 
 `GET https://$SCALINGO_API_URL/v1/apps/[:app]/collaborators`
 
-List all the collabors of an app, except the owner. It also displays
-the state of the invitation of thoses collaborators.
+List all the collaborators of an app, except the owner. It also displays
+the state of the invitation of those collaborators.
 
 ||| col |||
 
@@ -95,9 +95,9 @@ collaborator. Hence you should never share this link publicly.
 
 ||| col |||
 
-```shell
-
 Example Request
+
+```shell
 
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
@@ -139,9 +139,9 @@ This action accepts an invitation to collaborate on an app. The token is given i
 
 ||| col |||
 
-```shell
-
 Example Request
+
+```shell
 
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
@@ -188,9 +188,9 @@ app can execute it. The user won't be able to access, nor to deploy it.
 
 ||| col |||
 
-```shell
-
 Example Request
+
+```shell
 
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
