@@ -90,7 +90,7 @@ scalingo.json example
 ```json
 {
   "name": "Sample Go Martini",
-  "stack": "salingo-18",
+  "stack": "scalingo-18",
   "description": "Sample web application using the Go framework Martini",
   "logo": "https://scalingo.com/logo.svg",
   "repository": "https://github.com/Scalingo/sample-go-martini",
